@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="wereh.academytraining.apresentacao.UsuarioActivity"
+    tools:showIn="@layout/activity_usuario">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+
+       <!--<LinearLayout-->
+       <!--android:layout_width="match_parent"-->
+       <!--android:layout_height="match_parent"-->
+       <!--android:orientation="vertical"-->
+       <!--android:paddingTop="1dp">-->
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="1dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewNome1"
+                   android:hint="Nome"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewNome"
+                   android:hint="Nome"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="60dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewObjetivo1"
+                   android:hint="Objetivo"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewObjetivo"
+                   android:hint="Objetivo"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="120dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewPeso1"
+                   android:hint="Peso"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewPeso"
+                   android:hint="Peso"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="180dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewAltura1"
+                   android:hint="Altura"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewAltura"
+                   android:hint="Altura"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="240dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewGenero1"
+                   android:hint="Sexo"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewGenero"
+                   android:hint="Sexo"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="300dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewImc1"
+                   android:hint="Indice de Massa Corporal"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewImc"
+                   android:hint="Indice de Massa Corporal"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="360dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewTmb1"
+                   android:hint="Taxa Metabólica"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewTmb"
+                   android:hint="Taxa Metabólica"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+       <!--</LinearLayout>-->
+
+   </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

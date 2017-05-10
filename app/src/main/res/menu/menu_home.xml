@@ -1,0 +1,46 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="wereh.academytraining.apresentacao.HomeActivity">
+
+
+    <item
+        android:id="@+id/action_Ficha"
+        android:orderInCategory="100"
+        android:title="Adicionar Planejamento"
+        app:showAsAction="never"
+        android:icon="@mipmap/ic_note_add_black_24dp"/>
+    <item
+        android:id="@+id/action_Notificações"
+        android:orderInCategory="100"
+        android:title="@string/action_Notificações"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_notifications_black_24dp"/>
+    <item
+        android:id="@+id/action_Equivalencia"
+        android:orderInCategory="100"
+        android:title="@string/action_Equivalencia"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_Contador"
+        android:orderInCategory="100"
+        android:title="@string/action_Contador"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_timer_black_24dp"/>
+
+    <item
+        android:id="@+id/action_Perfil"
+        android:orderInCategory="100"
+        android:title="@string/action_Perfil"
+        app:showAsAction="never"
+        android:icon="@mipmap/ic_person_black_24dp"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+
+
+
+</menu>

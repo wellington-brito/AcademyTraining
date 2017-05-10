@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="wereh.academytraining">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".apresentacao.HomeActivity"
+            android:label="@string/app_name">
+
+            <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".apresentacao.GruposMuscularesActivity"
+            android:label="@string/title_activity_grupos_musculares"
+            android:parentActivityName=".apresentacao.AdicionarTreinoActivity" />
+        <activity
+            android:name=".apresentacao.ExerciciosListaActivity"
+            android:label="@string/title_activity_exercicios_lista"
+            android:parentActivityName=".apresentacao.GruposMuscularesActivity" />
+        <activity
+            android:name=".apresentacao.ExercicioDetalhesActivity"
+            android:label="@string/title_activity_exercicios_detalhes" />
+        <activity
+            android:name=".apresentacao.AdicionarTreinoActivity"
+            android:label="@string/title_activity_ficha_de_treino"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.TreinoDetalhesActivity"
+            android:label="@string/title_activity_treino_detalhes"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.DadosPlanejamentoActivity"
+            android:label="@string/title_activity_dados_treino"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.UsuarioActivity"
+            android:label="@string/title_activity_usuario"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarUsuario"
+            android:label="@string/title_activity_adicionar_usuario"
+            android:parentActivityName=".apresentacao.UsuarioActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.UsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarPlanejamento"
+            android:label="@string/title_activity_adicionar_planejamento"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.PlanejamentoListaActivity"
+            android:label="@string/title_activity_planejamento_listagem"
+            android:parentActivityName=".apresentacao.AdicionarTreinoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.AdicionarTreinoActivity" />
+        </activity>
+    </application>
+
+</manifest>
