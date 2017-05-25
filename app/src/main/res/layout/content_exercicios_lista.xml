@@ -17,5 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:id="@+id/listViewExercicios" />
+        android:id="@+id/listViewExercicios"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"/>
 </RelativeLayout>

@@ -29,18 +29,18 @@
     </string>
 
 
-
     <string name="title_activity_grupos_musculares">Grupos Musculares</string>
     <string name="title_activity_exercicios_lista">Exercicios</string>
     <string name="title_activity_exercicios_detalhes">Exercicios Detalhes</string>
     <string name="title_activity_scrolling_detalhes">ScrollingActivityDetalhes</string>
-    <string name="title_activity_ficha_de_treino">Ficha de Treino</string>
+    <string name="title_activity_ficha_de_treino">Adicionar Treino</string>
     <string name="title_activity_treino_detalhes">Treino Detalhes</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
 
-    <string name="title_activity_dados_treino">Dados Treino</string>
+    <string name="title_activity_dados_treino">Detalhes</string>
     <string name="title_activity_usuario">Usuario</string>
     <string name="title_activity_adicionar_usuario">Adicionar Usuario</string>
     <string name="title_activity_adicionar_planejamento">Adicionar Planejamento</string>
     <string name="title_activity_planejamento_listagem">PlanejamentoListagem</string>
+    <string name="title_activity_adicionar_exercicio">AdicionarExercicioActivity</string>
 </resources>

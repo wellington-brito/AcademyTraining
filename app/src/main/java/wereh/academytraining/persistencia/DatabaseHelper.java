@@ -44,6 +44,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
 
 
+
     @Override
     public void onCreate(SQLiteDatabase database, ConnectionSource connectionSource) {
         try {
@@ -66,7 +67,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             List<String> allSql = new ArrayList<String>();
             switch (oldVersion) {
                 case 1:
-                 //allSql.add("alter table Treino add column `intervalo` VARCHAR");
+                 //allSql.add("alter table Exercico add column `idUsuario` int");
                 // allSql.add("alter table AdData add column `new_col2` VARCHAR");
             }
             for (String sql : allSql) {

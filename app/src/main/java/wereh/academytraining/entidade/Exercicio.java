@@ -29,6 +29,11 @@ public class Exercicio implements Parcelable, Serializable{
     @DatabaseField
     private String descricao;
 
+    @DatabaseField
+    private String idUsuario;
+
+
+
     public Exercicio(){
 
     }
@@ -66,6 +71,13 @@ public class Exercicio implements Parcelable, Serializable{
         this.descricao = descricao;
     }
 
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
+    }
     @Override
     public String toString() {
         return nomeExercicio;
@@ -75,6 +87,8 @@ public class Exercicio implements Parcelable, Serializable{
         id = in.readInt();
         nomeExercicio = in.readString();
         descricao = in.readString();
+        idUsuario = in.readString();
+        grupoMuscular = in.readInt();
     }
 
     public static final Creator<Exercicio> CREATOR = new Creator<Exercicio>() {
@@ -99,6 +113,8 @@ public class Exercicio implements Parcelable, Serializable{
         dest.writeInt(id);
         dest.writeString(nomeExercicio);
         dest.writeString(descricao);
+        dest.writeString(idUsuario);
+        dest.writeInt(grupoMuscular);
 
     }
 }

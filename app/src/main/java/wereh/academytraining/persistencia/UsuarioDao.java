@@ -17,6 +17,5 @@ public class UsuarioDao extends BaseDaoImpl<Usuario, Integer> {
         super(Usuario.class);
         setConnectionSource(connectionSource);
         initialize();
-
     }
 }

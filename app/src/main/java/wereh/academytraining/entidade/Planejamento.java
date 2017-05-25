@@ -36,11 +36,11 @@ public class Planejamento implements Parcelable, Serializable {
     @DatabaseField
     private String observacao;
 
-    @DatabaseField(dataType = DataType.DATE_STRING,format = "dd-MM-yyyy")
+    @DatabaseField(columnName = "dataInicio", dataType = DataType.DATE_STRING,format = "dd-MM-yyyy")
     private Date dataInicio;
 
     @DatabaseField
-    private String validade;
+    private int validade;
 
 
     protected Planejamento(Parcel in) {
@@ -49,7 +49,8 @@ public class Planejamento implements Parcelable, Serializable {
         objetivo = in.readString();
         vezesNaSemana = in.readInt();
         observacao = in.readString();
-        validade = in.readString();
+        dataInicio = new Date(in.readLong());
+        validade = in.readInt();
     }
 
     public static final Creator<Planejamento> CREATOR = new Creator<Planejamento>() {
@@ -112,11 +113,11 @@ public class Planejamento implements Parcelable, Serializable {
         this.nomePlanejamento = nomePlanejamento;
     }
 
-    public String getValidade() {
+    public int getValidade() {
         return validade;
     }
 
-    public void setValidade(String validade) {
+    public void setValidade(int validade) {
         this.validade = validade;
     }
 
@@ -132,6 +133,8 @@ public class Planejamento implements Parcelable, Serializable {
         dest.writeString(objetivo);
         dest.writeInt(vezesNaSemana);
         dest.writeString(observacao);
-        dest.writeString(validade);
+        dest.writeLong(dataInicio.getTime());
+        dest.writeInt(validade);
+
     }
 }

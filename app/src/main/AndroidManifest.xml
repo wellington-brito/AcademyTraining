@@ -22,10 +22,12 @@
         <activity
             android:name=".apresentacao.GruposMuscularesActivity"
             android:label="@string/title_activity_grupos_musculares"
+            android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.AdicionarTreinoActivity" />
         <activity
             android:name=".apresentacao.ExerciciosListaActivity"
             android:label="@string/title_activity_exercicios_lista"
+            android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.GruposMuscularesActivity" />
         <activity
             android:name=".apresentacao.ExercicioDetalhesActivity"
@@ -33,24 +35,18 @@
         <activity
             android:name=".apresentacao.AdicionarTreinoActivity"
             android:label="@string/title_activity_ficha_de_treino"
-            android:parentActivityName=".apresentacao.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="wereh.academytraining.apresentacao.HomeActivity" />
-        </activity>
+            android:launchMode="singleTop"
+            android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".apresentacao.TreinoDetalhesActivity"
             android:label="@string/title_activity_treino_detalhes"
-            android:parentActivityName=".apresentacao.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="wereh.academytraining.apresentacao.HomeActivity" />
-        </activity>
+            android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".apresentacao.DadosPlanejamentoActivity"
             android:label="@string/title_activity_dados_treino"
+            android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -92,6 +88,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.AdicionarTreinoActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarExercicioActivity"
+            android:label="@string/title_activity_adicionar_exercicio"
+            android:parentActivityName=".apresentacao.ExerciciosListaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.ExerciciosListaActivity" />
         </activity>
     </application>
 

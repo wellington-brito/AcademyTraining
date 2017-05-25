@@ -55,6 +55,16 @@ public class PlanejamentoAdapter extends BaseAdapter {
         TextView nomePlanj = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
         nomePlanj.setText(gm.getNomePlanejamento());
 
+        TextView objetivo = (TextView)layout.findViewById(R.id.txtObjetivo);
+        objetivo.setText(gm.getObjetivo());
+
+        TextView vezesSemana = (TextView)layout.findViewById(R.id.txtViewVezesSemana);
+        vezesSemana.setText(Integer.toString(gm.getVezesNaSemana()));
+
+
+
+
+
 //        ImageView img = (ImageView)layout.findViewById(R.id.imgView);
 //        img.setImageResource(gm.getGrupoImagen(position));
 

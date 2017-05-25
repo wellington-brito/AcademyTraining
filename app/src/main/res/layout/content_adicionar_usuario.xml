@@ -85,7 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextPeso"
-                android:hint="Peso"/>
+                android:hint="0.0 kg"
+                android:inputType="numberDecimal"/>
         </TableRow>
 
 
@@ -104,7 +105,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextAltura"
-                android:hint="Altura"/>
+                android:hint="0.0 m"
+                android:inputType="numberDecimal"/>
         </TableRow>
 
 

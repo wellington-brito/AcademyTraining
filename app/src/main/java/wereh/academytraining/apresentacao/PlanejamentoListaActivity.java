@@ -88,9 +88,6 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
     }
 
     public  void carregarLista() throws SQLException {
-//        ArrayAdapter<GrupoMuscular> adapter;
-//        int adapterLayout = android.R.layout.simple_list_item_1;
-
 
         try {
             dh = new DatabaseHelper(this);

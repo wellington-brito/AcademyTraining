@@ -33,9 +33,9 @@ public class AdicionarUsuario extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
-        if (usuario != null){
-            carregarPerfilUsuario(usuario);
+        this.usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+        if (this.usuario != null){
+            carregarPerfilUsuario(this.usuario);
         }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +50,6 @@ public class AdicionarUsuario extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     private void DefinirObjetosCampoDeTexto(View view) throws SQLException {
@@ -83,43 +82,16 @@ public class AdicionarUsuario extends AppCompatActivity {
         this.usuarioBo = new UsuarioBo();
         try {
             if (this.usuarioBo.verificarUsuarioAntesCadastro(usuarioCorrente, AdicionarUsuario.this) == 1) {
-                atualizar(usuarioCorrente);
+                this.usuarioBo.atualizar(usuarioCorrente, this, this.usuario);
+                Toast.makeText(this, "Alterado com sucesso!", Toast.LENGTH_SHORT).show();
             }
             if (this.usuarioBo.verificarUsuarioAntesCadastro(usuarioCorrente, AdicionarUsuario.this) == 2) {
-                salvar(usuarioCorrente);
+                this.usuarioBo.salvar(usuarioCorrente, this);
+                Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
             }
         }catch (UsuarioCadastradoException u){
             Toast.makeText(AdicionarUsuario.this, u.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-    private void salvar(Usuario usuarioCorrente) throws SQLException {
-        DatabaseHelper dh = new DatabaseHelper(AdicionarUsuario.this);
-        UsuarioDao usuarioDao = new UsuarioDao(dh.getConnectionSource());
-        usuarioDao.create(usuarioCorrente);
-        Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
-    }
-
-        private void atualizar(Usuario usuarioCorrente) throws SQLException {
-        DatabaseHelper dh = new DatabaseHelper(AdicionarUsuario.this);
-        UsuarioDao usuarioDao = new UsuarioDao(dh.getConnectionSource());
-
-        UpdateBuilder<Usuario, Integer> updateBuilder = usuarioDao.updateBuilder();
-
-        updateBuilder.updateColumnValue("nomeUsuario",usuarioCorrente.getNomeUsuario());
-        updateBuilder.updateColumnValue("objetivo",usuarioCorrente.getObjetivo());
-        updateBuilder.updateColumnValue("peso",usuarioCorrente.getPeso());
-        updateBuilder.updateColumnValue("altura",usuarioCorrente.getAltura());
-        updateBuilder.updateColumnValue("genero",usuarioCorrente.getGenero());
-        updateBuilder.updateColumnValue("imc",usuarioCorrente.getImc());
-        updateBuilder.updateColumnValue("tmb",usuarioCorrente.getTmb());
-
-
-        updateBuilder.where().eq("id", usuario.getId());
-        updateBuilder.update();
-        Toast.makeText(this, "Alterado com sucesso!", Toast.LENGTH_SHORT).show();
-
     }
 
     private void carregarPerfilUsuario(Usuario u) {
@@ -131,14 +103,13 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText imc = (EditText) findViewById(R.id.editTextImc);
         EditText tmb = (EditText) findViewById(R.id.editTextTmb);
 
-
-            nome.setText(u.getNomeUsuario());
-            objetivo.setText(u.getObjetivo());
-            peso.setText(Float.toString(u.getPeso()));
-            altura.setText(Float.toString(u.getAltura()));
-            genero.setText(u.getGenero());
-            imc.setText(Float.toString(u.getImc()));
-            tmb.setText(Float.toString(u.getTmb()));
+        nome.setText(u.getNomeUsuario());
+        objetivo.setText(u.getObjetivo());
+        peso.setText(Float.toString(u.getPeso()));
+        altura.setText(Float.toString(u.getAltura()));
+        genero.setText(u.getGenero());
+        imc.setText(Float.toString(u.getImc()));
+        tmb.setText(Float.toString(u.getTmb()));
 
     }
 }

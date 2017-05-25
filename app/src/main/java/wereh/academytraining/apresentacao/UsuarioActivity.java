@@ -23,6 +23,7 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
+import wereh.academytraining.negocio.UsuarioBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.UsuarioDao;
 
@@ -31,7 +32,7 @@ public class UsuarioActivity extends AppCompatActivity {
     int verificardor;
     Usuario usuario;
     int qntd;
-
+    UsuarioBo usuarioBo;
 
 
     @Override
@@ -41,7 +42,7 @@ public class UsuarioActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        FloatingActionButton  fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +50,7 @@ public class UsuarioActivity extends AppCompatActivity {
                     verificarUsuario();
                 } catch (SQLException e) {
                     e.printStackTrace();
-                }catch (UsuarioCadastradoException u){
+                } catch (UsuarioCadastradoException u) {
                     Toast.makeText(UsuarioActivity.this, u.getMessage(), Toast.LENGTH_SHORT).show();
                     try {
                         DatabaseHelper dh = new DatabaseHelper(UsuarioActivity.this);
@@ -66,10 +67,11 @@ public class UsuarioActivity extends AppCompatActivity {
 
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         try {
-            carregarPerfilUsuario();
+            this.usuarioBo = new UsuarioBo();
+            this.usuarioBo.carregarPerfilUsuario(UsuarioActivity.this);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,12 +83,12 @@ public class UsuarioActivity extends AppCompatActivity {
         DatabaseHelper dh = new DatabaseHelper(UsuarioActivity.this);
         UsuarioDao usuarioDao = new UsuarioDao(dh.getConnectionSource());
         List<Usuario> listaUsuarios = usuarioDao.queryForAll();
-        if(listaUsuarios != null ) {
+        if (listaUsuarios != null) {
             qntd = listaUsuarios.size();
             if (qntd < 1) {
                 Intent i = new Intent(UsuarioActivity.this, AdicionarUsuario.class);
                 startActivity(i);
-            }else if (qntd == 1) {
+            } else if (qntd == 1) {
                 usuario = listaUsuarios.get(0);
                 Intent i = new Intent(UsuarioActivity.this, AdicionarUsuario.class);
                 i.putExtra("usuario", (Parcelable) usuario);
@@ -96,32 +98,6 @@ public class UsuarioActivity extends AppCompatActivity {
             }
         }
     }
-
-    private void carregarPerfilUsuario() throws SQLException {
-        DatabaseHelper dh = new DatabaseHelper(UsuarioActivity.this);
-        UsuarioDao usuarioDao = new UsuarioDao(dh.getConnectionSource());
-        List<Usuario> listaUsuarios = usuarioDao.queryForAll();
-
-        TextView nome = (TextView) findViewById(R.id.textViewNome);
-        TextView objetivo = (TextView) findViewById(R.id.textViewObjetivo);
-        TextView peso = (TextView) findViewById(R.id.textViewPeso);
-        TextView altura = (TextView) findViewById(R.id.textViewAltura);
-        TextView genero = (TextView) findViewById(R.id.textViewGenero);
-        TextView imc = (TextView) findViewById(R.id.textViewImc);
-        TextView tmb = (TextView) findViewById(R.id.textViewTmb);
-
-        for(Usuario u : listaUsuarios) {
-            nome.setText(u.getNomeUsuario());
-            objetivo.setText(u.getObjetivo());
-            peso.setText(Float.toString(u.getPeso()));
-            altura.setText(Float.toString(u.getAltura()));
-            genero.setText(u.getGenero());
-            imc.setText(Float.toString(u.getImc()));
-            tmb.setText(Float.toString(u.getTmb()));
-        }
-    }
-
-
 }
 
 

@@ -18,4 +18,6 @@ public class PlanejamentoDao  extends BaseDaoImpl<Planejamento, Integer> {
         setConnectionSource(connectionSource);
         initialize();
     }
+
+
 }
