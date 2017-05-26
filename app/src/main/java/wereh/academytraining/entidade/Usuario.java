@@ -23,9 +23,6 @@ public class Usuario implements Parcelable, Serializable {
     public  String nomeUsuario;
 
     @DatabaseField
-    public String objetivo;
-
-    @DatabaseField
     public float peso;
 
     @DatabaseField
@@ -48,7 +45,7 @@ public class Usuario implements Parcelable, Serializable {
     private Usuario(Parcel in) {
         id = in.readInt();
         nomeUsuario = in.readString();
-        objetivo = in.readString();
+
         peso = in.readFloat();
         altura = in.readFloat();
         genero = in.readString();
@@ -85,13 +82,6 @@ public class Usuario implements Parcelable, Serializable {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public String getObjetivo() {
-        return objetivo;
-    }
-
-    public void setObjetivo(String objetivo) {
-        this.objetivo = objetivo;
-    }
 
     public float getPeso() {
         return peso;
@@ -142,7 +132,6 @@ public class Usuario implements Parcelable, Serializable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nomeUsuario);
-        dest.writeString(objetivo);
         dest.writeFloat(peso);
         dest.writeFloat(altura);
         dest.writeString(genero);

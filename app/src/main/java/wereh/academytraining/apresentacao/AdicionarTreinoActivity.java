@@ -133,7 +133,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == GruposMuscularesActivity.CODIGO_ACTITIVITY_GRUPOS_MUSCULARES){
+        if(resultCode == GruposMuscularesListaActivity.CODIGO_ACTITIVITY_GRUPOS_MUSCULARES){
             if(data != null ){
                 EditText txtExercicio = (EditText) findViewById(R.id.editTextExercicio);
                 Bundle bulndle = data.getExtras();
@@ -212,8 +212,8 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
     }
 
     public void carregarActivityGrupoMuscular(View view){
-        Intent i = new Intent(this, GruposMuscularesActivity.class);
-        startActivityForResult(i,GruposMuscularesActivity.CODIGO_ACTITIVITY_GRUPOS_MUSCULARES);
+        Intent i = new Intent(this, GruposMuscularesListaActivity.class);
+        startActivityForResult(i, GruposMuscularesListaActivity.CODIGO_ACTITIVITY_GRUPOS_MUSCULARES);
     }
 
     public void carregarPlanejamentos(View view){

@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -23,7 +22,6 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.apresentacao.fragments.FichaDeTreinoAdapter;
-import wereh.academytraining.exceptions.DeletarExercicioNaoCadastradoPeloUsuario;
 import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.TreinoDao;

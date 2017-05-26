@@ -1,19 +1,22 @@
 package wereh.academytraining.negocio;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.widget.EditText;
+
+import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import wereh.academytraining.apresentacao.AdicionarExercicioActivity;
 import wereh.academytraining.apresentacao.ExerciciosListaActivity;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
-import wereh.academytraining.exceptions.DeletarExercicioNaoCadastradoPeloUsuario;
+import wereh.academytraining.exceptions.ExercicioNaoCadastradoPeloUsuario;
 import wereh.academytraining.exceptions.TreinoDuplicadoException;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.ExercicioDao;
@@ -279,12 +282,12 @@ public class ExercicioBo {
         }
     }
 
-    public void validarCamposDeTexto(EditText nomeExercicio, EditText grupoMuscular, EditText descricao) {
+    public void validarCamposDeTexto(EditText nomeExercicio, EditText descricao) {
         if (nomeExercicio.getText().toString().equals("")) {
             throw new CampoObrigatorioException("NOME DO EXERCICIO");
         }
         if (descricao.getText().toString().equals("")) {
-            throw new CampoObrigatorioException("VEZES NA SEMANA");
+            throw new CampoObrigatorioException("DESCRIÇÃO");
         }
     }
 
@@ -317,12 +320,33 @@ public class ExercicioBo {
 
     private boolean verificarIdUsuarioNoExercicio(Exercicio exercicio, ExerciciosListaActivity exerciciosListaActivity) throws SQLException {
         if (exercicio.getIdUsuario() == null){
-           throw new DeletarExercicioNaoCadastradoPeloUsuario("Impossível, este exercicio você não pode apagar!");
+           throw new ExercicioNaoCadastradoPeloUsuario("Impossível, este exercicio você não pode apagar!");
         }
         int id = Integer.parseInt(exercicio.getIdUsuario());
         if ( id == 1) {
             return true;
         }else
             return false;
+    }
+
+    public void verificarExercicioCadastradoPeloUsuario(Exercicio exercicio, ExerciciosListaActivity exerciciosListaActivity)throws SQLException {
+       if (exercicio.getIdUsuario() == null){
+           throw  new ExercicioNaoCadastradoPeloUsuario("Impossível, você não pode editar esse exercício!");
+       }else{
+           Intent i = new Intent(exerciciosListaActivity, AdicionarExercicioActivity.class);
+           i.putExtra("exercicio", (Parcelable) exercicio);
+           exerciciosListaActivity.startActivity(i);
+       }
+
+    }
+
+    public void atualizar(Exercicio exercicioCorrente, AdicionarExercicioActivity adicionarExercicioActivity, Exercicio exercicio) throws SQLException{
+        this.dh = new DatabaseHelper(adicionarExercicioActivity);
+        ExercicioDao treinoDao = new ExercicioDao(this.dh.getConnectionSource());
+        UpdateBuilder<Exercicio, Integer> updateBuilder = treinoDao.updateBuilder();
+        updateBuilder.updateColumnValue("nomeExercicio",exercicioCorrente.getNomeExercicio());
+        updateBuilder.updateColumnValue("descricao",exercicioCorrente.getDescricao());
+        updateBuilder.where().eq("id", exercicio.getId());
+        updateBuilder.update();
     }
 }

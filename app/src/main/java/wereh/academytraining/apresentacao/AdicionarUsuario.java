@@ -54,22 +54,22 @@ public class AdicionarUsuario extends AppCompatActivity {
 
     private void DefinirObjetosCampoDeTexto(View view) throws SQLException {
         EditText nome = (EditText) findViewById(R.id.editTextNome);
-        EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
+
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         EditText altura = (EditText) findViewById(R.id.editTextAltura);
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
         EditText imc = (EditText) findViewById(R.id.editTextImc);
         EditText tmb = (EditText) findViewById(R.id.editTextTmb);
         this.usuarioBo = new UsuarioBo();
-        this.usuarioBo.validarCamposDeTexto(nome, objetivo, peso, altura, genero, imc, tmb);
-        definirDadosUsuario(nome, objetivo, peso, altura, genero, imc, tmb);
+        this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero, imc, tmb);
+        definirDadosUsuario(nome, peso, altura, genero, imc, tmb);
     }
 
 
-    private void definirDadosUsuario(EditText nome, EditText objetivo, EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
+    private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
         Usuario usuarioCorrente = new Usuario();
         usuarioCorrente.setNomeUsuario(nome.getText().toString());
-        usuarioCorrente.setObjetivo(objetivo.getText().toString());
+
         usuarioCorrente.setPeso(Float.parseFloat(peso.getText().toString()));
         usuarioCorrente.setAltura(Float.parseFloat(altura.getText().toString()));
         usuarioCorrente.setGenero(genero.getText().toString());
@@ -84,10 +84,12 @@ public class AdicionarUsuario extends AppCompatActivity {
             if (this.usuarioBo.verificarUsuarioAntesCadastro(usuarioCorrente, AdicionarUsuario.this) == 1) {
                 this.usuarioBo.atualizar(usuarioCorrente, this, this.usuario);
                 Toast.makeText(this, "Alterado com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
             }
             if (this.usuarioBo.verificarUsuarioAntesCadastro(usuarioCorrente, AdicionarUsuario.this) == 2) {
                 this.usuarioBo.salvar(usuarioCorrente, this);
                 Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }catch (UsuarioCadastradoException u){
             Toast.makeText(AdicionarUsuario.this, u.getMessage(), Toast.LENGTH_SHORT).show();
@@ -104,7 +106,7 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText tmb = (EditText) findViewById(R.id.editTextTmb);
 
         nome.setText(u.getNomeUsuario());
-        objetivo.setText(u.getObjetivo());
+
         peso.setText(Float.toString(u.getPeso()));
         altura.setText(Float.toString(u.getAltura()));
         genero.setText(u.getGenero());

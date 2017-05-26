@@ -41,6 +41,6 @@
     <string name="title_activity_usuario">Usuario</string>
     <string name="title_activity_adicionar_usuario">Adicionar Usuario</string>
     <string name="title_activity_adicionar_planejamento">Adicionar Planejamento</string>
-    <string name="title_activity_planejamento_listagem">PlanejamentoListagem</string>
-    <string name="title_activity_adicionar_exercicio">AdicionarExercicioActivity</string>
+    <string name="title_activity_planejamento_listagem">Planejamentos</string>
+    <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
 </resources>

@@ -54,7 +54,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         });
 
         if (this.p != null){
-            getSupportActionBar().setTitle("Editar");
+            getSupportActionBar().setTitle("Editar Planejamento");
             verificardor = 1;
             EditText nome = (EditText) findViewById(R.id.editTextPlanejamento);
             EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);

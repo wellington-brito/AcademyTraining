@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -19,20 +18,18 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Usuario;
-import wereh.academytraining.exceptions.DeletarExercicioNaoCadastradoPeloUsuario;
+import wereh.academytraining.exceptions.ExercicioNaoCadastradoPeloUsuario;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
 import wereh.academytraining.negocio.ExercicioBo;
 import wereh.academytraining.negocio.UsuarioBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.ExercicioDao;
-import wereh.academytraining.persistencia.GrupoMuscularDao;
 
 public class ExerciciosListaActivity extends AppCompatActivity {
 
@@ -71,6 +68,7 @@ public class ExerciciosListaActivity extends AppCompatActivity {
                     Intent i = new Intent(ExerciciosListaActivity.this, AdicionarExercicioActivity.class);
                     i.putExtra("usuario", (Parcelable) u);
                     i.putExtra("idGrupo", (Parcelable) gmFinal);
+
                     startActivity(i);
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -168,16 +166,22 @@ public class ExerciciosListaActivity extends AppCompatActivity {
                 this.carregarLista();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }catch (DeletarExercicioNaoCadastradoPeloUsuario d ){
+            }catch (ExercicioNaoCadastradoPeloUsuario d ){
                 Toast.makeText(this, d.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
 
-//        if (id == R.id.action_Menu_Alterar) {
-//            Intent i = new Intent(this.getContext(), Alterar.class);
-//            i.putExtra("manobra", (Parcelable) listaManobras.get(info.position));
-//            startActivity(i);
-//        }
+        if (id == R.id.action_Menu_Alterar) {
+            ExercicioBo exercicioBo = new ExercicioBo();
+            try {
+                exercicioBo.verificarExercicioCadastradoPeloUsuario(exerciciosDoGrupoSelecionado.get(info.position), this);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }catch (ExercicioNaoCadastradoPeloUsuario e){
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+        }
 
         if (id == R.id.action_Menu_Detalhes) {
             Intent intent = new Intent(this, ExercicioDetalhesActivity.class);

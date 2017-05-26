@@ -24,6 +24,8 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
     Usuario usuario;
     GrupoMuscular grupoMuscular;
     ExercicioBo exercicioBo;
+    Exercicio exercicio;
+    int verificador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,17 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         this.usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         this.grupoMuscular = (GrupoMuscular) getIntent().getSerializableExtra("idGrupo");
+        this.exercicio = (Exercicio)  getIntent().getSerializableExtra("exercicio");
+
+        if (this.exercicio != null){
+            getSupportActionBar().setTitle("Editar Exercício");
+            verificador = 1;
+            EditText nome = (EditText) findViewById(R.id.editTextNomeExercicio);
+            EditText descricao = (EditText) findViewById(R.id.editTextDescricao);
+
+            nome.setText(this.exercicio.getNomeExercicio());
+            descricao.setText(this.exercicio.getDescricao());
+        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -54,38 +67,42 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
     private void DefinirObjetosCampoDeTexto(View view) throws SQLException {
        // Exercicio exercicioCorrente = new Exercicio();
         EditText nomeExercicio = (EditText) findViewById(R.id.editTextNomeExercicio);
-        EditText grupoMuscular = (EditText) findViewById(R.id.editTextGrupo);
+
         EditText descricao = (EditText) findViewById(R.id.editTextDescricao);
     
         this.exercicioBo = new ExercicioBo();
-        this.exercicioBo.validarCamposDeTexto(nomeExercicio, grupoMuscular, descricao);
-        this.definirDadosExercicio(nomeExercicio, grupoMuscular, descricao);
+        this.exercicioBo.validarCamposDeTexto(nomeExercicio, descricao);
+        this.definirDadosExercicio(nomeExercicio, descricao);
     }
 
-    private void definirDadosExercicio(EditText nomeExercicio, EditText grupoMuscular, EditText descricao) throws SQLException {
-        Exercicio exercicioCorrente = new Exercicio();
+    private void definirDadosExercicio(EditText nomeExercicio, EditText descricao) throws SQLException {
+       Exercicio exercicioCorrente = new Exercicio();
 
-        exercicioCorrente.setNomeExercicio(nomeExercicio.getText().toString());
-        exercicioCorrente.setDescricao(descricao.getText().toString());
-        exercicioCorrente.setGrupoMuscular(this.grupoMuscular.getId());
-        exercicioCorrente.setIdUsuario(Integer.toString(this.usuario.getId()));
+       exercicioCorrente.setNomeExercicio(nomeExercicio.getText().toString());
+       exercicioCorrente.setDescricao(descricao.getText().toString());
 
-
-//       if(this.verificardor == 1){
-//            planejamentoCorrente.setId(this.p.getId());
-//            this.atualizar(planejamentoCorrente, nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
-//            limparCampos(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
-//        }
-//        else {
-            this.exercicioBo.verificarExercicio(exercicioCorrente,this);
-            this.exercicioBo.salvar(exercicioCorrente, this);
-            limparCampos(nomeExercicio, grupoMuscular, descricao);
-//        }
-        Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+       if(this.verificador == 1){
+           exercicioCorrente.setId(this.exercicio.getId());
+           this.exercicioBo.atualizar(exercicioCorrente, this, this.exercicio);
+           Toast.makeText(this, "Alterado com sucesso!", Toast.LENGTH_SHORT).show();
+           limparCampos(nomeExercicio, descricao);
+           finish();
+        }
+        else {
+           exercicioCorrente.setIdUsuario(Integer.toString(this.usuario.getId()));
+           exercicioCorrente.setGrupoMuscular(this.grupoMuscular.getId());
+           this.exercicioBo.verificarExercicio(exercicioCorrente,this);
+           this.exercicioBo.salvar(exercicioCorrente, this);
+           Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+           limparCampos(nomeExercicio, descricao);
+           finish();
+        }
     }
 
-    private void limparCampos(EditText nomeExercicio, EditText grupoMuscular, EditText descricao) {
-
+    private void limparCampos(EditText nomeExercicio,  EditText descricao) {
+        nomeExercicio.setText("");
+        descricao.setText(""
+        );
     }
 
 

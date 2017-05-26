@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".apresentacao.GruposMuscularesActivity"
+            android:name=".apresentacao.GruposMuscularesListaActivity"
             android:label="@string/title_activity_grupos_musculares"
             android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.AdicionarTreinoActivity" />
@@ -28,7 +28,7 @@
             android:name=".apresentacao.ExerciciosListaActivity"
             android:label="@string/title_activity_exercicios_lista"
             android:launchMode="singleTop"
-            android:parentActivityName=".apresentacao.GruposMuscularesActivity" />
+            android:parentActivityName=".apresentacao.GruposMuscularesListaActivity" />
         <activity
             android:name=".apresentacao.ExercicioDetalhesActivity"
             android:label="@string/title_activity_exercicios_detalhes" />

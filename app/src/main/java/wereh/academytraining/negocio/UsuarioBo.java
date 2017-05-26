@@ -30,13 +30,11 @@ public class UsuarioBo {
 
     }
 
-    public void validarCamposDeTexto(EditText nome, EditText objetivo, EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
+    public void validarCamposDeTexto(EditText nome, EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
         if(nome.getText().toString().equals("") ){
             throw new CampoObrigatorioException("NOME");
         }
-        if(objetivo.getText().toString().equals("")){
-            throw new CampoObrigatorioException("OBJETIVO");
-        }
+
         if(peso.getText().toString().equals("")){
             throw new CampoObrigatorioException("PESO");
         }
@@ -46,12 +44,7 @@ public class UsuarioBo {
         if(genero.getText().toString().equals("")){
             throw new CampoObrigatorioException("GÊNERO");
         }
-        if(imc.getText().toString().equals("")){
-            throw new CampoObrigatorioException("IMC");
-        }
-        if(tmb.getText().toString().equals("")){
-            throw new CampoObrigatorioException("TMB");
-        }
+
     }
 
     public int verificarUsuarioAntesCadastro(Usuario usuarioCorrente, AdicionarUsuario adicionarUsuario) throws SQLException {
@@ -90,7 +83,7 @@ public class UsuarioBo {
     private UpdateBuilder<Usuario, Integer> configurarUpdateBuilder(Usuario usuarioCorrente, UsuarioDao usuarioDao, Usuario usuario) throws SQLException {
         UpdateBuilder<Usuario, Integer> updateBuilder = usuarioDao.updateBuilder();
         updateBuilder.updateColumnValue("nomeUsuario",usuarioCorrente.getNomeUsuario());
-        updateBuilder.updateColumnValue("objetivo",usuarioCorrente.getObjetivo());
+
         updateBuilder.updateColumnValue("peso",usuarioCorrente.getPeso());
         updateBuilder.updateColumnValue("altura",usuarioCorrente.getAltura());
         updateBuilder.updateColumnValue("genero",usuarioCorrente.getGenero());
@@ -106,7 +99,7 @@ public class UsuarioBo {
         List<Usuario> listaUsuarios = usuarioDao.queryForAll();
 
         TextView nome = (TextView) usuarioActivity.findViewById(R.id.textViewNome);
-        TextView objetivo = (TextView) usuarioActivity.findViewById(R.id.textViewObjetivo);
+
         TextView peso = (TextView) usuarioActivity.findViewById(R.id.textViewPeso);
         TextView altura = (TextView) usuarioActivity.findViewById(R.id.textViewAltura);
         TextView genero = (TextView) usuarioActivity.findViewById(R.id.textViewGenero);
@@ -115,7 +108,7 @@ public class UsuarioBo {
 
         for(Usuario u : listaUsuarios) {
             nome.setText(u.getNomeUsuario());
-            objetivo.setText(u.getObjetivo());
+
             peso.setText(Float.toString(u.getPeso()));
             altura.setText(Float.toString(u.getAltura()));
             genero.setText(u.getGenero());

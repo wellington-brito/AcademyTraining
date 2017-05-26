@@ -40,6 +40,7 @@
             android:layout_weight="50">
             <TextView
                 android:text="Nome"
+                android:inputType="textPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView1"
@@ -48,7 +49,6 @@
 
             <EditText
                 android:layout_width="wrap_content"
-                android:inputType="textPersonName"
                 android:hint="Nome Exercício"
                 android:ems="10"
                 android:id="@+id/editTextNomeExercicio"
@@ -57,36 +57,6 @@
                 android:paddingBottom="10dp"
                 android:layout_height="wrap_content" />
         </TableRow>
-
-
-        <TableRow android:id="@+id/linha2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50">
-            <TextView
-                android:text="Grupo Muscular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:paddingBottom="1dp"
-                android:layout_below="@+id/editTextRepeticoes"
-                android:layout_alignParentStart="true"
-                android:textSize="18sp"
-                android:layout_weight="1" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editTextGrupo"
-                android:hint="GrupoMuscular"
-                android:layout_above="@+id/textView2"
-                android:layout_alignParentStart="true"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content" />
-        </TableRow>
-
-
 
         <TableRow android:id="@+id/linha4"
             android:layout_width="match_parent"
@@ -105,7 +75,6 @@
 
             <EditText
                 android:layout_width="wrap_content"
-                android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/editTextDescricao"
                 android:hint="Descrição"

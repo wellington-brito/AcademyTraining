@@ -52,24 +52,6 @@
                 android:hint="Nome"/>
         </TableRow>
 
-        <TableRow android:id="@+id/linha2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/textViewObjetivo"
-                android:hint="Objetivo"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/editTextObjetivo"
-                android:hint="Objetivo"/>
-        </TableRow>
-
         <TableRow android:id="@+id/linha3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextGenero"
-                android:hint="Gênero"/>
+                android:hint="Gênero"
+                />
         </TableRow>
 
         <TableRow android:id="@+id/linha6"
@@ -143,6 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextImc"
+                android:enabled="false"
                 android:hint="imc"/>
         </TableRow>
 
@@ -158,6 +142,7 @@
                 android:hint="Nessesidades diárias de calorias (TMB)"/>
 
             <EditText
+                android:enabled="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextTmb"
