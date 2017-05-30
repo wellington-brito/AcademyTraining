@@ -107,8 +107,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextGenero"
-                android:hint="Gênero"
-                />
+                android:hint="M - F"
+                android:inputType="text"
+                android:digits="mMfF "
+                android:maxLength="1" />
         </TableRow>
 
         <TableRow android:id="@+id/linha6"

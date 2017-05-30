@@ -5,6 +5,11 @@ import android.widget.EditText;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
@@ -30,7 +35,7 @@ public class PlanejamentoBo {
 
     }
 
-    public void validarCamposDeTexto(EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) {
+    public void validarCamposDeTexto(EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws ParseException {
         if (nomePlanejamento.getText().toString().equals("")) {
             throw new CampoObrigatorioException("PLANEJAMENTO");
         }
@@ -40,9 +45,26 @@ public class PlanejamentoBo {
         if (vezesNaSemana.getText().toString().equals("")) {
             throw new CampoObrigatorioException("VEZES NA SEMANA");
         }
+
         if(dataInicio.getText().toString().equals("")){
             throw new CampoObrigatorioException("DATA INICIO");
         }
+
+        String data = dataInicio.getText().toString();
+        String d;
+        d = data.substring(0,2);
+        int dia = Integer.parseInt(d);
+        d = data.substring(3,5);
+        int mes = Integer.parseInt(d);
+
+        if(dia > 31 || mes >12){
+            throw new CampoObrigatorioException("DATA INVÁLIDA");
+        }
+
+        if(dataInicio.getText().toString().equals("")){
+            throw new CampoObrigatorioException("DATA INICIO");
+        }
+
         if(validade.getText().toString().equals("")){
             throw new CampoObrigatorioException("VALIADADE");
         }

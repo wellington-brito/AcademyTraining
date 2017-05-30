@@ -13,6 +13,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
+import br.com.jansenfelipe.androidmask.MaskEditTextChangedListener;
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
@@ -25,6 +27,8 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     PlanejamentoBo planejamentoBo;
     Planejamento p = null;
     int verificardor;
+    EditText dataInicio;
+    MaskEditTextChangedListener maskDATA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +63,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             EditText nome = (EditText) findViewById(R.id.editTextPlanejamento);
             EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
             EditText vezesSemana = (EditText) findViewById(R.id.editTextVezesSemana);
-          //  EditText oservacao = (EditText) findViewById(R.id.editTextIntervalo);
+            //  EditText oservacao = (EditText) findViewById(R.id.editTextIntervalo);
             EditText dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
             EditText validade = (EditText) findViewById(R.id.editTextValidade);
 
@@ -71,6 +75,11 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             dataInicio.setText(data);
             validade.setText(Integer.toString(p.getValidade()));
         }
+
+        this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
+        this.maskDATA = new MaskEditTextChangedListener("##/##/####", dataInicio);
+        this.dataInicio.addTextChangedListener(this.maskDATA);
+
     }
 
     private void DefinirObjetosCampoDeTexto(View view) throws ParseException, SQLException {
@@ -78,11 +87,11 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         EditText nomePlanejamento = (EditText) findViewById(R.id.editTextPlanejamento);
         EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
         EditText vezesNaSemana = (EditText) findViewById(R.id.editTextVezesSemana);
-        EditText dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
+        this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
         EditText validade = (EditText) findViewById(R.id.editTextValidade);
         this.planejamentoBo = new PlanejamentoBo();
-        this.planejamentoBo.validarCamposDeTexto(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade );
-        definirDadosPlanejamento(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
+        this.planejamentoBo.validarCamposDeTexto(nomePlanejamento, objetivo, vezesNaSemana, this.dataInicio, validade );
+        definirDadosPlanejamento(nomePlanejamento, objetivo, vezesNaSemana, this.dataInicio, validade);
     }
 
 
@@ -92,7 +101,8 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         planejamentoCorrente.setNomePlanejamento(nomePlanejamento.getText().toString());
         planejamentoCorrente.setObjetivo(objetivo.getText().toString());
         planejamentoCorrente.setVezesNaSemana(Integer.parseInt(vezesNaSemana.getText().toString()));
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dataIni = formatter.parse(dataInicio.getText().toString());
         planejamentoCorrente.setDataInicio(dataIni);
         planejamentoCorrente.setValidade(Integer.parseInt(validade.getText().toString()));
@@ -101,11 +111,13 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             planejamentoCorrente.setId(this.p.getId());
             this.atualizar(planejamentoCorrente, nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
             limparCampos(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
+            finish();
         }
         else {
             this.planejamentoBo.verificarPlanejamento(planejamentoCorrente, this);
             this.salvar(planejamentoCorrente, nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
             limparCampos(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
+            finish();
         }
         Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
     }

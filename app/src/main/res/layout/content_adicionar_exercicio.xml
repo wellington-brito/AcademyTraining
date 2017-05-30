@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50">
             <TextView
-                android:text="Nome"
+                android:text="Nome*"
                 android:inputType="textPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="50">
             <TextView
-                android:text="Descrição"
+                android:text="Descrição*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"

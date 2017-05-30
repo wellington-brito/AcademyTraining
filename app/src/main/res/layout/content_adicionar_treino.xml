@@ -39,14 +39,13 @@
         <TableRow android:id="@+id/linha1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
             <TextView
-                android:text="Séries"
+                android:text="Séries*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView1"
-                android:textSize="18sp"
-                android:layout_weight="1" />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -64,17 +63,16 @@
         <TableRow android:id="@+id/linha2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
             <TextView
-                android:text="Carga"
+                android:text="Carga*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
                 android:paddingBottom="1dp"
                 android:layout_below="@+id/editTextRepeticoes"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp"
-                android:layout_weight="1" />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -92,17 +90,16 @@
         <TableRow android:id="@+id/linha3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
             <TextView
-                android:text="Repetições"
+                android:text="Repetições*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
                 android:layout_below="@+id/editTextNomeExercicio"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
-                android:paddingLeft="1dp"
-                android:layout_weight="1" />
+                android:paddingLeft="1dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -120,17 +117,16 @@
         <TableRow android:id="@+id/linha4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
             <TextView
-                android:text="Intervalo"
+                android:text="Intervalo*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
                 android:layout_below="@+id/editTextNomeExercicio"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
-                android:paddingLeft="1dp"
-                android:layout_weight="1" />
+                android:paddingLeft="1dp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -149,7 +145,7 @@
         <TableRow android:id="@+id/linha5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
             <TextView
                 android:text="Observação"
                 android:layout_width="match_parent"
@@ -157,8 +153,7 @@
                 android:id="@+id/textView5"
                 android:layout_above="@+id/editTextObservacaro"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp"
-                android:layout_weight="1" />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -168,77 +163,75 @@
                 android:hint="Observação"
                 android:layout_above="@+id/textView6"
                 android:layout_alignParentStart="true"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
         </TableRow>
 
 
         <TableRow android:id="@+id/linha6"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            android:layout_width="match_parent">
+
             <TextView
-                android:text="Exercicio"
+                android:text="Exercicio*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView6"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp"
-                android:layout_weight="10" />
+                android:textSize="18sp" />
+
 
 
             <EditText
                 android:inputType="textPersonName"
-                android:hint="Escolha o exercício"
+                android:hint="Nome Exercício"
                 android:id="@+id/editTextExercicio"
-                android:layout_marginLeft="32dp"
                 android:layout_width="wrap_content"
-                android:enabled="false"/>
-
-
-            <ImageButton
+                android:enabled="false" />
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_menu_search"
+               android:background="@android:drawable/ic_search_category_default"
                 android:id="@+id/imageButtonpProcurarExercicio"
                 android:layout_alignParentEnd="true"
 
                 android:onClick="carregarActivityGrupoMuscular"
-                android:layout_below="@+id/textView6" />
+                android:layout_below="@+id/textView6"/>
+
+
 
         </TableRow>
 
         <TableRow android:id="@+id/linha7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="50">
+            >
 
             <TextView
-                android:text="Planejamento"
+                android:text="Planejamento*"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView7"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
-                android:layout_weight="10" />
+                android:width="180dp" />
 
 
             <EditText
                 android:inputType="textPersonName"
-                android:hint="Ecolher o idPlanejamento"
+                android:hint="ID Planejamento"
                 android:id="@+id/editTextPlanejamento"
-                android:layout_marginLeft="32dp"
                 android:layout_width="wrap_content"
                 android:enabled="false"/>
 
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:srcCompat="@android:drawable/ic_menu_search"
+                android:background="@android:drawable/ic_search_category_default"
                 android:id="@+id/imageButtonpProcurarPlanejamento"
+
                 android:layout_alignParentEnd="true"
                 android:onClick="carregarPlanejamentos"
                 android:layout_below="@+id/textView6"

@@ -37,7 +37,6 @@ public class Treino implements Parcelable, Serializable {
     @DatabaseField
     private  String intervalo;
 
-    @DatabaseField
     private int grupoMuscular;
 
     @DatabaseField
@@ -55,7 +54,6 @@ public class Treino implements Parcelable, Serializable {
         observacao = in.readString();
         nomeExercicio = in.readString();
         intervalo = in.readString();
-        grupoMuscular = in.readInt();
         idPlanejamento = in.readInt();
     }
 
@@ -127,14 +125,6 @@ public class Treino implements Parcelable, Serializable {
         return intervalo;
     }
 
-    public int getGrupoMuscular() {
-        return grupoMuscular;
-    }
-
-    public void setGrupoMuscular(int grupoMuscular) {
-        this.grupoMuscular = grupoMuscular;
-    }
-
     public void setIdPlanejamento(int idPlanejamento) {
         this.idPlanejamento = idPlanejamento;
     }
@@ -157,7 +147,6 @@ public class Treino implements Parcelable, Serializable {
         dest.writeString(observacao);
         dest.writeString(nomeExercicio);
         dest.writeString(intervalo);
-        dest.writeInt(grupoMuscular);
         dest.writeInt(idPlanejamento);
     }
 }
