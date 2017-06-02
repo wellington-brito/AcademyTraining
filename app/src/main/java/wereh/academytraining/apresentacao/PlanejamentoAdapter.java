@@ -58,7 +58,7 @@ public class PlanejamentoAdapter extends BaseAdapter {
         TextView objetivo = (TextView)layout.findViewById(R.id.txtObjetivo);
         objetivo.setText(gm.getObjetivo());
 
-        TextView vezesSemana = (TextView)layout.findViewById(R.id.txtViewVezesSemana);
+        TextView vezesSemana = (TextView)layout.findViewById(R.id.textView);
         vezesSemana.setText(Integer.toString(gm.getVezesNaSemana()));
 
 

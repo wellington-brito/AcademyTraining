@@ -20,22 +20,22 @@ public class Treino implements Parcelable, Serializable {
     private int id;
 
     @DatabaseField
-    private String serie;
+    private int serie;
 
     @DatabaseField
-    private String repeticao;
+    private int repeticao;
 
     @DatabaseField
-    private String carga;
+    private int carga;
 
     @DatabaseField
-    private String observacao;
+    private int observacao;
 
     @DatabaseField
     private String nomeExercicio;
 
     @DatabaseField
-    private  String intervalo;
+    private  int intervalo;
 
     private int grupoMuscular;
 
@@ -48,12 +48,12 @@ public class Treino implements Parcelable, Serializable {
 
     protected Treino(Parcel in) {
         id = in.readInt();
-        serie = in.readString();
-        repeticao = in.readString();
-        carga = in.readString();
-        observacao = in.readString();
+        serie = in.readInt();
+        repeticao = in.readInt();
+        carga = in.readInt();
+        observacao = in.readInt();
         nomeExercicio = in.readString();
-        intervalo = in.readString();
+        intervalo = in.readInt();
         idPlanejamento = in.readInt();
     }
 
@@ -77,35 +77,35 @@ public class Treino implements Parcelable, Serializable {
         this.id = id;
     }
 
-    public String getSerie() {
+    public int getSerie() {
         return serie;
     }
 
-    public void setSerie(String serie) {
+    public void setSerie(int serie) {
         this.serie = serie;
     }
 
-    public String getRepeticao() {
+    public int getRepeticao() {
         return repeticao;
     }
 
-    public void setRepeticao(String repeticao) {
+    public void setRepeticao(int repeticao) {
         this.repeticao = repeticao;
     }
 
-    public String getCarga() {
+    public int getCarga() {
         return carga;
     }
 
-    public void setCarga(String carga) {
+    public void setCarga(int carga) {
         this.carga = carga;
     }
 
-    public String getObservacao() {
+    public int getObservacao() {
         return observacao;
     }
 
-    public void setObservacao(String observacao) {
+    public void setObservacao(int observacao) {
         this.observacao = observacao;
     }
 
@@ -117,11 +117,11 @@ public class Treino implements Parcelable, Serializable {
         this.nomeExercicio = nomeExercicio;
     }
 
-    public void setIntervalo(String intervalo) {
+    public void setIntervalo(int intervalo) {
         this.intervalo = intervalo;
     }
 
-    public String getIntervalo() {
+    public int getIntervalo() {
         return intervalo;
     }
 
@@ -141,12 +141,12 @@ public class Treino implements Parcelable, Serializable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(serie);
-        dest.writeString(repeticao);
-        dest.writeString(carga);
-        dest.writeString(observacao);
+        dest.writeInt(serie);
+        dest.writeInt(repeticao);
+        dest.writeInt(carga);
+        dest.writeInt(observacao);
         dest.writeString(nomeExercicio);
-        dest.writeString(intervalo);
+        dest.writeInt(intervalo);
         dest.writeInt(idPlanejamento);
     }
 }

@@ -171,11 +171,11 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
     private void definirDadosTreino(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
         Treino treinoCorrente = new Treino();
         this.treinoBo = new TreinoBo();
-        treinoCorrente.setSerie(serie_edt.getText().toString());
-        treinoCorrente.setRepeticao(repeticoes_edt.getText().toString());
-        treinoCorrente.setCarga(carga_edt.getText().toString());
-        treinoCorrente.setIntervalo(intevalo_edt.getText().toString());
-        treinoCorrente.setObservacao(observacao_edt.getText().toString());
+        treinoCorrente.setSerie(Integer.parseInt(serie_edt.getText().toString()));
+        treinoCorrente.setRepeticao(Integer.parseInt(repeticoes_edt.getText().toString()));
+        treinoCorrente.setCarga(Integer.parseInt(carga_edt.getText().toString()));
+        treinoCorrente.setIntervalo(Integer.parseInt(intevalo_edt.getText().toString()));
+        treinoCorrente.setObservacao(Integer.parseInt(observacao_edt.getText().toString()));
         treinoCorrente.setNomeExercicio(exercicio_edt.getText().toString());
 
         if(this.verificardor == 1){

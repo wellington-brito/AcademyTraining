@@ -37,6 +37,16 @@ public class Usuario implements Parcelable, Serializable {
     @DatabaseField
     public float tmb;
 
+    @DatabaseField
+    public float quadril;
+
+    @DatabaseField
+    public float cintura;
+
+    @DatabaseField
+    public float biceps;
+
+
 
     public Usuario() {
 
@@ -45,12 +55,14 @@ public class Usuario implements Parcelable, Serializable {
     private Usuario(Parcel in) {
         id = in.readInt();
         nomeUsuario = in.readString();
-
         peso = in.readFloat();
         altura = in.readFloat();
         genero = in.readString();
         imc = in.readFloat();
         tmb = in.readFloat();
+        quadril = in.readFloat();
+        cintura = in.readFloat();
+
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
@@ -123,6 +135,30 @@ public class Usuario implements Parcelable, Serializable {
         this.tmb = tmb;
     }
 
+    public float getQuadril() {
+        return quadril;
+    }
+
+    public void setQuadril(float quadril) {
+        this.quadril = quadril;
+    }
+
+    public float getCitura() {
+        return cintura;
+    }
+
+    public void setCitura(float citura) {
+        this.cintura = citura;
+    }
+
+    public float getBiceps() {
+        return biceps;
+    }
+
+    public void setBiceps(float biceps) {
+        this.biceps = biceps;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -137,5 +173,8 @@ public class Usuario implements Parcelable, Serializable {
         dest.writeString(genero);
         dest.writeFloat(imc);
         dest.writeFloat(tmb);
+        dest.writeFloat(quadril);
+        dest.writeFloat(cintura);
+        dest.writeFloat(biceps);
     }
 }

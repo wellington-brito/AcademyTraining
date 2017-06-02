@@ -36,7 +36,7 @@ public class Planejamento implements Parcelable, Serializable {
     @DatabaseField
     private String observacao;
 
-    @DatabaseField(columnName = "dataInicio", dataType = DataType.DATE_STRING,format = "dd-MM-yyyy")
+    @DatabaseField(columnName = "dataInicio", dataType = DataType.DATE_STRING,format = "dd/MM/yyyy")
     private Date dataInicio;
 
     @DatabaseField

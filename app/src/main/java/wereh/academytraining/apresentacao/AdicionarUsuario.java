@@ -58,23 +58,22 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         EditText altura = (EditText) findViewById(R.id.editTextAltura);
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
-        EditText imc = (EditText) findViewById(R.id.editTextImc);
-        EditText tmb = (EditText) findViewById(R.id.editTextTmb);
+//        EditText imc = (EditText) findViewById(R.id.editTextImc);
+//        EditText tmb = (EditText) findViewById(R.id.editTextTmb);
         this.usuarioBo = new UsuarioBo();
-        this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero, imc, tmb);
-        definirDadosUsuario(nome, peso, altura, genero, imc, tmb);
+        this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero);
+        definirDadosUsuario(nome, peso, altura, genero);
     }
 
 
-    private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
+    private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero) throws SQLException {
         Usuario usuarioCorrente = new Usuario();
         usuarioCorrente.setNomeUsuario(nome.getText().toString());
 
         usuarioCorrente.setPeso(Float.parseFloat(peso.getText().toString()));
         usuarioCorrente.setAltura(Float.parseFloat(altura.getText().toString()));
         usuarioCorrente.setGenero(genero.getText().toString());
-        usuarioCorrente.setImc(Float.parseFloat(imc.getText().toString()));
-        usuarioCorrente.setTmb(Float.parseFloat(tmb.getText().toString()));
+
         verificarUsuario(usuarioCorrente);
     }
 

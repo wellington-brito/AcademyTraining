@@ -30,7 +30,7 @@ public class UsuarioBo {
 
     }
 
-    public void validarCamposDeTexto(EditText nome, EditText peso, EditText altura, EditText genero, EditText imc, EditText tmb) throws SQLException {
+    public void validarCamposDeTexto(EditText nome, EditText peso, EditText altura, EditText genero) throws SQLException {
         if(nome.getText().toString().equals("") ){
             throw new CampoObrigatorioException("NOME");
         }

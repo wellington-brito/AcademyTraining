@@ -70,7 +70,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             nome.setText(p.getNomePlanejamento());
             objetivo.setText(p.getObjetivo());
             vezesSemana.setText(Integer.toString(p.getVezesNaSemana()));
-            SimpleDateFormat formatt = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat formatt = new SimpleDateFormat("dd/MM/yyyy");
             String data = formatt.format(p.getDataInicio());
             dataInicio.setText(data);
             validade.setText(Integer.toString(p.getValidade()));
