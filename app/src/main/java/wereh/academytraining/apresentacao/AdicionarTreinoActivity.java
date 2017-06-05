@@ -175,7 +175,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
         treinoCorrente.setRepeticao(Integer.parseInt(repeticoes_edt.getText().toString()));
         treinoCorrente.setCarga(Integer.parseInt(carga_edt.getText().toString()));
         treinoCorrente.setIntervalo(Integer.parseInt(intevalo_edt.getText().toString()));
-        treinoCorrente.setObservacao(Integer.parseInt(observacao_edt.getText().toString()));
+        treinoCorrente.setObservacao(observacao_edt.getText().toString());
         treinoCorrente.setNomeExercicio(exercicio_edt.getText().toString());
 
         if(this.verificardor == 1){

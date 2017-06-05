@@ -13,9 +13,6 @@
     tools:context="wereh.academytraining.apresentacao.AdicionarTreinoActivity"
     tools:showIn="@layout/activity_adicionar_treino">
 
-
-
-
     <TableLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"

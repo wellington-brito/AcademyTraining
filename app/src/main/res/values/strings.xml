@@ -11,23 +11,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-    <!--Descrição exercicios Peitoral-->
-    <string name="Supino_Reto" id="supino_reto">
-
-      "  Músculos envolvidos: Peitoral, tríceps e deltoide \n\n
-
-        Equipamentos: Barra, Smith ou halteres \n\n
-
-        O supino reto é o principal e mais básico exercício para peitoral e um dos três grandes da musculação.
-        Ele configura-se por um exercício que recruta muitas fibras musculares e vários músculos auxiliares.
-        Todavia, a perfeita forma de execução do exercício é necessária, pois, ele é muito propenso de lesionar
-        o ombro, pela angulação em que se encontra e pelo tipo de movimento. Ainda, a posição dos braços deve
-        ser devidamente observada para que não haja problemas relacionados ao ombro, especialmente.
-
-        O supino reto pode ser executado tanto com barra quanto com halteres. O Smith machine (narra guiada)
-        também é uma boa opção por conferir uma boa estabilidade e segurança no movimento."
-    </string>
-
 
     <string name="title_activity_grupos_musculares">Grupos Musculares</string>
     <string name="title_activity_exercicios_lista">Exercicios</string>
@@ -43,4 +26,6 @@
     <string name="title_activity_adicionar_planejamento">Adicionar Planejamento</string>
     <string name="title_activity_planejamento_listagem">Planejamentos</string>
     <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
+    <string name="title_activity_adicionar_dieta">AdicionarDietaActivity</string>
+    <string name="title_activity_grupos_alimentares_lista">GruposAlimentaresListaActivity</string>
 </resources>

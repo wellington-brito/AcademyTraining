@@ -32,6 +32,14 @@ public class Dieta implements Parcelable, Serializable {
         return nomeDieta;
     }
 
+    public int getIdPlanejamento() {
+        return idPlanejamento;
+    }
+
+    public void setIdPlanejamento(int idPlanejamento) {
+        this.idPlanejamento = idPlanejamento;
+    }
+
     public void setNomeDieta(String nomeDieta) {
         this.nomeDieta = nomeDieta;
     }
@@ -68,11 +76,15 @@ public class Dieta implements Parcelable, Serializable {
         this.validade = validade;
     }
 
+
     @DatabaseField(generatedId = true)
     private int id;
 
     @DatabaseField
     private String nomeDieta;
+
+    @DatabaseField
+    private int idPlanejamento;
 
     @DatabaseField
     private int vezesNaSemana;
@@ -92,6 +104,8 @@ public class Dieta implements Parcelable, Serializable {
         vezesNaSemana = in.readInt();
         observacao = in.readString();
         validade = in.readInt();
+        idPlanejamento = in.readInt();
+        dataInicio = new Date(in.readLong());
     }
 
     public static final Creator<Dieta> CREATOR = new Creator<Dieta>() {
@@ -118,5 +132,7 @@ public class Dieta implements Parcelable, Serializable {
         dest.writeInt(vezesNaSemana);
         dest.writeString(observacao);
         dest.writeInt(validade);
+        dest.writeInt(idPlanejamento);
+        dest.writeLong(dataInicio.getTime());
     }
 }

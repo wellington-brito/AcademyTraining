@@ -30,12 +30,12 @@ public class GruposMuscularesAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return listaGruposMusculares.size();
+        return this.listaGruposMusculares.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listaGruposMusculares.get(position);
+        return this.listaGruposMusculares.get(position);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class GruposMuscularesAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        GrupoMuscular gm = listaGruposMusculares.get(position);
+        GrupoMuscular gm = this.listaGruposMusculares.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.grupos, null);

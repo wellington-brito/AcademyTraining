@@ -21,12 +21,14 @@ import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Exercicio;
+import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.NaoExistePlanejamentoException;
-import wereh.academytraining.apresentacao.fragments.Alimentacao;
+import wereh.academytraining.apresentacao.fragments.FragmentDietaActivity;
 import wereh.academytraining.apresentacao.fragments.FragmentActivityPlanejamentos;
 import wereh.academytraining.negocio.ExercicioBo;
+import wereh.academytraining.negocio.GrupoAlimentarBo;
 import wereh.academytraining.negocio.GruposMuscularesBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.DatabaseManager;
@@ -52,9 +54,10 @@ public class HomeActivity extends AppCompatActivity {
         setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
+        int idtab = tabLayout.getSelectedTabPosition();
         try {
             cadastrarGruposMusculares();
+            cadastrarGruposAlimentares();
             cadastrarExercicios();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -62,6 +65,8 @@ public class HomeActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
                 int idtab = tabLayout.getSelectedTabPosition();
@@ -73,6 +78,9 @@ public class HomeActivity extends AppCompatActivity {
                     } catch (NaoExistePlanejamentoException n){
                         Toast.makeText(HomeActivity.this, n.getMessage(), Toast.LENGTH_SHORT).show();
                     }
+                }else{
+
+
                 }
             }
         });
@@ -94,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragmentActivityPlanejamentos(), "Planej. Treinos");
-        adapter.addFragment(new Alimentacao(), "Dieta");
+        adapter.addFragment(new FragmentDietaActivity(), "Dieta");
         // adapter.addFragment(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
     }
@@ -153,6 +161,11 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_Dieta) {
+            Intent i = new Intent(this, AdicionarDietaActivity.class);
+            startActivity(i);
+            return true;
+        }
         if (id == R.id.action_Perfil) {
             Intent i = new Intent(this, UsuarioActivity.class);
             startActivity(i);
@@ -168,6 +181,14 @@ public class HomeActivity extends AppCompatActivity {
         List<GrupoMuscular> listaGruposMusculares = gruposMuscularesBo.buscarGrupos(this);
         if (listaGruposMusculares == null || listaGruposMusculares.size() == 0 ){
             gruposMuscularesBo.cadastrarGruposMusculares(this);
+        }
+    }
+
+    private void cadastrarGruposAlimentares()throws SQLException {
+        GrupoAlimentarBo grupoAlimentarBo = new GrupoAlimentarBo();
+        List<GrupoAlimentar> listaGruposAlimentares = grupoAlimentarBo.buscarGrupos(this);
+        if (listaGruposAlimentares == null || listaGruposAlimentares.size() == 0 ){
+            grupoAlimentarBo.cadastrarGruposAlimentares(this);
         }
     }
 

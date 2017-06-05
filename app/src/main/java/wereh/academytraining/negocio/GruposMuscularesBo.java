@@ -37,42 +37,42 @@ public class GruposMuscularesBo {
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Peitoral");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Bíceps");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Tríceps");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Costas");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Deltóides");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Panturrílhas");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Quadríceps");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             grupoMuscular = new GrupoMuscular();
             grupoMuscular.setNomeGrupoMuscular("Abdômen");
-            //grupoMuscular.setQuantidadeExercicios();
+            //grupoMuscular.setQuantidadeAlimetnos();
             this.listaGruposMusculares.add(grupoMuscular);
 
             for (GrupoMuscular gm : this.listaGruposMusculares) {

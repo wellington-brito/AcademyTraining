@@ -12,7 +12,9 @@ import com.j256.ormlite.table.TableUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import wereh.academytraining.entidade.Dieta;
 import wereh.academytraining.entidade.Exercicio;
+import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
@@ -28,7 +30,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "bd_projeto";
 
     // sempre que voce mudar objetos em seu database incremente a versao
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public DatabaseHelper(Context context, String databaseName, SQLiteDatabase.CursorFactory factory, int databaseVersion) {
         super(context, databaseName, factory, databaseVersion);
@@ -53,6 +55,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Treino.class);
             TableUtils.createTable(connectionSource, Usuario.class);
             TableUtils.createTable(connectionSource, Planejamento.class);
+            TableUtils.createTable(connectionSource, GrupoAlimentar.class);
+            TableUtils.createTable(connectionSource, Dieta.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -67,6 +71,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             List<String> allSql = new ArrayList<String>();
             switch (oldVersion) {
                 case 1:
+
                  //allSql.add("alter table Exercico add column `idUsuario` int");
                 // allSql.add("alter table AdData add column `new_col2` VARCHAR");
             }

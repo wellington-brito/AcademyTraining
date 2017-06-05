@@ -21,11 +21,16 @@ import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
 import wereh.academytraining.apresentacao.PlanejamentoAdapter;
+import wereh.academytraining.entidade.Dieta;
 import wereh.academytraining.entidade.Planejamento;
+import wereh.academytraining.exceptions.DependenciaDeDietaException;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
+import wereh.academytraining.negocio.DietaBo;
 import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
+
+import static wereh.academytraining.R.id.listViewFichaDeTreino;
 
 public class FragmentActivityPlanejamentos extends Fragment {
 
@@ -44,7 +49,7 @@ public class FragmentActivityPlanejamentos extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.mListView = (ListView)getActivity().findViewById(R.id.listViewFichaDeTreino);
+        this.mListView = (ListView)getActivity().findViewById(listViewFichaDeTreino);
         this.dh = new DatabaseHelper(getContext());
     }
 
@@ -70,7 +75,7 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
         try {
             listaPlanejamentos = this.planejamentoDao.queryForAll();
-            this.mListView = (ListView)getActivity().findViewById(R.id.listViewFichaDeTreino);
+            this.mListView = (ListView)getActivity().findViewById(listViewFichaDeTreino);
             this.mListView.setAdapter( new PlanejamentoAdapter(getContext(), listaPlanejamentos));
             registerForContextMenu(mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
         } catch (Exception e) {
@@ -81,56 +86,70 @@ public class FragmentActivityPlanejamentos extends Fragment {
     //método para carregar o menu de opçoes no item da listview
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-
         super.onCreateContextMenu(menu, v, menuInfo);
-
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-
         menu.setHeaderTitle(listaPlanejamentos.get(info.position).getNomePlanejamento());
-
         MenuInflater inflater = this.getActivity().getMenuInflater();
-
         inflater.inflate(R.menu.menu_listview, menu);
-
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
-        int id = item.getItemId();
+        if (getUserVisibleHint()) {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            Fragment fragment = this;
+            if (fragment instanceof FragmentActivityPlanejamentos) {
+                int id = item.getItemId();
 
-        if (id == R.id.action_Menu_Apagar) {
-            try {
-                apagarPlanejamento(info);
-                this.carregarLista();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }catch (DependenciaDeTreinoException d){
-                Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
+                if (id == R.id.action_Menu_Apagar) {
+                    try {
+                        List<Dieta> listadDietasAssociadas = carregarDietasAssociadas(info);
+                        apagarPlanejamento(info, listadDietasAssociadas);
+                        this.carregarLista();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }catch (DependenciaDeTreinoException d){
+                        Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
+                    }catch (DependenciaDeDietaException d){
+                        Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                if (id == R.id.action_Menu_Alterar) {
+
+                    Intent i = new Intent(this.getContext(), AdicionarPlanejamento.class);
+                    i.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
+                    startActivity(i);
+
+                }
+
+                if (id == R.id.action_Menu_Detalhes) {
+                    Intent intent = new Intent(this.getContext(), DadosPlanejamentoActivity.class);
+                    intent.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
+                    startActivity(intent);
+                }
+
             }
         }
 
-        if (id == R.id.action_Menu_Alterar) {
-                Intent i = new Intent(this.getContext(), AdicionarPlanejamento.class);
-                i.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
-                startActivity(i);
-            }
 
-        if (id == R.id.action_Menu_Detalhes) {
-            Intent intent = new Intent(this.getContext(), DadosPlanejamentoActivity.class);
-            intent.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
-            startActivity(intent);
-        }
+
 
            return super.onOptionsItemSelected(item);
             //return true;
 
     }
 
-    private void apagarPlanejamento(AdapterView.AdapterContextMenuInfo info) throws SQLException {
+    private List<Dieta> carregarDietasAssociadas(AdapterView.AdapterContextMenuInfo info) throws SQLException {
+        Planejamento planejamento = listaPlanejamentos.get(info.position);
+        DietaBo dietaBo = new DietaBo();
+        return  dietaBo.buscarDietaPorPlanejamento(planejamento, this);
+    }
+
+    private void apagarPlanejamento(AdapterView.AdapterContextMenuInfo info, List<Dieta> listadDietasAssociadas) throws SQLException {
         Planejamento planejamento = listaPlanejamentos.get(info.position);
         PlanejamentoBo planejamentoBo = new PlanejamentoBo();
-        planejamentoBo.apagarPlanejamento(planejamento, FragmentActivityPlanejamentos.this);
+        planejamentoBo.apagarPlanejamento(planejamento, FragmentActivityPlanejamentos.this,listadDietasAssociadas );
     }
 }

@@ -37,12 +37,12 @@
             android:label="@string/title_activity_ficha_de_treino"
             android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".apresentacao.TreinoDetalhesActivity"
             android:label="@string/title_activity_treino_detalhes"
             android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".apresentacao.DadosPlanejamentoActivity"
             android:label="@string/title_activity_dados_treino"
@@ -97,6 +97,24 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.ExerciciosListaActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarDietaActivity"
+            android:label="@string/title_activity_adicionar_dieta"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.GruposAlimentaresListaActivity"
+            android:label="@string/title_activity_grupos_alimentares_lista"
+            android:parentActivityName=".apresentacao.AdicionarDietaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.AdicionarDietaActivity" />
         </activity>
     </application>
 

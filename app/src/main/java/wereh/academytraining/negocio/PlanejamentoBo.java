@@ -1,5 +1,6 @@
 package wereh.academytraining.negocio;
 
+import android.content.Context;
 import android.widget.EditText;
 
 import com.j256.ormlite.stmt.UpdateBuilder;
@@ -13,13 +14,17 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
+import wereh.academytraining.apresentacao.fragments.DietaAdatper;
+import wereh.academytraining.entidade.Dieta;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
+import wereh.academytraining.exceptions.DependenciaDeDietaException;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
 import wereh.academytraining.exceptions.TreinoDuplicadoException;
 import wereh.academytraining.apresentacao.fragments.FragmentActivityPlanejamentos;
 import wereh.academytraining.persistencia.DatabaseHelper;
+import wereh.academytraining.persistencia.DietaDao;
 import wereh.academytraining.persistencia.PlanejamentoDao;
 import wereh.academytraining.persistencia.TreinoDao;
 
@@ -30,6 +35,7 @@ import wereh.academytraining.persistencia.TreinoDao;
 public class PlanejamentoBo {
 
     DatabaseHelper dh;
+    String a = "";
 
     public PlanejamentoBo(){
 
@@ -76,14 +82,22 @@ public class PlanejamentoBo {
         planejamentoDao.create(planejamentoCorrente);
     }
 
-    public void apagarPlanejamento(Planejamento planejamento, FragmentActivityPlanejamentos fichaDeTreino) throws SQLException {
+    public void apagarPlanejamento(Planejamento planejamento, FragmentActivityPlanejamentos fichaDeTreino, List<Dieta> listadDietasAssociadas) throws SQLException {
         this.dh = new DatabaseHelper(fichaDeTreino.getContext());
         PlanejamentoDao planejamentoDao = new PlanejamentoDao(this.dh.getConnectionSource());
+        DietaDao dietaDao = new DietaDao(this.dh.getConnectionSource());
         TreinoDao treinoDao = new TreinoDao(this.dh.getConnectionSource());
         List<Treino> listaTreinos = treinoDao.queryForEq("idPlanejamento", planejamento.getId());
+
         for (Treino t: listaTreinos){
             if (t.getIdPlanejamento() == planejamento.getId()){
                 throw new DependenciaDeTreinoException("Apague todos os treinos relacionados a este planejamento e tente novamente!");
+            }
+        }
+
+        for(Dieta d: listadDietasAssociadas){
+            if (d.getId() == planejamento.getId()){
+                throw new DependenciaDeDietaException("Apague todos as dietas a este planejamento e tente novamente!");
             }
         }
         planejamentoDao.deleteById(planejamento.getId());
@@ -120,4 +134,5 @@ public class PlanejamentoBo {
         updateBuilder.where().eq("id", p.getId());
         return updateBuilder;
     }
+
 }

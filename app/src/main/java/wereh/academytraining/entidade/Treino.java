@@ -29,7 +29,7 @@ public class Treino implements Parcelable, Serializable {
     private int carga;
 
     @DatabaseField
-    private int observacao;
+    private String observacao;
 
     @DatabaseField
     private String nomeExercicio;
@@ -51,7 +51,7 @@ public class Treino implements Parcelable, Serializable {
         serie = in.readInt();
         repeticao = in.readInt();
         carga = in.readInt();
-        observacao = in.readInt();
+        observacao = in.readString();
         nomeExercicio = in.readString();
         intervalo = in.readInt();
         idPlanejamento = in.readInt();
@@ -101,11 +101,11 @@ public class Treino implements Parcelable, Serializable {
         this.carga = carga;
     }
 
-    public int getObservacao() {
+    public String getObservacao() {
         return observacao;
     }
 
-    public void setObservacao(int observacao) {
+    public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
 
@@ -144,7 +144,7 @@ public class Treino implements Parcelable, Serializable {
         dest.writeInt(serie);
         dest.writeInt(repeticao);
         dest.writeInt(carga);
-        dest.writeInt(observacao);
+        dest.writeString(observacao);
         dest.writeString(nomeExercicio);
         dest.writeInt(intervalo);
         dest.writeInt(idPlanejamento);

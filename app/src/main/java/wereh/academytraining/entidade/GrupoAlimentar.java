@@ -8,6 +8,8 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
 
+import wereh.academytraining.R;
+
 /**
  * Created by wellington on 02/06/17.
  */
@@ -25,8 +27,8 @@ public class GrupoAlimentar implements Parcelable, Serializable {
     @DatabaseField
     private String nomeGrupoAlimentar;
 
-    @DatabaseField
-    public int quantidadeExercicios;
+//    @DatabaseField
+//    public int quantidadeAlimetnos;
 
     public int getId() {
         return id;
@@ -44,18 +46,18 @@ public class GrupoAlimentar implements Parcelable, Serializable {
         this.nomeGrupoAlimentar = nomeGrupoAlimentar;
     }
 
-    public int getQuantidadeExercicios() {
-        return quantidadeExercicios;
-    }
-
-    public void setQuantidadeExercicios(int quantidadeExercicios) {
-        this.quantidadeExercicios = quantidadeExercicios;
-    }
+//    public int getQuantidadeAlimetnos() {
+//        return quantidadeAlimetnos;
+//    }
+//
+//    public void setQuantidadeAlimetnos(int quantidadeAlimetnos) {
+//        this.quantidadeAlimetnos = quantidadeAlimetnos;
+    //}
 
     protected GrupoAlimentar(Parcel in) {
         id = in.readInt();
         nomeGrupoAlimentar = in.readString();
-        quantidadeExercicios = in.readInt();
+        //quantidadeAlimetnos = in.readInt();
     }
 
     public static final Creator<GrupoAlimentar> CREATOR = new Creator<GrupoAlimentar>() {
@@ -79,6 +81,14 @@ public class GrupoAlimentar implements Parcelable, Serializable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nomeGrupoAlimentar);
-        dest.writeInt(quantidadeExercicios);
+      //  dest.writeInt(quantidadeAlimetnos);
+    }
+    public int getGrupoImagen(int position){
+        switch (position){
+            case 0:
+                return(R.drawable.ic_peitoral);
+            default:
+                return R.drawable.ic_biceps;
+        }
     }
 }
