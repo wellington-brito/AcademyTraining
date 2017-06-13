@@ -141,7 +141,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
 
     //FALTA FAZER O CADASTRO DO PLANEJAMENTO  ok
     // LISTAR O TREINOS CADASTRADOS QUE ESTÃO RELACIONADOS A UM PLANEJAMENTO ok
-    // renomear DadosPlanejamentoActivity para DadosPlanejamento activity, essa tela irá mostrar todos os treinos(exercicios)   ok
+    // renomear DadosPlanejamentoActivity para DadosPlanejamento activity, essa tela irá mostrar todos os treinos_item_lista(exercicios)   ok
     // cadastrados com o id do planejamento selecionado anteriormente ok
 }
 

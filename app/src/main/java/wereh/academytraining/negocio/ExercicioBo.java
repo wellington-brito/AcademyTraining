@@ -62,7 +62,6 @@ public class ExercicioBo {
             this.gruposMusculares = new ArrayList<GrupoMuscular>();
             this.gruposMusculares = this.gmDao.queryForAll();
 
-/// toda vez q carrega a tela de listagem dexercicios esse metodo e eexcutado, corrigir isso!!
             for (GrupoMuscular gm : gruposMusculares) {
                 if(gm.getNomeGrupoMuscular().equals("Peitoral")){
 

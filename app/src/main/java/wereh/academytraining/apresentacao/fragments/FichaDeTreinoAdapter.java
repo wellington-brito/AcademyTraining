@@ -48,7 +48,7 @@ public class FichaDeTreinoAdapter extends BaseAdapter {
         Treino treino = listaTreinos.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.treinos, null);
+        View layout = inflater.inflate(R.layout.treinos_item_lista, null);
 
         TextView nomeExercicio = (TextView)layout.findViewById(R.id.txtNomeExercicio);
         nomeExercicio.setText(treino.getNomeExercicio());

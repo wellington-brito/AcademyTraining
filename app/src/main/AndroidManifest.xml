@@ -99,8 +99,8 @@
                 android:value="wereh.academytraining.apresentacao.ExerciciosListaActivity" />
         </activity>
         <activity
-            android:name=".apresentacao.AdicionarDietaActivity"
-            android:label="@string/title_activity_adicionar_dieta"
+            android:name=".apresentacao.GruposAlimentaresListaActivity"
+            android:label="@string/title_activity_grupos_alimentares_lista"
             android:parentActivityName=".apresentacao.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -108,13 +108,13 @@
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
         </activity>
         <activity
-            android:name=".apresentacao.GruposAlimentaresListaActivity"
-            android:label="@string/title_activity_grupos_alimentares_lista"
-            android:parentActivityName=".apresentacao.AdicionarDietaActivity"
+            android:name=".apresentacao.AlimentosListaActivity"
+            android:label="@string/title_activity_alimentos_lista"
+            android:parentActivityName=".apresentacao.GruposAlimentaresListaActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="wereh.academytraining.apresentacao.AdicionarDietaActivity" />
+                android:value="wereh.academytraining.apresentacao.GruposAlimentaresListaActivity" />
         </activity>
     </application>
 

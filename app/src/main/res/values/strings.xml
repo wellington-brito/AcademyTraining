@@ -11,7 +11,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string name="title_activity_grupos_musculares">Grupos Musculares</string>
     <string name="title_activity_exercicios_lista">Exercicios</string>
     <string name="title_activity_exercicios_detalhes">Exercicios Detalhes</string>
@@ -28,4 +27,5 @@
     <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
     <string name="title_activity_adicionar_dieta">AdicionarDietaActivity</string>
     <string name="title_activity_grupos_alimentares_lista">GruposAlimentaresListaActivity</string>
+    <string name="title_activity_alimentos_lista">AlimentosListaActivity</string>
 </resources>

@@ -37,39 +37,30 @@ public class GruposAlimentaresListaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mListView = (ListView) findViewById(R.id.listViewGruposMusculares);
+        mListView = (ListView) findViewById(R.id.listViewGruposAlimentares);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(view.getContext(), ExerciciosListaActivity.class);
-                intent.putExtra("GrupoMusculares", (Parcelable) listaGruposAlimentares.get(position));
+                Intent intent = new Intent(view.getContext(), AlimentosListaActivity.class);
+                intent.putExtra("GrupoAlimentar", (Parcelable) listaGruposAlimentares.get(position));
                 startActivityForResult(intent,2);
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == ExerciciosListaActivity.CODIGO_ACTITIVITY_ADICIONAR_TREINO){
-            // Toast.makeText(this, "passou Grupo", Toast.LENGTH_SHORT).show();
-            if(data != null ){
-                setResult(CODIGO_ACTITIVITY_GRUPOS_ALIMENTARES,data);
-                finish();
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if(resultCode == ExerciciosListaActivity.CODIGO_ACTITIVITY_ADICIONAR_TREINO){
+//            // Toast.makeText(this, "passou Grupo", Toast.LENGTH_SHORT).show();
+//            if(data != null ){
+//                setResult(CODIGO_ACTITIVITY_GRUPOS_ALIMENTARES,data);
+//                finish();
+//            }
+//        }
+//    }
 
     @Override
     public void onResume() {

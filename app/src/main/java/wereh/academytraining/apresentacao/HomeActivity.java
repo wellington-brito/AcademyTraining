@@ -20,13 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.fragments.FragmentAlimentosActivity;
+import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.NaoExistePlanejamentoException;
-import wereh.academytraining.apresentacao.fragments.FragmentDietaActivity;
 import wereh.academytraining.apresentacao.fragments.FragmentActivityPlanejamentos;
+import wereh.academytraining.negocio.AlimentoBo;
 import wereh.academytraining.negocio.ExercicioBo;
 import wereh.academytraining.negocio.GrupoAlimentarBo;
 import wereh.academytraining.negocio.GruposMuscularesBo;
@@ -59,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
             cadastrarGruposMusculares();
             cadastrarGruposAlimentares();
             cadastrarExercicios();
+            cadastrarAlimentos();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,7 +82,8 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this, n.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }else{
-
+                    Intent i = new Intent(HomeActivity.this, GruposAlimentaresListaActivity.class);
+                    startActivity(i);
 
                 }
             }
@@ -102,7 +106,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragmentActivityPlanejamentos(), "Planej. Treinos");
-        adapter.addFragment(new FragmentDietaActivity(), "Dieta");
+        adapter.addFragment(new FragmentAlimentosActivity(), "Alimentos");
         // adapter.addFragment(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
     }
@@ -161,11 +165,6 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_Dieta) {
-            Intent i = new Intent(this, AdicionarDietaActivity.class);
-            startActivity(i);
-            return true;
-        }
         if (id == R.id.action_Perfil) {
             Intent i = new Intent(this, UsuarioActivity.class);
             startActivity(i);
@@ -197,6 +196,14 @@ public class HomeActivity extends AppCompatActivity {
         List<Exercicio> listaExercicios = exercicioBo.buscarExercicios(this);
         if(listaExercicios == null || listaExercicios.size() == 0){
             exercicioBo.cadastrarExercicios(this);
+        }
+    }
+
+    private void cadastrarAlimentos() throws SQLException {
+        AlimentoBo alimentoBo = new AlimentoBo();
+        List<Alimento> listaAlimentos = alimentoBo.buscarAlimentos(this);
+        if (listaAlimentos == null || listaAlimentos.size() == 0){
+            alimentoBo.cadastrarAlimentos(this);
         }
     }
 

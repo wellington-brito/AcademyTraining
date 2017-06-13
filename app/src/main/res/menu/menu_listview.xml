@@ -10,5 +10,7 @@
 
     <item android:id="@+id/action_Menu_Detalhes" android:title="Detalhes"
         />
+    <item android:id="@+id/action_Menu_AddCheckList" android:title="Add CheckList"
+        />
 
 </menu>

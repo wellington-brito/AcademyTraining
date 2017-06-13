@@ -21,23 +21,14 @@
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="81dp"
             android:padding="5dp"
             android:layout_marginStart="0dp">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imgView"
-                android:background="@mipmap/ic_launcher"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBottom="@+id/txtNomeDieta" />
-
             <TextView
                 android:layout_height="wrap_content"
-                android:id="@+id/txtNomeDieta"
-                android:text="Dieta"
+                android:id="@+id/txtNomeAlimento"
+                android:text="Alimento"
                 android:textSize="24sp"
                 android:typeface="normal"
                 android:padding="1dp"
@@ -52,27 +43,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true" />
 
-            <TextView
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewVezesSeman"
-                android:text="#"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:layout_width="wrap_content"
-                android:gravity="left"
-                android:layout_below="@+id/imgView"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:id="@+id/txtViewVezesNaSema"
-                android:text="Vezes na Semana: "
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:layout_width="wrap_content"
-                android:gravity="left"
-                android:layout_below="@+id/imgView"
-                android:layout_toStartOf="@+id/textViewVezesSeman" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

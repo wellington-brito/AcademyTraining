@@ -83,12 +83,12 @@ public class GrupoAlimentar implements Parcelable, Serializable {
         dest.writeString(nomeGrupoAlimentar);
       //  dest.writeInt(quantidadeAlimetnos);
     }
-    public int getGrupoImagen(int position){
-        switch (position){
-            case 0:
-                return(R.drawable.ic_peitoral);
-            default:
-                return R.drawable.ic_biceps;
-        }
-    }
+//    public int getGrupoImagen(int position){
+//        switch (position){
+//            case 0:
+//                return(R.drawable.ic_peitoral);
+//            default:
+//                return R.drawable.ic_biceps;
+//        }
+//    }
 }

@@ -59,6 +59,7 @@ public class ExerciciosListaActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //cadastrar novo exercicio
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,10 +109,9 @@ public class ExerciciosListaActivity extends AppCompatActivity {
             ExercicioBo exercicioBo = new ExercicioBo();
             exercicioBo.cadastrarExercicios(this);
         }
-
-
     }
 
+    // cadastrar novo exercicio
     private Usuario buscarUsuario() throws SQLException {
         UsuarioBo usuarioBo = new UsuarioBo();
         return usuarioBo.buscarUsuario(this);

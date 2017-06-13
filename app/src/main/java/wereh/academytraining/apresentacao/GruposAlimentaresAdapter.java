@@ -12,7 +12,6 @@ import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.GrupoAlimentar;
-import wereh.academytraining.entidade.GrupoMuscular;
 
 /**
  * Created by wellington on 05/06/17.
@@ -49,13 +48,13 @@ public class GruposAlimentaresAdapter extends BaseAdapter {
         GrupoAlimentar gm = this.listaGruposAlimentares.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.grupos, null);
+        View layout = inflater.inflate(R.layout.grupos_item_lista, null);
 
         TextView nomeGm = (TextView)layout.findViewById(R.id.nomeGrupoMuscular);
         nomeGm.setText(gm.getNomeGrupoAlimentar());
 
-        ImageView img = (ImageView)layout.findViewById(R.id.imgView);
-        img.setImageResource(gm.getGrupoImagen(position));
+//        ImageView img = (ImageView)layout.findViewById(R.id.imgView);
+//        img.setImageResource(gm.getGrupoImagen(position));
 
         return layout;
     }

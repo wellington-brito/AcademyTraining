@@ -12,7 +12,8 @@ import com.j256.ormlite.table.TableUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import wereh.academytraining.entidade.Dieta;
+import wereh.academytraining.entidade.Alimento;
+import wereh.academytraining.entidade.CheckList;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
@@ -30,7 +31,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "bd_projeto";
 
     // sempre que voce mudar objetos em seu database incremente a versao
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context, String databaseName, SQLiteDatabase.CursorFactory factory, int databaseVersion) {
         super(context, databaseName, factory, databaseVersion);
@@ -56,7 +57,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Usuario.class);
             TableUtils.createTable(connectionSource, Planejamento.class);
             TableUtils.createTable(connectionSource, GrupoAlimentar.class);
-            TableUtils.createTable(connectionSource, Dieta.class);
+            TableUtils.createTable(connectionSource, CheckList.class);
+            TableUtils.createTable(connectionSource, Alimento.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
@@ -89,28 +91,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     public void close(){
         super.close();
     }
-
-//    public Dao<GrupoMuscular, Integer> getAllGrupoMuscular() {
-//        if (null == grupoMuscularDao) {
-//            try {
-//                grupoMuscularDao = getDao(GrupoMuscular.class);
-//            } catch (java.sql.SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return grupoMuscularDao;
-//    }
-//
-//    public Dao<Exercicio, Integer> getAllExercicio() {
-//        if (null == exercicioDao) {
-//            try {
-//                exercicioDao = getDao(Exercicio.class);
-//            } catch (java.sql.SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return exercicioDao;
-//    }
 
 
 }

@@ -21,11 +21,10 @@ import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
 import wereh.academytraining.apresentacao.PlanejamentoAdapter;
-import wereh.academytraining.entidade.Dieta;
+import wereh.academytraining.entidade.CheckList;
 import wereh.academytraining.entidade.Planejamento;
-import wereh.academytraining.exceptions.DependenciaDeDietaException;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
-import wereh.academytraining.negocio.DietaBo;
+import wereh.academytraining.negocio.CheckListBo;
 import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -90,7 +89,7 @@ public class FragmentActivityPlanejamentos extends Fragment {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
         menu.setHeaderTitle(listaPlanejamentos.get(info.position).getNomePlanejamento());
         MenuInflater inflater = this.getActivity().getMenuInflater();
-        inflater.inflate(R.menu.menu_listview, menu);
+        inflater.inflate(R.menu.menu_listview_planej, menu);
     }
 
     @Override
@@ -104,14 +103,12 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
                 if (id == R.id.action_Menu_Apagar) {
                     try {
-                        List<Dieta> listadDietasAssociadas = carregarDietasAssociadas(info);
-                        apagarPlanejamento(info, listadDietasAssociadas);
+
+                        apagarPlanejamento(info);
                         this.carregarLista();
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }catch (DependenciaDeTreinoException d){
-                        Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
-                    }catch (DependenciaDeDietaException d){
                         Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -141,15 +138,12 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
     }
 
-    private List<Dieta> carregarDietasAssociadas(AdapterView.AdapterContextMenuInfo info) throws SQLException {
-        Planejamento planejamento = listaPlanejamentos.get(info.position);
-        DietaBo dietaBo = new DietaBo();
-        return  dietaBo.buscarDietaPorPlanejamento(planejamento, this);
-    }
 
-    private void apagarPlanejamento(AdapterView.AdapterContextMenuInfo info, List<Dieta> listadDietasAssociadas) throws SQLException {
+
+
+    private void apagarPlanejamento(AdapterView.AdapterContextMenuInfo info) throws SQLException {
         Planejamento planejamento = listaPlanejamentos.get(info.position);
         PlanejamentoBo planejamentoBo = new PlanejamentoBo();
-        planejamentoBo.apagarPlanejamento(planejamento, FragmentActivityPlanejamentos.this,listadDietasAssociadas );
+        planejamentoBo.apagarPlanejamento(planejamento, FragmentActivityPlanejamentos.this);
     }
 }

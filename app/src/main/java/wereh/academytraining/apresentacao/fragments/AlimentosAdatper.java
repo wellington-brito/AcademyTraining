@@ -7,37 +7,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
-import wereh.academytraining.entidade.Dieta;
-import wereh.academytraining.entidade.Planejamento;
-import wereh.academytraining.negocio.DietaBo;
-import wereh.academytraining.negocio.PlanejamentoBo;
+import wereh.academytraining.entidade.CheckList;
 
 /**
  * Created by wellington on 05/06/17.
  */
 
-public class DietaAdatper extends BaseAdapter {
+public class AlimentosAdatper extends BaseAdapter {
     private Context context;
-    private List<Dieta> listaTreinos;
+    private List<CheckList> checklist;
 
-    public DietaAdatper(Context context, List<Dieta> listaTreinostreinos){
+
+    public AlimentosAdatper(Context context, List<CheckList> listaAlimentosChecklist){
         this.context= context;
-        this.listaTreinos = listaTreinostreinos;
+        this.checklist = listaAlimentosChecklist;
     }
 
 
     @Override
     public int getCount() {
-        return listaTreinos.size();
+        return checklist.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return listaTreinos.get(position);
+        return checklist.get(position);
     }
 
     @Override
@@ -48,18 +45,18 @@ public class DietaAdatper extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Dieta dieta = listaTreinos.get(position);
+        CheckList checkList = checklist.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.dietas, null);
-
-        TextView nomeDieta = (TextView)layout.findViewById(R.id.txtNomeDieta);
-        nomeDieta.setText(dieta.getNomeDieta());
+        View layout = inflater.inflate(R.layout.alimentos_item_lista_checklist, null);
 
 
-        TextView vezseSemana = (TextView)layout.findViewById(R.id.textViewVezesSeman);
-        vezseSemana.setText(Integer.toString(dieta.getVezesNaSemana()));
+        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
+        nomeAlimento.setText(checkList.getNomeAlimento());
 //
+//        TextView vezseSemana = (TextView)layout.findViewById(R.id.textViewVezesSeman);
+//        vezseSemana.setText(Integer.toString(checkList.getVezesNaSemana()));
+////
 //        TextView carga = (TextView)layout.findViewById(R.id.txtViewCarga);
 //        carga.setText(treino.getCarga());
 //

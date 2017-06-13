@@ -16,11 +16,12 @@ import java.io.Serializable;
 @DatabaseTable(tableName = "Alimento")
 public class Alimento implements Parcelable, Serializable {
 
+
     public Alimento(){
 
     }
 
-    public static final String IDGRUPOALIMENTAR_FIELD_NAME = "grupoAlimentar";
+    public static final String IDGRUPOALIMENTAR_FIELD_NAME = "GrupoAlimentar";
 
     public int getId() {
         return id;
@@ -38,11 +39,11 @@ public class Alimento implements Parcelable, Serializable {
         this.nomeAlimento = nomeAlimento;
     }
 
-    public float getPeso() {
+    public Double getPeso() {
         return peso;
     }
 
-    public void setPeso(float peso) {
+    public void setPeso(Double peso) {
         this.peso = peso;
     }
 
@@ -62,6 +63,7 @@ public class Alimento implements Parcelable, Serializable {
         this.grupoAlimentar = grupoAlimentar;
     }
 
+
     @DatabaseField(generatedId = true)
     private int id;
 
@@ -69,24 +71,23 @@ public class Alimento implements Parcelable, Serializable {
     private String nomeAlimento;
 
     @DatabaseField
-    private float peso;
+    private Double peso;
 
     @DatabaseField
     private String medidaCaseira;
+
+    @DatabaseField(columnName = IDGRUPOALIMENTAR_FIELD_NAME )
+    private int grupoAlimentar;
+
 
     public static String getIdgrupoalimentarFieldName() {
         return IDGRUPOALIMENTAR_FIELD_NAME;
     }
 
-
-
-    @DatabaseField(columnName = IDGRUPOALIMENTAR_FIELD_NAME )
-    private int grupoAlimentar;
-
     protected Alimento(Parcel in) {
         id = in.readInt();
         nomeAlimento = in.readString();
-        peso = in.readFloat();
+        peso = in.readDouble();
         medidaCaseira = in.readString();
         grupoAlimentar = in.readInt();
     }
@@ -112,7 +113,7 @@ public class Alimento implements Parcelable, Serializable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nomeAlimento);
-        dest.writeFloat(peso);
+        dest.writeDouble(peso);
         dest.writeString(medidaCaseira);
         dest.writeInt(grupoAlimentar);
     }

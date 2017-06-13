@@ -49,7 +49,7 @@ public class GruposMuscularesAdapter extends BaseAdapter {
         GrupoMuscular gm = this.listaGruposMusculares.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.grupos, null);
+        View layout = inflater.inflate(R.layout.grupos_item_lista, null);
 
         TextView nomeGm = (TextView)layout.findViewById(R.id.nomeGrupoMuscular);
         nomeGm.setText(gm.getNomeGrupoMuscular());

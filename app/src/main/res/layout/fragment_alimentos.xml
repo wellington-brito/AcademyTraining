@@ -1,0 +1,71 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:scrollbars = "vertical"
+    android:scrollbarStyle="insideInset"
+    tools:context=".apresentacao.fragments.FragmentAlimentosActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/content_grupos_musculares"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="wereh.academytraining.apresentacao.GruposMuscularesListaActivity">
+
+
+
+        <Button
+            android:text="Dicas de alimentação"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button7"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button"
+            android:layout_below="@+id/button7"
+            android:layout_alignParentStart="true"
+            android:text="Alimentos Construtores" />
+
+        <Button
+            android:text="Alimentos Reguladores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button"
+            android:layout_alignParentStart="true"
+            android:id="@+id/button9"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:text="Alimentos Energéticos:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button9"
+            android:layout_alignParentStart="true"
+            android:id="@+id/button10"
+            android:layout_alignParentEnd="true" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/button10"
+            android:layout_alignParentStart="true"
+            android:id="@+id/checkList" />
+
+
+    </RelativeLayout>
+</ScrollView>
+
+

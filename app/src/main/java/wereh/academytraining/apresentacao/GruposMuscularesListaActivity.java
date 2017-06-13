@@ -39,8 +39,8 @@ public class GruposMuscularesListaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarGruposMusculares);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mListView = (ListView) findViewById(R.id.listViewGruposMusculares);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        this.mListView = (ListView) findViewById(R.id.listViewGruposMusculares);
+        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), ExerciciosListaActivity.class);
@@ -49,14 +49,6 @@ public class GruposMuscularesListaActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
