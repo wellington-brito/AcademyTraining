@@ -39,118 +39,194 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Objetivo"
-                android:id="@+id/textViewObjetivo"
+                android:shrinkColumns="*"  android:stretchColumns="*" android:background="@android:color/transparent"
+                android:id="@+id/tableLayoutDadosTreino"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingEnd="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingStart="10dp"
+                android:paddingTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp">
 
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:padding="10dip"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
+                <TableRow android:id="@+id/linha1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
 
-            <TextView
-                android:text="texto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewDescricaoObjetivo"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:padding="10dip"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/textViewObjetivo" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Planejamento"
+                        android:id="@+id/textViewPlanejamento"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/series"
-                android:text="Vezes/semana"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:padding="10dip"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true" />
 
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textViewObjetivo" />
+                    <TextView
+                        android:text="texto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewDescricaoPlanej"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:padding="10dip"
+                        android:layout_above="@+id/textViewPlanejamento"
+                        android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtViewDiasPorSemana"
-                android:text="texto"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/series"
-                android:layout_below="@+id/textViewDescricaoObjetivo"
-                android:layout_alignBottom="@+id/series" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/horarioTreino"
-                android:layout_weight="1"
-                android:text="Data de Início"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_below="@+id/series"
-                android:layout_alignParentStart="true" />
+                </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtViewDataInicio"
-                android:text="texto"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_below="@+id/series"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/horarioTreino" />
+                <TableRow android:id="@+id/linha2"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/reavaliacaoData"
-                android:text="Validade"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_below="@+id/horarioTreino"
-                android:layout_alignParentStart="true" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Objetivo"
+                        android:id="@+id/textViewObjetivo"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtViewValidade"
-                android:text="texto"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_below="@+id/horarioTreino"
-                android:layout_toEndOf="@+id/reavaliacaoData" />
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:padding="10dip"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_toEndOf="@+id/textViewPlanejamento"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtViewMeses"
-                android:text="Meses"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:typeface="normal"
-                android:padding="10dip"
-                android:layout_below="@+id/txtViewDataInicio"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/txtViewValidade" />
+                    <TextView
+                        android:text="texto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewDescricaoObjetivo"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:padding="10dip"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewObjetivo" />
+
+                </TableRow>
+
+                <TableRow android:id="@+id/linha3"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/series"
+                        android:text="Vezes/semana"
+
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/textViewObjetivo" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtViewDiasPorSemana"
+                        android:text="texto"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/series"
+                        android:layout_below="@+id/textViewDescricaoObjetivo"
+                        android:layout_alignBottom="@+id/series" />
+
+                </TableRow>
+
+                <TableRow android:id="@+id/linha4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/horarioTreino"
+                        android:layout_weight="1"
+                        android:text="Data de Início"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_below="@+id/series"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtViewDataInicio"
+                        android:text="texto"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_below="@+id/series"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/horarioTreino" />
+
+                </TableRow>
+
+                <TableRow android:id="@+id/linha5"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                   >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/reavaliacaoData"
+                        android:text="Validade"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_below="@+id/horarioTreino"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtViewValidade"
+                        android:text="texto"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_below="@+id/horarioTreino"
+                        android:layout_toEndOf="@+id/reavaliacaoData" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtViewMeses"
+                        android:text="Meses"
+                        android:layout_weight="1"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        android:padding="10dip"
+                        android:layout_below="@+id/txtViewDataInicio"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/txtViewValidade"
+                        android:width="150dp" />
+                </TableRow>
+            </TableLayout>
 
         </RelativeLayout>
 

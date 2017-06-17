@@ -1,39 +1,25 @@
 package wereh.academytraining.apresentacao;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.j256.ormlite.stmt.PreparedQuery;
-import com.j256.ormlite.stmt.QueryBuilder;
-import com.j256.ormlite.stmt.query.In;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.CheckList;
 import wereh.academytraining.entidade.GrupoAlimentar;
-import wereh.academytraining.exceptions.ExercicioNaoCadastradoPeloUsuario;
 import wereh.academytraining.negocio.AlimentoBo;
 import wereh.academytraining.negocio.CheckListBo;
-import wereh.academytraining.negocio.ExercicioBo;
 import wereh.academytraining.persistencia.AlimentoDao;
 import wereh.academytraining.persistencia.DatabaseHelper;
 
@@ -58,7 +44,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(gaFinal.getNomeGrupoAlimentar());
 
         try {
-            verificarBaseDeExercicios();
+            verificarBaseDeAlimentos();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -86,7 +72,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
         }
     }
 
-    public void verificarBaseDeExercicios() throws SQLException {
+    public void verificarBaseDeAlimentos() throws SQLException {
         this.dh = new DatabaseHelper(this);
         this.alimentoDao = new AlimentoDao(dh.getConnectionSource());
         this.alimentosDoGrupoSelecionado = this.alimentoDao.queryForAll();
@@ -98,6 +84,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
 
     public  void carregarLista() throws SQLException {
         AlimentoBo alimentoBo = new AlimentoBo();
+        this.alimentosDoGrupoSelecionado = alimentoBo.carregarLista(this,this.idSelected);
         this.mListView = (ListView) findViewById(R.id.listViewAlimentos);
         this.mListView.setAdapter( new AlimentosListaAdapter(this,  alimentoBo.carregarLista(this,this.idSelected)));
         registerForContextMenu(mListView);

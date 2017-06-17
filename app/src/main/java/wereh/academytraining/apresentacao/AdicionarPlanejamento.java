@@ -5,7 +5,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.sql.SQLException;
@@ -29,6 +32,9 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     int verificardor;
     EditText dataInicio;
     MaskEditTextChangedListener maskDATA;
+    private String[] objetivos = new String[]{"Hipertrofia","Perca de peso"};
+    Spinner sp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,11 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, objetivos);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.sp= (Spinner) findViewById(R.id.spinnerObjetivo);
+        this.sp.setAdapter(adapter);
 
         this.p = (Planejamento) getIntent().getSerializableExtra("planejamento");
 
@@ -61,14 +72,18 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             getSupportActionBar().setTitle("Editar Planejamento");
             verificardor = 1;
             EditText nome = (EditText) findViewById(R.id.editTextPlanejamento);
-            EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
+           // EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
             EditText vezesSemana = (EditText) findViewById(R.id.editTextVezesSemana);
             //  EditText oservacao = (EditText) findViewById(R.id.editTextIntervalo);
             EditText dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
             EditText validade = (EditText) findViewById(R.id.editTextValidade);
 
             nome.setText(p.getNomePlanejamento());
-            objetivo.setText(p.getObjetivo());
+            if (p.getObjetivo().equals("Hipertrofia")){
+                sp.setSelection(0);
+            }else{
+                sp.setSelection(1);
+            }
             vezesSemana.setText(Integer.toString(p.getVezesNaSemana()));
             SimpleDateFormat formatt = new SimpleDateFormat("dd/MM/yyyy");
             String data = formatt.format(p.getDataInicio());
@@ -79,27 +94,27 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
         this.maskDATA = new MaskEditTextChangedListener("##/##/####", dataInicio);
         this.dataInicio.addTextChangedListener(this.maskDATA);
-
     }
 
     private void DefinirObjetosCampoDeTexto(View view) throws ParseException, SQLException {
       //  Planejamento planejamentoCorrente = new Planejamento();
         EditText nomePlanejamento = (EditText) findViewById(R.id.editTextPlanejamento);
-        EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
+       // EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
         EditText vezesNaSemana = (EditText) findViewById(R.id.editTextVezesSemana);
         this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
         EditText validade = (EditText) findViewById(R.id.editTextValidade);
+        this.sp = (Spinner) findViewById(R.id.spinnerObjetivo);
         this.planejamentoBo = new PlanejamentoBo();
-        this.planejamentoBo.validarCamposDeTexto(nomePlanejamento, objetivo, vezesNaSemana, this.dataInicio, validade );
-        definirDadosPlanejamento(nomePlanejamento, objetivo, vezesNaSemana, this.dataInicio, validade);
+        this.planejamentoBo.validarCamposDeTexto(nomePlanejamento, vezesNaSemana, this.dataInicio, validade );
+        definirDadosPlanejamento(nomePlanejamento, vezesNaSemana, this.dataInicio, validade);
     }
 
 
-    private void definirDadosPlanejamento(EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws ParseException, SQLException {
+    private void definirDadosPlanejamento(EditText nomePlanejamento, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws ParseException, SQLException {
         Planejamento planejamentoCorrente = new Planejamento();
 
         planejamentoCorrente.setNomePlanejamento(nomePlanejamento.getText().toString());
-        planejamentoCorrente.setObjetivo(objetivo.getText().toString());
+        planejamentoCorrente.setObjetivo(sp.getSelectedItem().toString());
         planejamentoCorrente.setVezesNaSemana(Integer.parseInt(vezesNaSemana.getText().toString()));
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
@@ -109,39 +124,39 @@ public class AdicionarPlanejamento extends AppCompatActivity {
 
         if(this.verificardor == 1){
             planejamentoCorrente.setId(this.p.getId());
-            this.atualizar(planejamentoCorrente, nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
-            limparCampos(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
+            this.atualizar(planejamentoCorrente);
+            limparCampos(nomePlanejamento, vezesNaSemana, dataInicio, validade);
             finish();
         }
         else {
-            this.planejamentoBo.verificarPlanejamento(planejamentoCorrente, this);
-            this.salvar(planejamentoCorrente, nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
-            limparCampos(nomePlanejamento, objetivo, vezesNaSemana, dataInicio, validade);
+            planejamentoBo.verificarPlanejamento(planejamentoCorrente, this);
+            this.salvar(planejamentoCorrente);
+            limparCampos(nomePlanejamento, vezesNaSemana, dataInicio, validade);
             finish();
         }
         Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
     }
 
-    private void atualizar(Planejamento planejamentoCorrente, EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws SQLException {
+    private void atualizar(Planejamento planejamentoCorrente) throws SQLException {
         this.planejamentoBo.atualizar(planejamentoCorrente, this, this.p);
     }
 
-    private void salvar(Planejamento planejamentoCorrente, EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws SQLException {
+    private void salvar(Planejamento planejamentoCorrente) throws SQLException {
         this.planejamentoBo.salvar(planejamentoCorrente, AdicionarPlanejamento.this);
     }
 
 
-    private void limparCampos(EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws SQLException {
+    private void limparCampos(EditText nomePlanejamento, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws SQLException {
         nomePlanejamento.setText("");
-        objetivo.setText("");
         vezesNaSemana.setText("");
         dataInicio.setText("");
         validade.setText("");
     }
 
-    //FALTA FAZER O CADASTRO DO PLANEJAMENTO  ok
-    // LISTAR O TREINOS CADASTRADOS QUE ESTÃO RELACIONADOS A UM PLANEJAMENTO ok
-    // renomear DadosPlanejamentoActivity para DadosPlanejamento activity, essa tela irá mostrar todos os treinos_item_lista(exercicios)   ok
-    // cadastrados com o id do planejamento selecionado anteriormente ok
+    public void showObjetivos(View v){
+        String obj = (String) this.sp.getSelectedItem();
+        long id = this.sp.getSelectedItemId();
+        int position = this.sp.getSelectedItemPosition();
+    }
 }
 

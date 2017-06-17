@@ -19,13 +19,22 @@
        >
 
         <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
             android:layout_alignParentStart="true"
             android:id="@+id/listViewFichaDeTreino"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
-             />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonCarregarPlanejamentos" />
+
+        <Button
+            android:text="Adicionar Planejamento"
+            android:layout_width="363dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonCarregarPlanejamentos"
+            android:onClick="verificarPlanejamentoa"
+            android:textAllCaps="false" />
+
     </RelativeLayout>
 
 </FrameLayout>

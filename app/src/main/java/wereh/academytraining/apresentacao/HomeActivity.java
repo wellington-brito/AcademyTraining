@@ -65,32 +65,9 @@ public class HomeActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View view) {
-                int idtab = tabLayout.getSelectedTabPosition();
-                if(idtab == 0) {
-                    try {
-                        verificarPlanejamentoa();// criar novo treino se já existir um planejamento cadastrado
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } catch (NaoExistePlanejamentoException n){
-                        Toast.makeText(HomeActivity.this, n.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }else{
-                    Intent i = new Intent(HomeActivity.this, GruposAlimentaresListaActivity.class);
-                    startActivity(i);
-
-                }
-            }
-        });
     }
 
-    private void verificarPlanejamentoa() throws SQLException {
+    public void verificarPlanejamentoa(View v) throws SQLException {
         this.dh = new DatabaseHelper(HomeActivity.this);
         PlanejamentoDao planejamentoDao = new PlanejamentoDao(dh.getConnectionSource());
         List<Planejamento> listaPlanejamentos = planejamentoDao.queryForAll();
@@ -98,7 +75,9 @@ public class HomeActivity extends AppCompatActivity {
         if (listaPlanejamentos.size() < 1 || listaPlanejamentos == null) {
             throw new NaoExistePlanejamentoException("Cadastre um planejamento primeiro");
         }else{
-            Intent i = new Intent(HomeActivity.this, AdicionarTreinoActivity.class);
+//            Intent i = new Intent(HomeActivity.this, AdicionarTreinoActivity.class);
+//            startActivity(i);
+            Intent i = new Intent(this, AdicionarPlanejamento.class);
             startActivity(i);
         }
     }
@@ -207,4 +186,13 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void carregarAlimentosPrincipais(View v){
+        Intent i = new Intent(this, AlimentosPrincipaisLista.class);
+        startActivity(i);
+    }
+
+    public void carregarListaGruposAlimentares(View v){
+        Intent i = new Intent(HomeActivity.this, GruposAlimentaresListaActivity.class);
+        startActivity(i);
+    }
 }

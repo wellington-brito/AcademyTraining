@@ -8,8 +8,6 @@
     android:scrollbarStyle="insideInset"
     tools:context=".apresentacao.fragments.FragmentAlimentosActivity">
 
-
-
     <RelativeLayout
         android:id="@+id/content_grupos_musculares"
         android:layout_width="match_parent"
@@ -22,48 +20,122 @@
         tools:context="wereh.academytraining.apresentacao.GruposMuscularesListaActivity">
 
 
-
-        <Button
-            android:text="Dicas de alimentação"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button7"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_below="@+id/button7"
-            android:layout_alignParentStart="true"
-            android:text="Alimentos Construtores" />
-
-        <Button
-            android:text="Alimentos Reguladores"
+        <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button"
-            android:layout_alignParentStart="true"
-            android:id="@+id/button9"
-            android:layout_alignParentEnd="true" />
+            android:shrinkColumns="*"  android:stretchColumns="*" android:background="@android:color/transparent"
+            android:id="@+id/tableLayoutDadosTreino"
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="100dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp">
 
-        <Button
-            android:text="Alimentos Energéticos:"
+        <TableRow android:id="@+id/linha1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <Button
+                android:text="Dicas de alimentação"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button7"
+                android:textAllCaps="false"
+                android:gravity="center"
+                android:fitsSystemWindows="true" />
+        </TableRow>
+
+            <TableRow android:id="@+id/linha2"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button"
+                    android:text="Alimentos Construtores"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:fitsSystemWindows="true" />
+                <Button
+                    android:text="Alimentos Energéticos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button10"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:fitsSystemWindows="true" />
+            </TableRow>
+
+            <TableRow android:id="@+id/linha3"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+
+            </TableRow>
+
+            <TableRow android:id="@+id/linha4"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <Button
+                    android:text="Alimentos Reguladores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button9"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:fitsSystemWindows="true" />
+
+                <Button
+                    android:text="Alimentos Preferidos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonAlimentosPrincipais"
+                    android:onClick="carregarAlimentosPrincipais"
+                    android:textAllCaps="false"
+                    android:gravity="center"
+                    android:fitsSystemWindows="true" />
+            </TableRow>
+
+            <TableRow android:id="@+id/linha5"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+
+            </TableRow>
+
+        </TableLayout>
+
+
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button9"
-            android:layout_alignParentStart="true"
-            android:id="@+id/button10"
-            android:layout_alignParentEnd="true" />
+            app:srcCompat="@android:drawable/ic_menu_view"
+            android:id="@+id/imageButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="carregarListaGruposAlimentares"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/button10"
+        <TextView
+            android:text="Ver Alimentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageButton"
             android:layout_alignParentStart="true"
-            android:id="@+id/checkList" />
-
+            android:id="@+id/textView"
+            android:layout_toStartOf="@+id/imageButton"
+            android:layout_alignParentBottom="true"
+            android:textSize="24sp"
+            android:gravity="fill_vertical|center_horizontal"
+            android:onClick="carregarListaGruposAlimentares"/>
 
     </RelativeLayout>
 </ScrollView>

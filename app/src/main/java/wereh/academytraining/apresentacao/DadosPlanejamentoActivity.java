@@ -80,12 +80,13 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         }
     }
     private void carregarDadosPlanejamento() {
-
+        TextView planej =  (TextView) findViewById(R.id.textViewDescricaoPlanej);
         TextView objetivo =  (TextView) findViewById(R.id.textViewDescricaoObjetivo);
         TextView diasSemana =  (TextView) findViewById(R.id.txtViewDiasPorSemana);
         TextView dataIni =  (TextView) findViewById(R.id.txtViewDataInicio);
         TextView validade =  (TextView) findViewById(R.id.txtViewValidade);
 
+        planej.setText(p.getNomePlanejamento());
         objetivo.setText(p.getObjetivo());
         diasSemana.setText(Integer.toString(p.getVezesNaSemana()));
         SimpleDateFormat formatt = new SimpleDateFormat("dd-MM-yyyy");

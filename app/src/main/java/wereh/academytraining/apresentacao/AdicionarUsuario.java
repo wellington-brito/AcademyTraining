@@ -97,7 +97,6 @@ public class AdicionarUsuario extends AppCompatActivity {
 
     private void carregarPerfilUsuario(Usuario u) {
         EditText nome = (EditText) findViewById(R.id.editTextNome);
-        EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         EditText altura = (EditText) findViewById(R.id.editTextAltura);
         EditText genero = (EditText) findViewById(R.id.editTextGenero);

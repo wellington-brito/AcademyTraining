@@ -116,6 +116,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.GruposAlimentaresListaActivity" />
         </activity>
+        <activity android:name=".apresentacao.AlimentosPrincipaisLista"
+            android:label="Alimentos Preferidos"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

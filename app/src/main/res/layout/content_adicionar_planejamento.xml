@@ -72,16 +72,13 @@
                 android:layout_alignParentStart="true"
                 android:textSize="18sp" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editTextObjetivo"
-                android:hint="Objetivo"
-                android:layout_above="@+id/textView2"
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tableLayoutDadosTreino"
                 android:layout_alignParentStart="true"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content" />
+                android:id="@+id/spinnerObjetivo" />
+
         </TableRow>
 
 
@@ -168,9 +165,6 @@
             android:hint="X meses" />
 
     </TableRow>
-
-
-
 
 </TableLayout>
 

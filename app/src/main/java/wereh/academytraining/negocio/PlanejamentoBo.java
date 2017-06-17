@@ -1,6 +1,7 @@
 package wereh.academytraining.negocio;
 
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.j256.ormlite.stmt.UpdateBuilder;
 
@@ -34,13 +35,13 @@ public class PlanejamentoBo {
 
     }
 
-    public void validarCamposDeTexto(EditText nomePlanejamento, EditText objetivo, EditText vezesNaSemana, EditText dataInicio, EditText validade) throws ParseException {
+    public void validarCamposDeTexto(EditText nomePlanejamento,  EditText vezesNaSemana, EditText dataInicio, EditText validade) throws ParseException {
         if (nomePlanejamento.getText().toString().equals("")) {
             throw new CampoObrigatorioException("PLANEJAMENTO");
         }
-        if (objetivo.getText().toString().equals("")) {
-            throw new CampoObrigatorioException("OBJETIVO");
-        }
+//        if (objetivo.getText().toString().equals("")) {
+//            throw new CampoObrigatorioException("OBJETIVO");
+//        }
         if (vezesNaSemana.getText().toString().equals("")) {
             throw new CampoObrigatorioException("VEZES NA SEMANA");
         }
