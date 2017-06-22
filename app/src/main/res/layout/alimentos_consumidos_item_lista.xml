@@ -24,6 +24,7 @@
             android:padding="5dp"
             android:layout_marginStart="0dp">
 
+
             <TextView
                 android:layout_height="wrap_content"
                 android:id="@+id/txtNomeAlimento"

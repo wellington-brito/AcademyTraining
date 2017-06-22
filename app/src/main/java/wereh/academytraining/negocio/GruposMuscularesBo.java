@@ -24,9 +24,7 @@ public class GruposMuscularesBo {
     private GrupoMuscularDao grupoMuscularDao;
     private GrupoMuscular grupoMuscular;
 
-    public GruposMuscularesBo(){
-
-    }
+    public GruposMuscularesBo(){}
 
     public void cadastrarGruposMusculares(HomeActivity homeActivity){
 

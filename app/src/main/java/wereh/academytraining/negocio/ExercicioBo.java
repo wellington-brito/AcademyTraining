@@ -244,21 +244,147 @@ public class ExercicioBo {
                             "\n" +
                             "Existem inúmeras marcas desses equipamentos, porém, entre as mais antigas está a Hammer Strenght que confere uma amplitude muito peculiar aos movimentos.");
                     exercicios.add(exercicio);
-
-//                    exercicio = new Exercicio();
-//                    exercicio.setNomeExercicio("PeckDeck Peitoral");
-//                    exercicio.setGrupoMuscular(gm.getId());
-//                    exercicio.setDescricao("Músculos envolvidos: Peitoral\n" +
-//                            "\n" +
-//                            "Equipamentos: Peck-Deck");
-//                    exercicios.add(exercicio);
                 }
 
                 if(gm.getNomeGrupoMuscular().equals("Bíceps")){
                     exercicio = new Exercicio();
-                    exercicio.setNomeExercicio("Rosca Concentrada");
+                    exercicio.setNomeExercicio("Rosca martelo alternada");
                     exercicio.setGrupoMuscular(gm.getId());
-                    exercicio.setDescricao("");
+                    exercicio.setDescricao("Músculos utilizados: Bíceps Braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Flexão dos cotovelos visando o trabalho na parte externa dos bíceps braquiais. Trabalha também os antebraços.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca alternada em banco inclinado");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps Braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halters\n" +
+                            "\n" +
+                            "Flexão de cotovelos visando o trabalho na porção interna os bíceps braquiais.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca direta com barra reta");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculo utilizado: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Barra reta\n" +
+                            "\n" +
+                            "Exercício mais básico e poderoso para a construção dos bíceps braquiais de maneira geral, além do trabalho nos antebraços.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca spider com barra");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Barra reta ou EZ\n" +
+                            "\n" +
+                            "Exercício que visa o pico nos bíceps e o trabalho na porção interna do múscul");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca martelo com cabos");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Corda e cabos (polia)\n" +
+                            "\n" +
+                            "Exercício para trabalho tensionado da porção externa dos bíceps braquiais e antebraços.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca scott com cabos");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Cabos e banco scott\n" +
+                            "\n" +
+                            "Exercício para pico nos bíceps e trabalho tensionado na porção interna do músculo.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca direta com barra EZ");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Barra EZ\n" +
+
+                            "Exercício poderoso para bíceps que pode ser realizado com pegada aberta ou fechada a depender do enfoque. Quanto mais aberta, mais se trabalha a porção interna dos bíceps braquiais.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca concentrada unilateral");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Exercício unilateral isolado para trabalho dos bíceps de maneira concentrada e precisa. Visa o pico dos bíceps.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca martelo cruzada ao corpo");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial e braquiorradial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Próximo a rosca martelo tradicional o exercício enfoca mais ainda na parte externa do bíceps depois da flexão de cotovelos");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("“Drag Curl”");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Barra reta ou EZ\n" +
+                            "\n" +
+                            "Exercício que visa um trabalho isolado e de pico nos bíceps. Próximo a rosca direta, ele utiliza a barra próxima ao corpo e não utiliza a flexão de ombros durante o movimento, apenas fazendo a flexão de cotovelos.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca alternada com halteres");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Próxima a rosca direta, é executada unilateralmente. Pode ser executada em pé ou sentado, porém, sentado, tem-se um movimento mais concentrado.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca simultânea com halteres");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "A rosca simultânea, é a mesma da rosca alternada, porém, ambos os cotovelos são flexionados simultaneamente. É interessante para trabalhar a unilateralidade do corpo.");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca spider com halteres");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Visa o trabalho de pico de bíceps unilateralmente (simultaneamente).");
+                    exercicios.add(exercicio);
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Rosca martelo simultânea");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("Músculos utilizados: Bíceps braquial\n" +
+                            "\n" +
+                            "Equipamento utilizado: Halteres\n" +
+                            "\n" +
+                            "Visa o trabalho na porção externa dos bíceps, porém, nessa variação, pode-se realizar o exercício sentado ou em pé. Sentado, consegue-se maior isolamento.");
                     exercicios.add(exercicio);
 
                     exercicio = new Exercicio();
@@ -266,6 +392,9 @@ public class ExercicioBo {
                     exercicio.setGrupoMuscular(gm.getId());
                     exercicio.setDescricao("");
                     exercicios.add(exercicio);
+
+
+
 
                 }
             }
@@ -296,7 +425,7 @@ public class ExercicioBo {
         List<Exercicio> listaExercicios = exercicioDao.queryForAll();
 
         for(Exercicio e: listaExercicios){
-            if((e.getId() == exercicioCorrente.getId() || e.getNomeExercicio().equals(exercicioCorrente.getNomeExercicio() )) && e.getId() == exercicioCorrente.getId()){
+            if((e.getNomeExercicio().equals(exercicioCorrente.getNomeExercicio() ))){
                 throw new TreinoDuplicadoException("Já existe um exercicio igual!");
             }
         }

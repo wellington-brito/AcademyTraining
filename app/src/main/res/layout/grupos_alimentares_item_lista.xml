@@ -27,19 +27,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imgView"
+                android:src="@mipmap/launcher"
                 />
+
+            <TextView
+                android:text=" kcal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewKcal"
+                android:layout_alignBottom="@+id/imgView"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/nomeGrupoMuscular"
                 android:layout_gravity="center"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 android:text="teste"
                 android:typeface="normal"
-                android:layout_alignParentTop="true"
+                android:layout_above="@+id/textViewKcal"
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@+id/imgView" />
+
+            <TextView
+                android:text="valor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nomeGrupoMuscular"
+                android:layout_toStartOf="@+id/textViewKcal"
+                android:id="@+id/textViewCalo" />
+
+            <TextView
+                android:text="1 porção = "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nomeGrupoMuscular"
+                android:layout_toStartOf="@+id/textViewCalo"
+                android:id="@+id/textView15" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

@@ -92,8 +92,22 @@ public class GrupoMuscular implements Parcelable, Serializable {
         switch (position){
             case 0:
                 return(R.drawable.ic_peitoral);
+            case 1:
+                return(R.drawable.ic_biceps);
+            case 2:
+                return (R.mipmap.ic_launcher);
+            case 3:
+                return(R.drawable.ic_backs);
+            case 4:
+                return(R.drawable.ic_shoulders);
+            case 5:
+                return(R.drawable.ic_legs);
+            case 6:
+                return (R.mipmap.ic_launcher);
+            case 7:
+                return(R.drawable.ic_abs);
             default:
-                return R.drawable.ic_biceps;
+                return (R.mipmap.ic_launcher);
         }
     }
 }

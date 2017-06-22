@@ -17,18 +17,26 @@ import wereh.academytraining.R;
 @DatabaseTable(tableName = "GrupoAlimentar")
 public class GrupoAlimentar implements Parcelable, Serializable {
 
-    public GrupoAlimentar(){
+    public GrupoAlimentar(){}
 
+
+    protected GrupoAlimentar(Parcel in) {
+        id = in.readInt();
+        nomeGrupoAlimentar = in.readString();
+        calorias = in.readInt();
     }
 
-    @DatabaseField(generatedId = true)
-    private int id;
+    public static final Creator<GrupoAlimentar> CREATOR = new Creator<GrupoAlimentar>() {
+        @Override
+        public GrupoAlimentar createFromParcel(Parcel in) {
+            return new GrupoAlimentar(in);
+        }
 
-    @DatabaseField
-    private String nomeGrupoAlimentar;
-
-//    @DatabaseField
-//    public int quantidadeAlimetnos;
+        @Override
+        public GrupoAlimentar[] newArray(int size) {
+            return new GrupoAlimentar[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -46,31 +54,48 @@ public class GrupoAlimentar implements Parcelable, Serializable {
         this.nomeGrupoAlimentar = nomeGrupoAlimentar;
     }
 
-//    public int getQuantidadeAlimetnos() {
-//        return quantidadeAlimetnos;
-//    }
-//
-//    public void setQuantidadeAlimetnos(int quantidadeAlimetnos) {
-//        this.quantidadeAlimetnos = quantidadeAlimetnos;
-    //}
-
-    protected GrupoAlimentar(Parcel in) {
-        id = in.readInt();
-        nomeGrupoAlimentar = in.readString();
-        //quantidadeAlimetnos = in.readInt();
+    public int getCalorias() {
+        return calorias;
     }
 
-    public static final Creator<GrupoAlimentar> CREATOR = new Creator<GrupoAlimentar>() {
-        @Override
-        public GrupoAlimentar createFromParcel(Parcel in) {
-            return new GrupoAlimentar(in);
-        }
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
+    }
 
-        @Override
-        public GrupoAlimentar[] newArray(int size) {
-            return new GrupoAlimentar[size];
+    @DatabaseField(generatedId = true)
+    private int id;
+
+    @DatabaseField
+    private String nomeGrupoAlimentar;
+
+    @DatabaseField
+    public int calorias;
+
+
+
+    public int getGrupoImagen(int position){
+        switch (position){
+            case 0:
+                return(R.drawable.bread);
+            case 1:
+                return(R.drawable.broccoli);
+            case 2:
+                return(R.drawable.apple);
+            case 3:
+                return(R.drawable.carrot);
+            case 4:
+                return(R.drawable.meat);
+            case 5:
+                return(R.drawable.milk);
+            case 6:
+                return(R.drawable.bowl);
+            case 7:
+                return(R.drawable.cupcake);
+            default:
+                return (R.mipmap.ic_launcher);
         }
-    };
+    }
+
 
     @Override
     public int describeContents() {
@@ -81,14 +106,6 @@ public class GrupoAlimentar implements Parcelable, Serializable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nomeGrupoAlimentar);
-      //  dest.writeInt(quantidadeAlimetnos);
+        dest.writeInt(calorias);
     }
-//    public int getGrupoImagen(int position){
-//        switch (position){
-//            case 0:
-//                return(R.drawable.ic_peitoral);
-//            default:
-//                return R.drawable.ic_biceps;
-//        }
-//    }
 }

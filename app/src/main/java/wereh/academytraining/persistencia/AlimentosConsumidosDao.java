@@ -5,15 +5,15 @@ import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
 
-import wereh.academytraining.entidade.CheckList;
+import wereh.academytraining.entidade.AlimentosConsumidos;
 
 /**
  * Created by wellington on 05/06/17.
  */
 
-public class CheckListDao extends BaseDaoImpl<CheckList, Integer> {
-    public CheckListDao(ConnectionSource connectionSource) throws SQLException {
-        super(CheckList.class);
+public class AlimentosConsumidosDao extends BaseDaoImpl<AlimentosConsumidos, Integer> {
+    public AlimentosConsumidosDao(ConnectionSource connectionSource) throws SQLException {
+        super(AlimentosConsumidos.class);
         setConnectionSource(connectionSource);
         initialize();
     }

@@ -79,6 +79,11 @@ public class Alimento implements Parcelable, Serializable {
     @DatabaseField(columnName = IDGRUPOALIMENTAR_FIELD_NAME )
     private int grupoAlimentar;
 
+    @DatabaseField
+    private int tipoAlimento;
+
+
+
 
     public static String getIdgrupoalimentarFieldName() {
         return IDGRUPOALIMENTAR_FIELD_NAME;

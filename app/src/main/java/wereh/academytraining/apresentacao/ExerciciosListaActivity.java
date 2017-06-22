@@ -69,7 +69,6 @@ public class ExerciciosListaActivity extends AppCompatActivity {
                     Intent i = new Intent(ExerciciosListaActivity.this, AdicionarExercicioActivity.class);
                     i.putExtra("usuario", (Parcelable) u);
                     i.putExtra("idGrupo", (Parcelable) gmFinal);
-
                     startActivity(i);
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -92,7 +91,6 @@ public class ExerciciosListaActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Intent intent = new Intent();
                 intent.putExtra("exercicio", (Parcelable) exerciciosDoGrupoSelecionado.get(position));
                 setResult(CODIGO_ACTITIVITY_ADICIONAR_TREINO,intent);
@@ -151,7 +149,7 @@ public class ExerciciosListaActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
         menu.setHeaderTitle(exerciciosDoGrupoSelecionado.get(info.position).getNomeExercicio());
         MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.menu_listview, menu);
+        inflater.inflate(R.menu.menu_listview_planej, menu);
     }
 
     @Override

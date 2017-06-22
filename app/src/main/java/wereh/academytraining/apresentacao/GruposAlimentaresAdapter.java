@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.j256.ormlite.stmt.query.In;
+
 import java.util.List;
 
 import wereh.academytraining.R;
@@ -45,16 +47,19 @@ public class GruposAlimentaresAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        GrupoAlimentar gm = this.listaGruposAlimentares.get(position);
+        GrupoAlimentar grupoAlimentar = this.listaGruposAlimentares.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.grupos_item_lista, null);
+        View layout = inflater.inflate(R.layout.grupos_alimentares_item_lista, null);
 
-        TextView nomeGm = (TextView)layout.findViewById(R.id.nomeGrupoMuscular);
-        nomeGm.setText(gm.getNomeGrupoAlimentar());
+        TextView nomeGa = (TextView)layout.findViewById(R.id.nomeGrupoMuscular);
+        nomeGa.setText(grupoAlimentar.getNomeGrupoAlimentar());
 
-//        ImageView img = (ImageView)layout.findViewById(R.id.imgView);
-//        img.setImageResource(gm.getGrupoImagen(position));
+        TextView calorias = (TextView)layout.findViewById(R.id.textViewCalo);
+        calorias.setText(Integer.toString(grupoAlimentar.getCalorias()));
+
+        ImageView img = (ImageView)layout.findViewById(R.id.imgView);
+        img.setImageResource(grupoAlimentar.getGrupoImagen(position));
 
         return layout;
     }

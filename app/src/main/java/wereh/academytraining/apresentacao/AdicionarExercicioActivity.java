@@ -16,6 +16,7 @@ import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
+import wereh.academytraining.exceptions.TreinoDuplicadoException;
 import wereh.academytraining.negocio.ExercicioBo;
 import wereh.academytraining.negocio.UsuarioBo;
 
@@ -33,6 +34,7 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_exercicio);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         this.grupoMuscular = (GrupoMuscular) getIntent().getSerializableExtra("idGrupo");
         this.exercicio = (Exercicio)  getIntent().getSerializableExtra("exercicio");
@@ -56,20 +58,18 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (CampoObrigatorioException c){
-                    String mensagem =  c.getMessage();
-                    Toast.makeText(AdicionarExercicioActivity.this, mensagem, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdicionarExercicioActivity.this, c.getMessage(), Toast.LENGTH_SHORT).show();
+                }catch (TreinoDuplicadoException t){
+                    Toast.makeText(AdicionarExercicioActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void DefinirObjetosCampoDeTexto(View view) throws SQLException {
-       // Exercicio exercicioCorrente = new Exercicio();
         EditText nomeExercicio = (EditText) findViewById(R.id.editTextNomeExercicio);
-
         EditText descricao = (EditText) findViewById(R.id.editTextDescricao);
-    
         this.exercicioBo = new ExercicioBo();
         this.exercicioBo.validarCamposDeTexto(nomeExercicio, descricao);
         this.definirDadosExercicio(nomeExercicio, descricao);
@@ -77,7 +77,6 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
 
     private void definirDadosExercicio(EditText nomeExercicio, EditText descricao) throws SQLException {
        Exercicio exercicioCorrente = new Exercicio();
-
        exercicioCorrente.setNomeExercicio(nomeExercicio.getText().toString());
        exercicioCorrente.setDescricao(descricao.getText().toString());
 

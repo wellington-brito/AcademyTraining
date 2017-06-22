@@ -20,11 +20,10 @@ import java.util.List;
 import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
+import wereh.academytraining.apresentacao.HomeActivity;
 import wereh.academytraining.apresentacao.PlanejamentoAdapter;
-import wereh.academytraining.entidade.CheckList;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
-import wereh.academytraining.negocio.CheckListBo;
 import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -36,7 +35,7 @@ public class FragmentActivityPlanejamentos extends Fragment {
     /// listagem de todos os planejamentos  ou a ficha completa de treino de um determinado período
 
     ListView mListView;
-    private List<Planejamento> listaPlanejamentos;
+    public List<Planejamento> listaPlanejamentos;
     private DatabaseHelper dh;
     private PlanejamentoDao planejamentoDao;
 
@@ -50,11 +49,12 @@ public class FragmentActivityPlanejamentos extends Fragment {
         super.onCreate(savedInstanceState);
         this.mListView = (ListView)getActivity().findViewById(listViewFichaDeTreino);
         this.dh = new DatabaseHelper(getContext());
+
     }
 
     @Override  // Inflate the layout for this fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_ficha_de_treino, container, false);
+        return inflater.inflate(R.layout.fragment_planejamento, container, false);
     }
 
     @Override

@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".FragmentActivityPlanejamentos">
+
+    <item android:id="@+id/action_Menu_Apagar" android:title="Apagar"
+        />
+
+    <item android:id="@+id/action_Menu_Alterar" android:title="Alterar"
+         />
+
+    <item android:id="@+id/action_Menu_Detalhes" android:title="Detalhes"
+        />
+    <item android:id="@+id/action_Menu_AddCheckList" android:title="Adicionar aos alimentos consumidos"
+        />
+
+</menu>

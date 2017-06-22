@@ -102,7 +102,7 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
         menu.setHeaderTitle(listaTreinos.get(info.position).getNomeExercicio());
         MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.menu_listview, menu);
+        inflater.inflate(R.menu.menu_listview_planej, menu);
     }
 
 

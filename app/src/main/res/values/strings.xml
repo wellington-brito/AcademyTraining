@@ -26,4 +26,5 @@
     <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
     <string name="title_activity_grupos_alimentares_lista">Grupos Alimentares</string>
     <string name="title_activity_alimentos_lista">Alimentos</string>
+    <string name="title_activity_adicionar_alimento_consumo">AdicionarAlimentoConsumo</string>
 </resources>

@@ -13,10 +13,10 @@ import java.util.Date;
 /**
  * Created by Were on 05/04/2017.
  */
-@DatabaseTable(tableName = "CheckList")
-public class CheckList implements Parcelable, Serializable {
+@DatabaseTable(tableName = "AlimentosConsumidos")
+public class AlimentosConsumidos implements Parcelable, Serializable {
 
-    public CheckList(){}
+    public AlimentosConsumidos(){}
 
     @DatabaseField(generatedId = true)
     private int id;
@@ -27,21 +27,29 @@ public class CheckList implements Parcelable, Serializable {
     @DatabaseField
     private int idAlimento;
 
-    protected CheckList(Parcel in) {
+    @DatabaseField
+    private int numeroPorcoes;
+
+    @DatabaseField
+    private Date dia;
+
+    protected AlimentosConsumidos(Parcel in) {
         id = in.readInt();
         alimennto = in.readString();
         idAlimento = in.readInt();
+        numeroPorcoes = in.readInt();
+        dia = new Date(in.readLong());
     }
 
-    public static final Creator<CheckList> CREATOR = new Creator<CheckList>() {
+    public static final Creator<AlimentosConsumidos> CREATOR = new Creator<AlimentosConsumidos>() {
         @Override
-        public CheckList createFromParcel(Parcel in) {
-            return new CheckList(in);
+        public AlimentosConsumidos createFromParcel(Parcel in) {
+            return new AlimentosConsumidos(in);
         }
 
         @Override
-        public CheckList[] newArray(int size) {
-            return new CheckList[size];
+        public AlimentosConsumidos[] newArray(int size) {
+            return new AlimentosConsumidos[size];
         }
     };
 
@@ -53,11 +61,11 @@ public class CheckList implements Parcelable, Serializable {
         this.id = id;
     }
 
-    public String getNomeAlimento() {
+    public String getAlimennto() {
         return alimennto;
     }
 
-    public void setNomeAlimennto(String alimennto) {
+    public void setAlimennto(String alimennto) {
         this.alimennto = alimennto;
     }
 
@@ -67,6 +75,22 @@ public class CheckList implements Parcelable, Serializable {
 
     public void setIdAlimento(int idAlimento) {
         this.idAlimento = idAlimento;
+    }
+
+    public int getNumeroPorcoes() {
+        return numeroPorcoes;
+    }
+
+    public void setNumeroPorcoes(int numeroPorcoes) {
+        this.numeroPorcoes = numeroPorcoes;
+    }
+
+    public Date getDia() {
+        return dia;
+    }
+
+    public void setDia(Date dia) {
+        this.dia = dia;
     }
 
     @Override
@@ -79,5 +103,7 @@ public class CheckList implements Parcelable, Serializable {
         dest.writeInt(id);
         dest.writeString(alimennto);
         dest.writeInt(idAlimento);
+        dest.writeInt(numeroPorcoes);
+        dest.writeLong(dia.getTime());
     }
 }

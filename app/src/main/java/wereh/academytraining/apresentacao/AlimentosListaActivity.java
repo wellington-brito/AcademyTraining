@@ -1,6 +1,8 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,16 +12,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Alimento;
-import wereh.academytraining.entidade.CheckList;
+import wereh.academytraining.entidade.AlimentosConsumidos;
 import wereh.academytraining.entidade.GrupoAlimentar;
+import wereh.academytraining.exceptions.TreinoDuplicadoException;
 import wereh.academytraining.negocio.AlimentoBo;
-import wereh.academytraining.negocio.CheckListBo;
+import wereh.academytraining.negocio.AlimentosConsumidosBo;
 import wereh.academytraining.persistencia.AlimentoDao;
 import wereh.academytraining.persistencia.DatabaseHelper;
 
@@ -32,6 +39,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
     public  List<Alimento> lista;
     private ListView mListView;
 
+    final static String SERIES = "series";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +47,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_alimentos_lista);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final GrupoAlimentar gaFinal = (GrupoAlimentar) getIntent().getSerializableExtra("GrupoAlimentar");
         getSupportActionBar().setTitle(gaFinal.getNomeGrupoAlimentar());
 
@@ -55,10 +63,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
             public void onClick(View view) {
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         this.idSelected = gaFinal.getId();
-
     }
 
 
@@ -90,7 +95,6 @@ public class AlimentosListaActivity extends AppCompatActivity {
         registerForContextMenu(mListView);
     }
 
-
     //método para carregar o menu de opçoes no item da listview
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -98,7 +102,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
         menu.setHeaderTitle(alimentosDoGrupoSelecionado.get(info.position).getNomeAlimento());
         MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.menu_listview, menu);
+        inflater.inflate(R.menu.menu_listview_alimentos, menu);
     }
 
     @Override
@@ -137,22 +141,48 @@ public class AlimentosListaActivity extends AppCompatActivity {
 //        }
 
         if (id == R.id.action_Menu_AddCheckList) {
+//            try {
+//                addAlimentoNaCheckList(alimentosDoGrupoSelecionado.get(info.position));
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
             try {
-                addAlimentoNaCheckList(alimentosDoGrupoSelecionado.get(info.position));
+                verificaAlimentoEscolhido(alimentosDoGrupoSelecionado.get(info.position));
+                Intent intent = new Intent(this, AdicionarAlimentoConsumidos.class);
+                intent.putExtra("alimento",(Parcelable) alimentosDoGrupoSelecionado.get(info.position));
+                startActivity(intent);
             } catch (SQLException e) {
                 e.printStackTrace();
+            }catch (TreinoDuplicadoException e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Vocẽ pode editar a lista de alimentos consumidos!", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
+
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void addAlimentoNaCheckList(Alimento alimento) throws SQLException {
-        CheckList checkList = new CheckList();
-        checkList.setNomeAlimennto(alimento.getNomeAlimento());
-        checkList.setIdAlimento(alimento.getId());
-        CheckListBo checkListBo = new CheckListBo();
-        checkListBo.salvar(checkList, this);
+    private void verificaAlimentoEscolhido(Alimento alimento) throws SQLException {
+        AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
+        List<AlimentosConsumidos> lista = alimentosConsumidosBo.buscarAlimentosCheckList(this);
+        for (AlimentosConsumidos a : lista){
+            if (a.getAlimennto().equals(alimento.getNomeAlimento())){
+                alimentosConsumidosBo.verificarLista(a, this);
+            }
+        }
     }
+
+
+//    public void addAlimentoNaCheckList(Alimento alimento) throws SQLException {
+//        AlimentosConsumidos alimentosConsumidos = new AlimentosConsumidos();
+//        alimentosConsumidos.setAlimennto(alimento.getNomeAlimento());
+//        alimentosConsumidos.setIdAlimento(alimento.getId());
+//        AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
+//        alimentosConsumidosBo.salvar(alimentosConsumidos, this);
+//    }
+
+
+
 }

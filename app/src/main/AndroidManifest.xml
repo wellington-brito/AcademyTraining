@@ -31,7 +31,8 @@
             android:parentActivityName=".apresentacao.GruposMuscularesListaActivity" />
         <activity
             android:name=".apresentacao.ExercicioDetalhesActivity"
-            android:label="@string/title_activity_exercicios_detalhes" />
+            android:label="@string/title_activity_exercicios_detalhes"
+            android:parentActivityName=".apresentacao.ExerciciosListaActivity" />
         <activity
             android:name=".apresentacao.AdicionarTreinoActivity"
             android:label="@string/title_activity_ficha_de_treino"
@@ -116,13 +117,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.GruposAlimentaresListaActivity" />
         </activity>
-        <activity android:name=".apresentacao.AlimentosPrincipaisLista"
+        <activity
+            android:name=".apresentacao.AlimentosConsumidosLista"
             android:label="Alimentos Preferidos"
             android:parentActivityName=".apresentacao.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarAlimentoConsumidos"
+            android:label="@string/title_activity_adicionar_alimento_consumo"
+            android:parentActivityName=".apresentacao.AlimentosListaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.AlimentosListaActivity" />
         </activity>
     </application>
 

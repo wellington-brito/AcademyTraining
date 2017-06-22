@@ -76,10 +76,10 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
             EditText exercicio_Edt = (EditText) findViewById(R.id.editTextExercicio);
             EditText planejamento_edt = (EditText) findViewById(R.id.editTextPlanejamento);
 
-            serie_Edt.setText(t.getSerie());
-            repeticoes_Edt.setText(t.getRepeticao());
-            carga_Edt.setText(t.getCarga());
-            intervalo_Edt.setText(t.getIntervalo());
+            serie_Edt.setText(Integer.toString(t.getSerie()));
+            repeticoes_Edt.setText(Integer.toString(t.getRepeticao()));
+            carga_Edt.setText(Integer.toString(t.getCarga()));
+            intervalo_Edt.setText(Integer.toString(t.getIntervalo()));
             observacao_Edt.setText(t.getObservacao());
             exercicio_Edt.setText(t.getNomeExercicio());
 

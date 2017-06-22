@@ -10,18 +10,18 @@ import android.widget.TextView;
 import java.util.List;
 
 import wereh.academytraining.R;
-import wereh.academytraining.entidade.CheckList;
+import wereh.academytraining.entidade.AlimentosConsumidos;
 
 /**
  * Created by wellington on 05/06/17.
  */
 
-public class AlimentosAdatper extends BaseAdapter {
+public class AlimentosConsumidosAdatper extends BaseAdapter {
     private Context context;
-    private List<CheckList> checklist;
+    private List<AlimentosConsumidos> checklist;
 
 
-    public AlimentosAdatper(Context context, List<CheckList> listaAlimentosChecklist){
+    public AlimentosConsumidosAdatper(Context context, List<AlimentosConsumidos> listaAlimentosChecklist){
         this.context= context;
         this.checklist = listaAlimentosChecklist;
     }
@@ -45,17 +45,17 @@ public class AlimentosAdatper extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        CheckList checkList = checklist.get(position);
+        AlimentosConsumidos alimentosConsumidos = checklist.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.alimentos_item_lista_checklist, null);
+        View layout = inflater.inflate(R.layout.alimentos_consumidos_item_lista, null);
 
 
         TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
-        nomeAlimento.setText(checkList.getNomeAlimento());
+        nomeAlimento.setText(alimentosConsumidos.getAlimennto());
 //
 //        TextView vezseSemana = (TextView)layout.findViewById(R.id.textViewVezesSeman);
-//        vezseSemana.setText(Integer.toString(checkList.getVezesNaSemana()));
+//        vezseSemana.setText(Integer.toString(alimentosConsumidos.getVezesNaSemana()));
 ////
 //        TextView carga = (TextView)layout.findViewById(R.id.txtViewCarga);
 //        carga.setText(treino.getCarga());

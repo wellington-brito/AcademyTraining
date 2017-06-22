@@ -62,6 +62,12 @@ public class AlimentosListaAdapter extends BaseAdapter {
         TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
         nomeAlimento.setText(alimento.getNomeAlimento());
 
+        TextView peso = (TextView)layout.findViewById(R.id.txtPesoAlimento);
+        peso.setText(Double.toString(alimento.getPeso()));
+
+        TextView medida = (TextView)layout.findViewById(R.id.textViewMedida);
+        medida.setText(alimento.getMedidaCaseira());
+
 
         return layout;
     }

@@ -62,7 +62,7 @@ public class Usuario implements Parcelable, Serializable {
         tmb = in.readFloat();
         quadril = in.readFloat();
         cintura = in.readFloat();
-
+        biceps = in.readFloat();
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {

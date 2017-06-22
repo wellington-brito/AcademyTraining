@@ -36,41 +36,42 @@ public class GrupoAlimentarBo {
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Pães, Cereais, Raízes e Tubérculos");
+            grupoAlimentar.setCalorias(150);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Hortaliças");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(15);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Frutas");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(35);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Leguminosas");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(55);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Carne Bovina, Suína, Peixe, Frango, Ovos");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(190);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Produtos lácteos.");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(120);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Óleos e Gorduras");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(73);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             grupoAlimentar = new GrupoAlimentar();
             grupoAlimentar.setNomeGrupoAlimentar("Açúcares.");
-            //grupoAlimentar.setQuantidadeAlimetnos();
+            grupoAlimentar.setCalorias(110);
             this.listaGruposAlimentares.add(grupoAlimentar);
 
             for (GrupoAlimentar gm : this.listaGruposAlimentares) {

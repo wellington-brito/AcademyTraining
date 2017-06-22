@@ -95,7 +95,7 @@
                     android:fitsSystemWindows="true" />
 
                 <Button
-                    android:text="Alimentos Preferidos"
+                    android:text="Alimentos Consumidos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonAlimentosPrincipais"

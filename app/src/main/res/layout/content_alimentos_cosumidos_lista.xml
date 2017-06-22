@@ -10,14 +10,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="wereh.academytraining.apresentacao.AlimentosPrincipaisLista"
-    tools:showIn="@layout/activity_alimentos_principais_lista">
+    tools:context="wereh.academytraining.apresentacao.AlimentosConsumidosLista"
+    tools:showIn="@layout/activity_alimentos_consumidos_lista">
 
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/checkList"
+        android:id="@+id/alimentosConsumidos"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="17dp" />

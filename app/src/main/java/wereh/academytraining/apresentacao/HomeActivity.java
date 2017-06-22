@@ -2,7 +2,7 @@ package wereh.academytraining.apresentacao;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,7 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,8 +26,6 @@ import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
-import wereh.academytraining.entidade.Planejamento;
-import wereh.academytraining.exceptions.NaoExistePlanejamentoException;
 import wereh.academytraining.apresentacao.fragments.FragmentActivityPlanejamentos;
 import wereh.academytraining.negocio.AlimentoBo;
 import wereh.academytraining.negocio.ExercicioBo;
@@ -34,7 +33,8 @@ import wereh.academytraining.negocio.GrupoAlimentarBo;
 import wereh.academytraining.negocio.GruposMuscularesBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.DatabaseManager;
-import wereh.academytraining.persistencia.PlanejamentoDao;
+
+import static wereh.academytraining.R.id.listViewFichaDeTreino;
 
 public class HomeActivity extends AppCompatActivity {
     private TabLayout tabLayout;
@@ -65,21 +65,12 @@ public class HomeActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
-    public void verificarPlanejamentoa(View v) throws SQLException {
-        this.dh = new DatabaseHelper(HomeActivity.this);
-        PlanejamentoDao planejamentoDao = new PlanejamentoDao(dh.getConnectionSource());
-        List<Planejamento> listaPlanejamentos = planejamentoDao.queryForAll();
-
-        if (listaPlanejamentos.size() < 1 || listaPlanejamentos == null) {
-            throw new NaoExistePlanejamentoException("Cadastre um planejamento primeiro");
-        }else{
-//            Intent i = new Intent(HomeActivity.this, AdicionarTreinoActivity.class);
-//            startActivity(i);
+    public void criarPlanejamento(View v) throws SQLException {
             Intent i = new Intent(this, AdicionarPlanejamento.class);
             startActivity(i);
-        }
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -187,7 +178,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void carregarAlimentosPrincipais(View v){
-        Intent i = new Intent(this, AlimentosPrincipaisLista.class);
+        Intent i = new Intent(this, AlimentosConsumidosLista.class);
         startActivity(i);
     }
 

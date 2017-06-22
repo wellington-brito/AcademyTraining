@@ -46,7 +46,7 @@ public class ExerciciosAdapter extends BaseAdapter {
         Exercicio exercicio = listaExercicios.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.exercicios, null);
+        View layout = inflater.inflate(R.layout.exercicios_item_lista, null);
 
         TextView nomeExercicio = (TextView)layout.findViewById(R.id.nomeExercicio);
         nomeExercicio.setText(exercicio.getNomeExercicio());
