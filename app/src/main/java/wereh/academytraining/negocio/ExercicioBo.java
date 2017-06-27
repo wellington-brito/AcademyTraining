@@ -17,7 +17,7 @@ import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.ExercicioNaoCadastradoPeloUsuario;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.ExercicioDao;
 import wereh.academytraining.persistencia.GrupoMuscularDao;
@@ -246,7 +246,7 @@ public class ExercicioBo {
                     exercicios.add(exercicio);
                 }
 
-                if(gm.getNomeGrupoMuscular().equals("Bíceps")){
+                if(gm.getNomeGrupoMuscular().equals("Bíceps")) {
                     exercicio = new Exercicio();
                     exercicio.setNomeExercicio("Rosca martelo alternada");
                     exercicio.setGrupoMuscular(gm.getId());
@@ -393,8 +393,53 @@ public class ExercicioBo {
                     exercicio.setDescricao("");
                     exercicios.add(exercicio);
 
+                } if(gm.getNomeGrupoMuscular().equals("Tríceps")){
 
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Bíceps 21");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("");
+                    exercicios.add(exercicio);
 
+                }
+
+                if(gm.getNomeGrupoMuscular().equals("Tríceps")){
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Bíceps 21");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("");
+                    exercicios.add(exercicio);
+
+                }
+
+                if(gm.getNomeGrupoMuscular().equals("Tríceps")){
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Bíceps 21");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("");
+                    exercicios.add(exercicio);
+
+                }
+
+                if(gm.getNomeGrupoMuscular().equals("Tríceps")){
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Bíceps 21");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("");
+                    exercicios.add(exercicio);
+
+                }
+
+                if(gm.getNomeGrupoMuscular().equals("Tríceps")){
+
+                    exercicio = new Exercicio();
+                    exercicio.setNomeExercicio("Bíceps 21");
+                    exercicio.setGrupoMuscular(gm.getId());
+                    exercicio.setDescricao("");
+                    exercicios.add(exercicio);
 
                 }
             }
@@ -426,7 +471,7 @@ public class ExercicioBo {
 
         for(Exercicio e: listaExercicios){
             if((e.getNomeExercicio().equals(exercicioCorrente.getNomeExercicio() ))){
-                throw new TreinoDuplicadoException("Já existe um exercicio igual!");
+                throw new ObjetoDuplicadoException("Já existe um exercicio igual!");
             }
         }
     }

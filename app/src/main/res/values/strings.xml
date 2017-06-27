@@ -5,7 +5,7 @@
     <string name="action_Notificações">Notificações</string>
     <string name="action_Contador">Contador</string>
     <string name="action_Equivalencia">Equivalencia de Alimentos</string>
-
+    <string name="action_Dicas">Dicas de Alimentação</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -26,5 +26,6 @@
     <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
     <string name="title_activity_grupos_alimentares_lista">Grupos Alimentares</string>
     <string name="title_activity_alimentos_lista">Alimentos</string>
-    <string name="title_activity_adicionar_alimento_consumo">AdicionarAlimentoConsumo</string>
+    <string name="title_activity_adicionar_alimento_consumo">Adicionar Alimento Consumido</string>
+    <string name="title_activity_grafico_consumo_alim_data">GraficoConsumoAlimData</string>
 </resources>

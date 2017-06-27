@@ -1,4 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -20,100 +20,99 @@
         tools:context="wereh.academytraining.apresentacao.GruposMuscularesListaActivity">
 
 
-        <TableLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:shrinkColumns="*"  android:stretchColumns="*" android:background="@android:color/transparent"
-            android:id="@+id/tableLayoutDadosTreino"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:paddingEnd="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingStart="10dp"
-            android:paddingTop="100dp"
-            android:layout_marginBottom="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp">
+        <!--<TableLayout-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:shrinkColumns="*"  android:stretchColumns="*" android:background="@android:color/transparent"-->
+            <!--android:id="@+id/tableLayoutDadosTreino"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingEnd="10dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingStart="10dp"-->
+            <!--android:paddingTop="100dp"-->
+            <!--android:layout_marginBottom="1dp"-->
+            <!--android:layout_marginEnd="1dp"-->
+            <!--android:layout_marginLeft="1dp"-->
+            <!--android:layout_marginRight="1dp"-->
+            <!--android:layout_marginStart="1dp"-->
+            <!--android:layout_marginTop="1dp">-->
 
-        <TableRow android:id="@+id/linha1"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-            <Button
-                android:text="Dicas de alimentação"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button7"
-                android:textAllCaps="false"
-                android:gravity="center"
-                android:fitsSystemWindows="true" />
-        </TableRow>
+        <!--<TableRow android:id="@+id/linha1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent">-->
+            <!--<Button-->
+                <!--android:text="Dicas de alimentação"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/button7"-->
+                <!--android:textAllCaps="false"-->
+                <!--android:gravity="center"-->
+                <!--android:fitsSystemWindows="true" />-->
+        <!--</TableRow>-->
 
-            <TableRow android:id="@+id/linha2"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button"
-                    android:text="Alimentos Construtores"
-                    android:textAllCaps="false"
-                    android:gravity="center"
-                    android:fitsSystemWindows="true" />
-                <Button
-                    android:text="Alimentos Energéticos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button10"
-                    android:textAllCaps="false"
-                    android:gravity="center"
-                    android:fitsSystemWindows="true" />
-            </TableRow>
+            <!--<TableRow android:id="@+id/linha2"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="match_parent">-->
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/button"-->
+                    <!--android:text="Alimentos Construtores"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:gravity="center"-->
+                    <!--android:fitsSystemWindows="true" />-->
+                <!--<Button-->
+                    <!--android:text="Alimentos Energéticos"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/button10"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:gravity="center"-->
+                    <!--android:fitsSystemWindows="true" />-->
+            <!--</TableRow>-->
 
-            <TableRow android:id="@+id/linha3"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                >
+            <!--<TableRow android:id="@+id/linha3"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="match_parent"-->
+                <!--&gt;-->
 
-            </TableRow>
+            <!--</TableRow>-->
 
-            <TableRow android:id="@+id/linha4"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+            <!--<TableRow android:id="@+id/linha4"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="match_parent">-->
 
-                <Button
-                    android:text="Alimentos Reguladores"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button9"
-                    android:textAllCaps="false"
-                    android:gravity="center"
-                    android:fitsSystemWindows="true" />
+                <!--<Button-->
+                    <!--android:text="Alimentos Reguladores"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/button9"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:gravity="center"-->
+                    <!--android:fitsSystemWindows="true" />-->
 
-                <Button
-                    android:text="Alimentos Consumidos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/buttonAlimentosPrincipais"
-                    android:onClick="carregarAlimentosPrincipais"
-                    android:textAllCaps="false"
-                    android:gravity="center"
-                    android:fitsSystemWindows="true" />
-            </TableRow>
+                <!--<Button-->
+                    <!--android:text="Alimentos Consumidos"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/buttonAlimentosPrincipais"-->
+                    <!--android:onClick="carregarAlimentosPrincipais"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--android:gravity="center"-->
+                    <!--android:fitsSystemWindows="true" />-->
+            <!--</TableRow>-->
 
-            <TableRow android:id="@+id/linha5"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+            <!--<TableRow android:id="@+id/linha5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_width="match_parent">-->
 
 
-            </TableRow>
+            <!--</TableRow>-->
 
-        </TableLayout>
-
+        <!--</TableLayout>-->
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -137,7 +136,57 @@
             android:gravity="fill_vertical|center_horizontal"
             android:onClick="carregarListaGruposAlimentares"/>
 
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/textView14">-->
+
+        <!--</RelativeLayout>-->
+
+
+        <TextView
+            android:text="Número de porções diárias recomendadas por grupo alimentar:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView14"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <Button
+            android:text="Tipos de Alimentos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:id="@+id/buttonTiposAlimentos"
+            android:layout_above="@+id/imageButton"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/piramide2"
+            android:id="@+id/imageViewPiramide"
+            android:layout_alignParentStart="true"
+            android:layout_above="@+id/buttonAlimentosPrincipais"
+            android:layout_below="@+id/textView14" />
+
+        <Button
+            android:text="Alimentos Consumidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonAlimentosPrincipais"
+            android:onClick="carregarAlimentosPrincipais"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:layout_above="@+id/buttonTiposAlimentos"
+            android:layout_alignParentStart="true" />
+
     </RelativeLayout>
-</ScrollView>
+
+</RelativeLayout>
 
 

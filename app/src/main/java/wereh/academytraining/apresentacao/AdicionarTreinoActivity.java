@@ -17,7 +17,7 @@ import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -57,7 +57,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
                     recuperarDadosCampoDeTexto(view);
                 } catch (SQLException e) {
                     e.printStackTrace();
-                }catch (TreinoDuplicadoException tr){
+                }catch (ObjetoDuplicadoException tr){
                     Toast.makeText(AdicionarTreinoActivity.this, tr.getMessage(), Toast.LENGTH_SHORT).show();
                 }catch (CampoObrigatorioException c){
                     Toast.makeText(AdicionarTreinoActivity.this, c.getMessage(), Toast.LENGTH_SHORT).show();

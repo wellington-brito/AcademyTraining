@@ -13,7 +13,7 @@ import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.apresentacao.fragments.FragmentActivityPlanejamentos;
 import wereh.academytraining.persistencia.AlimentosConsumidosDao;
 import wereh.academytraining.persistencia.DatabaseHelper;
@@ -97,7 +97,7 @@ public class PlanejamentoBo {
 
         for(Planejamento p: listaPlanejamento){
             if((p.getId() == planejamentoCorrente.getId() || p.getNomePlanejamento().equals(planejamentoCorrente.getNomePlanejamento() )) && p.getId() == planejamentoCorrente.getId()){
-                throw new TreinoDuplicadoException("Já existe um planejamento igual!");
+                throw new ObjetoDuplicadoException("Já existe um planejamento igual!");
             }
         }
     }

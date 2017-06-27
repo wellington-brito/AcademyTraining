@@ -9,16 +9,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.SQLException;
-import java.text.ParseException;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.negocio.ExercicioBo;
-import wereh.academytraining.negocio.UsuarioBo;
 
 public class AdicionarExercicioActivity extends AppCompatActivity {
 
@@ -59,7 +57,7 @@ public class AdicionarExercicioActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } catch (CampoObrigatorioException c){
                     Toast.makeText(AdicionarExercicioActivity.this, c.getMessage(), Toast.LENGTH_SHORT).show();
-                }catch (TreinoDuplicadoException t){
+                }catch (ObjetoDuplicadoException t){
                     Toast.makeText(AdicionarExercicioActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

@@ -1,12 +1,11 @@
 package wereh.academytraining.apresentacao;
 
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,17 +21,21 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.AlimentosConsumidos;
 import wereh.academytraining.entidade.GrupoAlimentar;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.CampoObrigatorioException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.negocio.AlimentosConsumidosBo;
 import wereh.academytraining.negocio.GrupoAlimentarBo;
 
 public class AdicionarAlimentoConsumidos extends AppCompatActivity {
 
-    NumberPicker numberpicker;
-    TextView textview;
+    EditText quantidade;
+    TextView txtAlimento;
     int numeroDePorcoes;
-    Alimento alimentoSelecionado;
-
+  //  Alimento alimentoSelecionado;
+    Alimento alimento;
+    AlimentosConsumidos alimentoListaConsumidos;
+    AlimentosConsumidosBo alimentosConsumidosBo;
+    int verificador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,88 +44,70 @@ public class AdicionarAlimentoConsumidos extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.alimento = (Alimento) getIntent().getSerializableExtra("alimento");
+        this.alimentoListaConsumidos = (AlimentosConsumidos) getIntent().getSerializableExtra("alimentoConsumido");
+
+        if (this.alimentoListaConsumidos != null){
+            getSupportActionBar().setTitle("Adicionar porção cosumida");
+            this.verificador = 1;
+            quantidade = (EditText) findViewById(R.id.editTextPorcao);
+            txtAlimento = (TextView) findViewById(R.id.textViewNomeAlimento);
+            txtAlimento.setText(this.alimentoListaConsumidos.getAlimennto());
+            quantidade.setText(Integer.toString(this.alimentoListaConsumidos.getNumeroPorcoes()));
+            txtAlimento = (TextView) findViewById(R.id.textViewNomeAlimento);
+            txtAlimento.setText(alimentoListaConsumidos.getAlimennto());
+        }
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    addAlimentoNaCheckList();
+                    recuperarQuantidade();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {
                     e.printStackTrace();
+                }catch (CampoObrigatorioException c){
+                    Toast.makeText(AdicionarAlimentoConsumidos.this, c.getMessage(), Toast.LENGTH_SHORT).show();
+                }catch (ObjetoDuplicadoException t){
+                    Toast.makeText(AdicionarAlimentoConsumidos.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 // finish();
             }
         });
-
-        final Alimento alimento = (Alimento) getIntent().getSerializableExtra("alimento");
-
-
-            carregarNumberPicker(alimento);
-
-
        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-
-
-    private void carregarNumberPicker(final Alimento alimento) {
-        numberpicker = (NumberPicker)findViewById(R.id.numberPicker1);
-        textview = (TextView)findViewById(R.id.textView1);
-        numberpicker.setMinValue(0);
-        numberpicker.setMaxValue(5);
-        TextView txtAlimento = (TextView) findViewById(R.id.textViewNomeAlimento);
-        txtAlimento.setText(alimento.getNomeAlimento());
-        numberpicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                textview.setText("Número de Porções : " + newVal);
-                try {
-                    carregarTextViews(newVal, alimento);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+    private void recuperarQuantidade() throws ParseException, SQLException {
+        EditText quantidade = (EditText) findViewById(R.id.editTextPorcao);
+        TextView nomeAlimento = (TextView) findViewById(R.id.textViewNomeAlimento);
+        this.alimentosConsumidosBo = new AlimentosConsumidosBo();
+        this.alimentosConsumidosBo.validarCamposDeTexto(quantidade);
+        this.definirDadosPorcao(quantidade, nomeAlimento);
     }
 
-    private void carregarTextViews(int newVal, Alimento alimento) throws SQLException, ParseException{
-        TextView txtCalorias = (TextView) findViewById(R.id.textViewCal);
-        int calorias =  totalCaloriasPorcao(alimento.getGrupoAlimentar());
-        txtCalorias.setText(Integer.toString(calorias * newVal));
-        this.numeroDePorcoes = newVal;
-        this.alimentoSelecionado = alimento;
-        //addAlimentoNaCheckList(alimento, newVal);
-    }
-
-    private int totalCaloriasPorcao(int idGrupoAlimentar) throws SQLException {
-        GrupoAlimentarBo grupoAlimentarBo = new GrupoAlimentarBo();
-        List<GrupoAlimentar> listaGrupos = grupoAlimentarBo.buscarGrupos(this);
-        for (GrupoAlimentar ga : listaGrupos){
-            if (ga.getId() == idGrupoAlimentar){
-                int calorias = ga.getCalorias();
-                return calorias;
-            }
-        }
-       return 0;
-    }
-
-    public void addAlimentoNaCheckList() throws SQLException, ParseException{
+    private void definirDadosPorcao(EditText quantidade, TextView nomeAlimento) throws ParseException, SQLException {
         AlimentosConsumidos alimentoConsumido = new AlimentosConsumidos();
         AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
-
-        alimentoConsumido.setAlimennto(alimentoSelecionado.getNomeAlimento());
-        alimentoConsumido.setIdAlimento(alimentoSelecionado.getId());
-        alimentoConsumido.setNumeroPorcoes(this.numeroDePorcoes);
+        alimentoConsumido.setNumeroPorcoes(Integer.parseInt(quantidade.getText().toString()));
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date data = formatter.parse(getDateTime());
         alimentoConsumido.setDia(data);
-        //alimentosConsumidosBo.verificarLista(alimentoConsumido, this);
-        alimentosConsumidosBo.salvar(alimentoConsumido, this);
-        finish();
+
+        if (verificador == 1){
+            alimentoConsumido.setAlimennto(alimentoListaConsumidos.getAlimennto());
+            alimentoConsumido.setIdAlimento(alimentoListaConsumidos.getId());
+            alimentoConsumido.setId(alimentoListaConsumidos.getId());
+            alimentosConsumidosBo.atualizar(alimentoConsumido, this);
+            finish();
+        }else {
+            alimentoConsumido.setAlimennto(alimento.getNomeAlimento());
+            alimentoConsumido.setIdAlimento(alimento.getId());
+            alimentoConsumido.setIdGrupoAlimentar(alimento.getGrupoAlimentar());
+            alimentosConsumidosBo.salvar(alimentoConsumido, this);
+            finish();
+        }
     }
 
     private String getDateTime() {

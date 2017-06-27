@@ -1,4 +1,4 @@
-package wereh.academytraining.apresentacao.fragments;
+package wereh.academytraining.apresentacao;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -53,7 +53,8 @@ public class AlimentosConsumidosAdatper extends BaseAdapter {
 
         TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
         nomeAlimento.setText(alimentosConsumidos.getAlimennto());
-//
+
+
 //        TextView vezseSemana = (TextView)layout.findViewById(R.id.textViewVezesSeman);
 //        vezseSemana.setText(Integer.toString(alimentosConsumidos.getVezesNaSemana()));
 ////

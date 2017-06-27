@@ -14,9 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.j256.ormlite.stmt.PreparedQuery;
-import com.j256.ormlite.stmt.QueryBuilder;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -24,7 +21,7 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.AlimentosConsumidos;
 import wereh.academytraining.entidade.GrupoAlimentar;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.negocio.AlimentoBo;
 import wereh.academytraining.negocio.AlimentosConsumidosBo;
 import wereh.academytraining.persistencia.AlimentoDao;
@@ -141,11 +138,6 @@ public class AlimentosListaActivity extends AppCompatActivity {
 //        }
 
         if (id == R.id.action_Menu_AddCheckList) {
-//            try {
-//                addAlimentoNaCheckList(alimentosDoGrupoSelecionado.get(info.position));
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
             try {
                 verificaAlimentoEscolhido(alimentosDoGrupoSelecionado.get(info.position));
                 Intent intent = new Intent(this, AdicionarAlimentoConsumidos.class);
@@ -153,7 +145,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
                 startActivity(intent);
             } catch (SQLException e) {
                 e.printStackTrace();
-            }catch (TreinoDuplicadoException e) {
+            }catch (ObjetoDuplicadoException e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(this, "Vocẽ pode editar a lista de alimentos consumidos!", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
@@ -176,11 +168,11 @@ public class AlimentosListaActivity extends AppCompatActivity {
 
 
 //    public void addAlimentoNaCheckList(Alimento alimento) throws SQLException {
-//        AlimentosConsumidos alimentosConsumidos = new AlimentosConsumidos();
-//        alimentosConsumidos.setAlimennto(alimento.getNomeAlimento());
-//        alimentosConsumidos.setIdAlimento(alimento.getId());
+//        AlimentosConsumidos alimentoListaConsumidos = new AlimentosConsumidos();
+//        alimentoListaConsumidos.setAlimennto(alimento.getNomeAlimento());
+//        alimentoListaConsumidos.setIdAlimento(alimento.getId());
 //        AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
-//        alimentosConsumidosBo.salvar(alimentosConsumidos, this);
+//        alimentosConsumidosBo.salvar(alimentoListaConsumidos, this);
 //    }
 
 

@@ -119,7 +119,7 @@
         </activity>
         <activity
             android:name=".apresentacao.AlimentosConsumidosLista"
-            android:label="Alimentos Preferidos"
+            android:label="Alimentos Consumidos"
             android:parentActivityName=".apresentacao.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -135,6 +135,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.AlimentosListaActivity" />
         </activity>
+        <activity
+            android:name=".apresentacao.GraficoConsumoAlimData"
+            android:label="@string/title_activity_grafico_consumo_alim_data"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

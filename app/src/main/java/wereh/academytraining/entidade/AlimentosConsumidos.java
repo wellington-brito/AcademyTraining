@@ -31,6 +31,9 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
     private int numeroPorcoes;
 
     @DatabaseField
+    private int idGrupoAlimentar;
+
+    @DatabaseField
     private Date dia;
 
     protected AlimentosConsumidos(Parcel in) {
@@ -38,7 +41,21 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
         alimennto = in.readString();
         idAlimento = in.readInt();
         numeroPorcoes = in.readInt();
-        dia = new Date(in.readLong());
+        idGrupoAlimentar = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(alimennto);
+        dest.writeInt(idAlimento);
+        dest.writeInt(numeroPorcoes);
+        dest.writeInt(idGrupoAlimentar);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<AlimentosConsumidos> CREATOR = new Creator<AlimentosConsumidos>() {
@@ -85,25 +102,19 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
         this.numeroPorcoes = numeroPorcoes;
     }
 
+    public int getIdGrupoAlimentar() {
+        return idGrupoAlimentar;
+    }
+
+    public void setIdGrupoAlimentar(int idGrupoAlimentar) {
+        this.idGrupoAlimentar = idGrupoAlimentar;
+    }
+
     public Date getDia() {
         return dia;
     }
 
     public void setDia(Date dia) {
         this.dia = dia;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
-        dest.writeString(alimennto);
-        dest.writeInt(idAlimento);
-        dest.writeInt(numeroPorcoes);
-        dest.writeLong(dia.getTime());
     }
 }

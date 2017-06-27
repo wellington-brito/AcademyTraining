@@ -64,6 +64,42 @@ public class AlimentoBo {
                     alimento.setMedidaCaseira("2 1⁄2 colheres de sopa");
                     alimento.setPeso(40.0);
                     alimentos.add(alimento);
+
+                    alimento = new Alimento();
+                    alimento.setNomeAlimento("Arroz branco cozido");
+                    alimento.setGrupoAlimentar(ga.getId());
+                    alimento.setMedidaCaseira("4 colheres de sopa");
+                    alimento.setPeso(125.0);
+                    alimentos.add(alimento);
+
+                    alimento = new Alimento();
+                    alimento.setNomeAlimento("Arroz integral cozido");
+                    alimento.setGrupoAlimentar(ga.getId());
+                    alimento.setMedidaCaseira("4 colheres de sopa");
+                    alimento.setPeso(140.0);
+                    alimentos.add(alimento);
+
+                    alimento = new Alimento();
+                    alimento.setNomeAlimento("Batata doce cozida");
+                    alimento.setGrupoAlimentar(ga.getId());
+                    alimento.setMedidaCaseira("1 1⁄2 colheres de servir");
+                    alimento.setPeso(150.0);
+                    alimentos.add(alimento);
+
+                    alimento = new Alimento();
+                    alimento.setNomeAlimento("Batata frita tipo “chips” (salgadinho)");
+                    alimento.setGrupoAlimentar(ga.getId());
+                    alimento.setMedidaCaseira("1⁄3 pacote");
+                    alimento.setPeso(27.0);
+                    alimentos.add(alimento);
+
+
+                    alimento = new Alimento();
+                    alimento.setNomeAlimento("Batata frita (fatia)");
+                    alimento.setGrupoAlimentar(ga.getId());
+                    alimento.setMedidaCaseira("2 colheres de servir");
+                    alimento.setPeso(50.0);
+                    alimentos.add(alimento);
                 }
 
                 if (ga.getNomeGrupoAlimentar().equals("Hortaliças")) {

@@ -3,7 +3,6 @@ package wereh.academytraining.negocio;
 import android.widget.EditText;
 
 import com.j256.ormlite.stmt.UpdateBuilder;
-import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +11,7 @@ import wereh.academytraining.apresentacao.AdicionarTreinoActivity;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
-import wereh.academytraining.exceptions.TreinoDuplicadoException;
+import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.TreinoDao;
 
@@ -34,7 +33,7 @@ public class TreinoBo {
 
         for(Treino t: listaTreinos){
             if((t.getId() == treinoCorrente.getId() || t.getNomeExercicio().equals(treinoCorrente.getNomeExercicio() )) && t.getIdPlanejamento() == treinoCorrente.getIdPlanejamento()){
-                throw new TreinoDuplicadoException("O exercício selecionado já existe neste planejamento!");
+                throw new ObjetoDuplicadoException("O exercício selecionado já existe neste planejamento!");
             }
         }
     }
