@@ -20,7 +20,7 @@
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="44dp"
             android:padding="5dp"
             android:layout_marginStart="0dp">
 
@@ -43,6 +43,21 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true" />
 
+            <TextView
+                android:text=" Porções"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/textView10" />
+
+            <TextView
+                android:text="#"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/textView10"
+                android:layout_toStartOf="@+id/textView10"
+                android:id="@+id/textViewNumeroPorcoes" />
 
 
         </RelativeLayout>

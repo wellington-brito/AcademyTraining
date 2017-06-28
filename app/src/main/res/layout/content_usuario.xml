@@ -28,7 +28,8 @@
            android:layout_marginTop="30dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
-           app:cardBackgroundColor="@color/cardview_light_background">
+           app:cardBackgroundColor="@color/cardview_light_background"
+           android:id="@+id/cardViewNome">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -60,7 +61,8 @@
            android:layout_marginTop="90dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
-           app:cardBackgroundColor="@color/cardview_light_background">
+           app:cardBackgroundColor="@color/cardview_light_background"
+           android:id="@+id/cardViewAltura">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -92,7 +94,8 @@
            android:layout_marginTop="150dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
-           app:cardBackgroundColor="@color/cardview_light_background">
+           app:cardBackgroundColor="@color/cardview_light_background"
+           android:id="@+id/cardViewAltura">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -125,7 +128,8 @@
            android:layout_marginTop="210dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
-           app:cardBackgroundColor="@color/cardview_light_background">
+           app:cardBackgroundColor="@color/cardview_light_background"
+           android:id="@+id/cardViewSexo">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -154,10 +158,11 @@
            android:layout_height="wrap_content"
            android:layout_marginLeft="10dp"
            android:layout_marginRight="10dp"
-           android:layout_marginTop="260dp"
+           android:layout_marginTop="270dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
-           app:cardBackgroundColor="@color/cardview_light_background">
+           app:cardBackgroundColor="@color/cardview_light_background"
+           android:id="@+id/cardViewIdade">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -166,14 +171,14 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:id="@+id/textViewImc1"
-                   android:hint="Indice de Massa Corporal"
+                   android:id="@+id/textViewIdade"
+                   android:hint="Idade"
                    android:textSize="18sp" />
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:id="@+id/textViewImc"
-                   android:hint="Indice de Massa Corporal"
+                   android:id="@+id/textViewValorIdade"
+                   android:hint="Idade"
                    android:textSize="18sp" />
 
            </LinearLayout>
@@ -186,7 +191,7 @@
            android:layout_height="wrap_content"
            android:layout_marginLeft="10dp"
            android:layout_marginRight="10dp"
-           android:layout_marginTop="320dp"
+           android:layout_marginTop="330dp"
            android:layout_marginBottom="30dp"
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
@@ -199,14 +204,14 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:id="@+id/textViewTmb1"
-                   android:hint="Taxa Metabólica"
+                   android:id="@+id/textViewNivelAtiv"
+                   android:hint="Nível de atividade física"
                    android:textSize="18sp" />
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:id="@+id/textViewTmb"
-                   android:hint="Taxa Metabólica"
+                   android:id="@+id/textViewValorNivelAtiv"
+                   android:hint="nível de atividade física"
                    android:textSize="18sp" />
 
            </LinearLayout>

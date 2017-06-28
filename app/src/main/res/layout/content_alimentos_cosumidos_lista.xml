@@ -65,21 +65,44 @@
                             android:layout_height="match_parent">
                             <TextView
                                 android:id="@+id/txtViewTotal"
-                                android:textSize="20dp"
+                                android:textSize="18sp"
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Total de porções consumidas: "/>
+                                android:text="Total de porções consumidas: " />
+
                             <TextView
                                 android:id="@+id/txtViewValorTotal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="valor"
-                                android:textSize="20dp"
+                                android:textSize="18sp"
                                 android:layout_alignParentTop="true"
                                 android:layout_toEndOf="@+id/txtViewTotal" />
                         </TableRow>
 
                         <TableRow android:id="@+id/linha2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/txtViewTotalKcal"
+                                android:textSize="18sp"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total de calorias consumidas: " />
+
+                            <TextView
+                                android:id="@+id/txtViewValorTotalKcal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="valor"
+                                android:textSize="18sp"
+                                android:layout_alignParentTop="true"
+                                android:layout_toEndOf="@+id/txtViewTotalKcal" />
+                        </TableRow>
+
+                        <TableRow android:id="@+id/linha3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                             <TextView
@@ -102,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="100dp"
             android:layout_marginBottom="5dp"
             app:cardElevation="10dp"
             app:cardCornerRadius="5dp"

@@ -5,7 +5,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.j256.ormlite.stmt.UpdateBuilder;
@@ -25,6 +27,8 @@ public class AdicionarUsuario extends AppCompatActivity {
     Usuario usuario = null;
     int qntd;
     UsuarioBo usuarioBo;
+    private String[] objetivos = new String[]{"Sedentário","Atividade Leve", "Atividade Moderada", "Atividade Intensa"};
+    Spinner sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +37,18 @@ public class AdicionarUsuario extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         this.usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+
         if (this.usuario != null){
             carregarPerfilUsuario(this.usuario);
         }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, objetivos);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        this.sp= (Spinner) findViewById(R.id.spinneraNivelAtiv);
+        this.sp.setAdapter(adapter);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,22 +70,23 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         EditText altura = (EditText) findViewById(R.id.editTextAltura);
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
-//        EditText imc = (EditText) findViewById(R.id.editTextImc);
+        EditText idade = (EditText) findViewById(R.id.editTextIdade);
+        this.sp = (Spinner) findViewById(R.id.spinneraNivelAtiv);
 //        EditText tmb = (EditText) findViewById(R.id.editTextTmb);
         this.usuarioBo = new UsuarioBo();
-        this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero);
-        definirDadosUsuario(nome, peso, altura, genero);
+        this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero, idade);
+        definirDadosUsuario(nome, peso, altura, genero, idade);
     }
 
 
-    private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero) throws SQLException {
+    private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero, EditText idade) throws SQLException {
         Usuario usuarioCorrente = new Usuario();
         usuarioCorrente.setNomeUsuario(nome.getText().toString());
-
         usuarioCorrente.setPeso(Float.parseFloat(peso.getText().toString()));
         usuarioCorrente.setAltura(Float.parseFloat(altura.getText().toString()));
         usuarioCorrente.setGenero(genero.getText().toString());
-
+        usuarioCorrente.setIdade(Integer.parseInt(idade.getText().toString()));
+        usuarioCorrente.setNivelAtividade((sp.getSelectedItem().toString()));
         verificarUsuario(usuarioCorrente);
     }
 
@@ -100,16 +113,26 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText peso = (EditText) findViewById(R.id.editTextPeso);
         EditText altura = (EditText) findViewById(R.id.editTextAltura);
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
-        EditText imc = (EditText) findViewById(R.id.editTextImc);
-        EditText tmb = (EditText) findViewById(R.id.editTextTmb);
+        EditText idade = (EditText) findViewById(R.id.editTextIdade);
+        this.sp= (Spinner) findViewById(R.id.spinneraNivelAtiv);
+        // EditText tmb = (EditText) findViewById(R.id.editTextTmb);
 
         nome.setText(u.getNomeUsuario());
-
         peso.setText(Float.toString(u.getPeso()));
         altura.setText(Float.toString(u.getAltura()));
         genero.setText(u.getGenero());
-        imc.setText(Float.toString(u.getImc()));
-        tmb.setText(Float.toString(u.getTmb()));
+        idade.setText(Integer.toString(u.getIdade()));
+
+        if(u.getNivelAtividade().equals("Sedentário")){
+            this.sp.setSelection(0);
+        }else if(u.getNivelAtividade().equals("Atividade Leve")){
+            sp.setSelection(1);
+        }else if(u.getNivelAtividade().equals("Atividade Moderada")) {
+            sp.setSelection(2);
+        }else {
+            sp.setSelection(3);
+        }
+       // tmb.setText(Float.toString(u.getTmb()));
 
     }
 }

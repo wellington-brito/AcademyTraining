@@ -55,8 +55,8 @@ public class AlimentosConsumidosAdatper extends BaseAdapter {
         nomeAlimento.setText(alimentosConsumidos.getAlimennto());
 
 
-//        TextView vezseSemana = (TextView)layout.findViewById(R.id.textViewVezesSeman);
-//        vezseSemana.setText(Integer.toString(alimentosConsumidos.getVezesNaSemana()));
+        TextView numeroPorcao = (TextView)layout.findViewById(R.id.textViewNumeroPorcoes);
+        numeroPorcao.setText(Integer.toString(alimentosConsumidos.getNumeroPorcoes()));
 ////
 //        TextView carga = (TextView)layout.findViewById(R.id.txtViewCarga);
 //        carga.setText(treino.getCarga());

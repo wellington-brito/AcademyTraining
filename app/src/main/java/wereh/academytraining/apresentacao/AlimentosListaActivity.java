@@ -54,12 +54,6 @@ public class AlimentosListaActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
         this.idSelected = gaFinal.getId();
     }
 

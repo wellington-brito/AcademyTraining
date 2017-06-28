@@ -46,13 +46,14 @@ public class Usuario implements Parcelable, Serializable {
     @DatabaseField
     public float biceps;
 
+    @DatabaseField
+    public  int idade;
+
+    @DatabaseField
+    public  String nivelAtividade;
 
 
-    public Usuario() {
-
-    }
-
-    private Usuario(Parcel in) {
+    protected Usuario(Parcel in) {
         id = in.readInt();
         nomeUsuario = in.readString();
         peso = in.readFloat();
@@ -63,6 +64,8 @@ public class Usuario implements Parcelable, Serializable {
         quadril = in.readFloat();
         cintura = in.readFloat();
         biceps = in.readFloat();
+        idade = in.readInt();
+        nivelAtividade = in.readString();
     }
 
     public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
@@ -76,7 +79,6 @@ public class Usuario implements Parcelable, Serializable {
             return new Usuario[size];
         }
     };
-
 
     public int getId() {
         return id;
@@ -94,6 +96,45 @@ public class Usuario implements Parcelable, Serializable {
         this.nomeUsuario = nomeUsuario;
     }
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public float getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(float cintura) {
+        this.cintura = cintura;
+    }
+
+    public float getQuadril() {
+        return quadril;
+    }
+
+    public void setQuadril(float quadril) {
+        this.quadril = quadril;
+    }
+
+    public float getImc() {
+        return imc;
+    }
+
+    public void setImc(float imc) {
+        this.imc = imc;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
 
     public float getPeso() {
         return peso;
@@ -111,44 +152,12 @@ public class Usuario implements Parcelable, Serializable {
         this.altura = altura;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public float getImc() {
-        return imc;
-    }
-
-    public void setImc(float imc) {
-        this.imc = imc;
-    }
-
     public float getTmb() {
         return tmb;
     }
 
     public void setTmb(float tmb) {
         this.tmb = tmb;
-    }
-
-    public float getQuadril() {
-        return quadril;
-    }
-
-    public void setQuadril(float quadril) {
-        this.quadril = quadril;
-    }
-
-    public float getCitura() {
-        return cintura;
-    }
-
-    public void setCitura(float citura) {
-        this.cintura = citura;
     }
 
     public float getBiceps() {
@@ -158,6 +167,17 @@ public class Usuario implements Parcelable, Serializable {
     public void setBiceps(float biceps) {
         this.biceps = biceps;
     }
+
+    public String getNivelAtividade() {
+        return nivelAtividade;
+    }
+
+    public void setNivelAtividade(String nivelAtividade) {
+        this.nivelAtividade = nivelAtividade;
+    }
+
+    public Usuario() {}
+
 
     @Override
     public int describeContents() {
@@ -176,5 +196,8 @@ public class Usuario implements Parcelable, Serializable {
         dest.writeFloat(quadril);
         dest.writeFloat(cintura);
         dest.writeFloat(biceps);
+        dest.writeInt(idade);
+        dest.writeString(nivelAtividade);
+
     }
 }

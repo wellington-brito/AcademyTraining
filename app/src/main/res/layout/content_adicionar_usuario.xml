@@ -121,15 +121,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textViewImc"
-                android:hint="Índice de Massa Corporal"/>
+                android:id="@+id/textViewIdade"
+                android:hint="Idade"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/editTextImc"
-                android:enabled="false"
-                android:hint="imc"/>
+                android:id="@+id/editTextIdade"
+                android:hint="idade"
+                android:inputType="number" />
         </TableRow>
 
         <TableRow android:id="@+id/linha7"
@@ -140,15 +140,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textViewTmb"
-                android:hint="Nessesidades diárias de calorias (TMB)"/>
+                android:id="@+id/textViewAtv"
+                android:hint="Nivel de atividade física"/>
 
-            <EditText
-                android:enabled="false"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/editTextTmb"
-                android:hint="Nessesidades diárias de calorias (TMB)"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/spinneraNivelAtiv" />
+           />
         </TableRow>
     </TableLayout>
 

@@ -42,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     private DatabaseHelper dh;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +57,7 @@ public class HomeActivity extends AppCompatActivity {
         setupViewPager(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        int idtab = tabLayout.getSelectedTabPosition();
+
         try {
             cadastrarGruposMusculares();
             cadastrarGruposAlimentares();
@@ -67,6 +68,20 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onResume() {
+        try {
+            super.onResume();
+            int idtab = tabLayout.getSelectedTabPosition();
+            TabLayout.Tab tab = tabLayout.getTabAt(idtab);
+            tab.select();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void criarPlanejamento(View v) throws SQLException {
             Intent i = new Intent(this, AdicionarPlanejamento.class);
@@ -141,6 +156,12 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_Material) {
+            Intent i = new Intent(this, FontesReferencias.class);
+            startActivity(i);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -183,7 +204,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void carregarListaGruposAlimentares(View v){
+
         Intent i = new Intent(HomeActivity.this, GruposAlimentaresListaActivity.class);
+        startActivity(i);
+
+    }
+    public void carregarTiposAlimentares(View v){
+        Intent i = new Intent(HomeActivity.this, TiposAlimentares.class);
         startActivity(i);
     }
 }

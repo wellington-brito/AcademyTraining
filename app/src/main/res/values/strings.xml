@@ -6,6 +6,7 @@
     <string name="action_Contador">Contador</string>
     <string name="action_Equivalencia">Equivalencia de Alimentos</string>
     <string name="action_Dicas">Dicas de Alimentação</string>
+    <string name="action_Material">Fontes e Referências</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -28,4 +29,12 @@
     <string name="title_activity_alimentos_lista">Alimentos</string>
     <string name="title_activity_adicionar_alimento_consumo">Adicionar Alimento Consumido</string>
     <string name="title_activity_grafico_consumo_alim_data">GraficoConsumoAlimData</string>
+    <string name="title_activity_tipos_alimentares">Tipos de Alimentos</string>
+
+    <string name="Energeticos">São os alimentos ricos em CARBOIDRATOS e LIPÍDIOS. Eles vão fornecer energia, que é fundamental para nossa sobrevivência.</string>
+    <string name="Reguladores">São os alimentos ricos em VITAMINAS, MINERAIS E FIBRAS. Esses são responsáveis por regular nosso sistema imunológico, endócrino, nervoso e respiratório. E as fibras vão regular nossa função intestinal.</string>
+    <string name="Construtores">São os alimentos ricos em PROTEÍNAS. Eles vão atuar na formação da massa muscular, regenerar tecidos como a pele, e são muito importante na fase de crescimento, pois atua na formação dos órgãos, músculos e tecidos, além de participar de funções metabólicas, como produção de algumas enzimas.</string>
+    <string name="title_activity_fontes_referencias">Fontes e Referencias</string>
+    <string name="Fontes">->Livros e Artigos\nPirâmide Alimentar Adaptada: Guia para escolha dos alimentos
+Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause Alimentos, Nutrição e Dietoterapia(MAHAN et all).\n\n->Icones e Imagens\nhttp://www.flaticon.com/packs/gastronomy-set\n\nhttps://material.io/icons/\n\nhttps://www.shutterstock.com/pt/image-vector/symbol-element-strong-muscles-body-part-361876799?src=i_dXkAyCcT3GsDsu4nVXQg-1-38\n\n->Exercicios e Imagens\nhttp://dicasdemusculacao.org/\n\nhttp://www.musculacao.net/exercicios-musculacao/\n\n->Libs e Pacotes\nBase de dados: ORMLite - http://ormlite.com/\n\nGráficos: MPAndroidchart - https://github.com/PhilJay/MPAndroidChart\n\n</string>
 </resources>

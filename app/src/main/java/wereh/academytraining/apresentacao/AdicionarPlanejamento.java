@@ -72,13 +72,12 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             getSupportActionBar().setTitle("Editar Planejamento");
             verificardor = 1;
             EditText nome = (EditText) findViewById(R.id.editTextPlanejamento);
-           // EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
             EditText vezesSemana = (EditText) findViewById(R.id.editTextVezesSemana);
-            //  EditText oservacao = (EditText) findViewById(R.id.editTextIntervalo);
             EditText dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
             EditText validade = (EditText) findViewById(R.id.editTextValidade);
 
             nome.setText(p.getNomePlanejamento());
+
             if (p.getObjetivo().equals("Hipertrofia")){
                 sp.setSelection(0);
             }else{

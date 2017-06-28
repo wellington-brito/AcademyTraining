@@ -65,7 +65,6 @@ public class UsuarioActivity extends AppCompatActivity {
         });
     }
 
-
     @Override
     public void onResume() {
         super.onResume();

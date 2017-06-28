@@ -34,6 +34,7 @@ import wereh.academytraining.persistencia.DatabaseHelper;
 
 public class AlimentosConsumidosLista extends AppCompatActivity {
 
+
     ListView mListView;
     private List<AlimentosConsumidos> listaAlimentosConsumidoses;
     private DatabaseHelper dh;
@@ -69,12 +70,43 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
 
     private void carregarDados() {
         TextView totalPorcoes = (TextView)findViewById(R.id.txtViewValorTotal);
-        int total = 0;
+        TextView totalCalorias = (TextView)findViewById(R.id.txtViewValorTotalKcal);
+
+        int totalP = 0;
+        int totalKcal = 0;
+
         for (AlimentosConsumidos a : listaAlimentosConsumidoses) {
-            total += a.getNumeroPorcoes();
+            totalP += a.getNumeroPorcoes();
+            totalKcal += recuperaKcalGrupoAlimentar(a);
         }
-        totalPorcoes.setText(Integer.toString(total));
+        totalPorcoes.setText(Integer.toString(totalP));
+        totalCalorias.setText(Integer.toString(totalKcal));
     }
+
+    private int recuperaKcalGrupoAlimentar(AlimentosConsumidos a) {
+
+        switch (a.getIdGrupoAlimentar()){
+            case 1:
+                return 150*a.getNumeroPorcoes();
+            case 2:
+                return 15*a.getNumeroPorcoes();
+            case 3:
+                return 35*a.getNumeroPorcoes();
+            case 4:
+                return 55*a.getNumeroPorcoes();
+            case 5:
+                return 190*a.getNumeroPorcoes();
+            case 6:
+                return 120*a.getNumeroPorcoes();
+            case 7:
+                return 73*a.getNumeroPorcoes();
+            case 8:
+                return 100*a.getNumeroPorcoes();
+            default:
+                return 0;
+        }
+    }
+
 
     public  void carregarLista() throws SQLException {
 
@@ -119,27 +151,33 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
                     Intent intent = new Intent(this, AdicionarAlimentoConsumidos.class);
                     intent.putExtra("alimentoConsumido",(Parcelable) listaAlimentosConsumidoses.get(info.position));
                     startActivity(intent);
+                    this.carregarDados();
+                    try {
+                        this.carregarPierChart();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_grafico_alimentos_consumidos, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.item1) {
-            //chamar tela ocm gráficos por data
-            Intent i = new Intent(this, GraficoConsumoAlimData.class);
-            startActivity(i);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_grafico_alimentos_consumidos, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == R.id.item1) {
+//            //chamar tela ocm gráficos por data
+//            Intent i = new Intent(this, GraficoConsumoAlimData.class);
+//            startActivity(i);
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     private void apagar(AlimentosConsumidos alimentosConsumidos) throws SQLException {
         AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
