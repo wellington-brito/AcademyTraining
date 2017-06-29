@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewNome"
-                android:hint="Nome"/>
+                android:hint="Nome*"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -61,13 +61,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewPeso"
-                android:hint="Peso"/>
+                android:hint="Peso(kg)*"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextPeso"
-                android:hint="0.0 kg"
+                android:hint="100kg"
                 android:inputType="numberDecimal"/>
         </TableRow>
 
@@ -81,14 +81,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewAltura"
-                android:hint="Altura"/>
+                android:hint="Altura(cm)*"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextAltura"
-                android:hint="0.0 m"
-                android:inputType="numberDecimal"/>
+                android:hint="120cm"
+                android:inputType="number"/>
         </TableRow>
 
 
@@ -101,7 +101,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewGenero"
-                android:hint="Gênero"/>
+                android:hint="Gênero*"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewIdade"
-                android:hint="Idade"/>
+                android:hint="Idade*"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/textViewAtv"
-                android:hint="Nivel de atividade física"/>
+                android:hint="Nivel de atividade física*"/>
 
             <Spinner
                 android:layout_width="match_parent"

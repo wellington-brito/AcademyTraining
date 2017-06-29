@@ -63,6 +63,8 @@ public class UsuarioActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     @Override

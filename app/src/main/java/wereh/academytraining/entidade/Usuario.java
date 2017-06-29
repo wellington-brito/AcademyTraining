@@ -3,6 +3,7 @@ package wereh.academytraining.entidade;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -20,31 +21,31 @@ public class Usuario implements Parcelable, Serializable {
     public int id;
 
     @DatabaseField
-    public  String nomeUsuario;
+    public String nomeUsuario;
 
     @DatabaseField
-    public float peso;
+    public double peso;
 
-    @DatabaseField
-    public float altura;
+    @DatabaseField(dataType = DataType.DOUBLE)
+    public double altura;
 
     @DatabaseField
     public String genero;
 
     @DatabaseField
-    public float imc;
+    public double imc;
 
     @DatabaseField
-    public float tmb;
+    public double necessidadesDiariasCalorias;
 
     @DatabaseField
-    public float quadril;
+    public double quadril;
 
     @DatabaseField
-    public float cintura;
+    public double cintura;
 
     @DatabaseField
-    public float biceps;
+    public double biceps;
 
     @DatabaseField
     public  int idade;
@@ -52,18 +53,19 @@ public class Usuario implements Parcelable, Serializable {
     @DatabaseField
     public  String nivelAtividade;
 
+    public Usuario(){}
 
-    protected Usuario(Parcel in) {
+    public Usuario(Parcel in) {
         id = in.readInt();
         nomeUsuario = in.readString();
-        peso = in.readFloat();
-        altura = in.readFloat();
+        peso = in.readDouble();
+        altura = in.readDouble();
         genero = in.readString();
-        imc = in.readFloat();
-        tmb = in.readFloat();
-        quadril = in.readFloat();
-        cintura = in.readFloat();
-        biceps = in.readFloat();
+        imc = in.readDouble();
+        necessidadesDiariasCalorias = in.readDouble();
+        quadril = in.readDouble();
+        cintura = in.readDouble();
+        biceps = in.readDouble();
         idade = in.readInt();
         nivelAtividade = in.readString();
     }
@@ -96,36 +98,20 @@ public class Usuario implements Parcelable, Serializable {
         this.nomeUsuario = nomeUsuario;
     }
 
-    public int getIdade() {
-        return idade;
+    public double getPeso() {
+        return peso;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setPeso(double peso) {
+        this.peso = peso;
     }
 
-    public float getCintura() {
-        return cintura;
+    public double getAltura() {
+        return altura;
     }
 
-    public void setCintura(float cintura) {
-        this.cintura = cintura;
-    }
-
-    public float getQuadril() {
-        return quadril;
-    }
-
-    public void setQuadril(float quadril) {
-        this.quadril = quadril;
-    }
-
-    public float getImc() {
-        return imc;
-    }
-
-    public void setImc(float imc) {
-        this.imc = imc;
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
     public String getGenero() {
@@ -136,36 +122,52 @@ public class Usuario implements Parcelable, Serializable {
         this.genero = genero;
     }
 
-    public float getPeso() {
-        return peso;
+    public double getImc() {
+        return imc;
     }
 
-    public void setPeso(float peso) {
-        this.peso = peso;
+    public void setImc(double imc) {
+        this.imc = imc;
     }
 
-    public float getAltura() {
-        return altura;
+    public double getNecessidadesDiariasCalorias() {
+        return necessidadesDiariasCalorias;
     }
 
-    public void setAltura(float altura) {
-        this.altura = altura;
+    public void setNecessidadesDiariasCalorias(double necessidadesDiariasCalorias) {
+        this.necessidadesDiariasCalorias = necessidadesDiariasCalorias;
     }
 
-    public float getTmb() {
-        return tmb;
+    public double getQuadril() {
+        return quadril;
     }
 
-    public void setTmb(float tmb) {
-        this.tmb = tmb;
+    public void setQuadril(double quadril) {
+        this.quadril = quadril;
     }
 
-    public float getBiceps() {
+    public double getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(double cintura) {
+        this.cintura = cintura;
+    }
+
+    public double getBiceps() {
         return biceps;
     }
 
-    public void setBiceps(float biceps) {
+    public void setBiceps(double biceps) {
         this.biceps = biceps;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
     }
 
     public String getNivelAtividade() {
@@ -176,9 +178,6 @@ public class Usuario implements Parcelable, Serializable {
         this.nivelAtividade = nivelAtividade;
     }
 
-    public Usuario() {}
-
-
     @Override
     public int describeContents() {
         return 0;
@@ -188,16 +187,15 @@ public class Usuario implements Parcelable, Serializable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(nomeUsuario);
-        dest.writeFloat(peso);
-        dest.writeFloat(altura);
+        dest.writeDouble(peso);
+        dest.writeDouble(altura);
         dest.writeString(genero);
-        dest.writeFloat(imc);
-        dest.writeFloat(tmb);
-        dest.writeFloat(quadril);
-        dest.writeFloat(cintura);
-        dest.writeFloat(biceps);
+        dest.writeDouble(imc);
+        dest.writeDouble(necessidadesDiariasCalorias);
+        dest.writeDouble(quadril);
+        dest.writeDouble(cintura);
+        dest.writeDouble(biceps);
         dest.writeInt(idade);
         dest.writeString(nivelAtividade);
-
     }
 }

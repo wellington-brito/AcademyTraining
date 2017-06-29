@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
 
@@ -19,8 +18,6 @@ import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
 import wereh.academytraining.negocio.UsuarioBo;
-import wereh.academytraining.persistencia.DatabaseHelper;
-import wereh.academytraining.persistencia.UsuarioDao;
 
 public class AdicionarUsuario extends AppCompatActivity {
 
@@ -72,7 +69,7 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
         EditText idade = (EditText) findViewById(R.id.editTextIdade);
         this.sp = (Spinner) findViewById(R.id.spinneraNivelAtiv);
-//        EditText tmb = (EditText) findViewById(R.id.editTextTmb);
+//        EditText necessidadesDiariasCalorias = (EditText) findViewById(R.id.editTextTmb);
         this.usuarioBo = new UsuarioBo();
         this.usuarioBo.validarCamposDeTexto(nome, peso, altura, genero, idade);
         definirDadosUsuario(nome, peso, altura, genero, idade);
@@ -81,12 +78,19 @@ public class AdicionarUsuario extends AppCompatActivity {
 
     private void definirDadosUsuario(EditText nome,  EditText peso, EditText altura, EditText genero, EditText idade) throws SQLException {
         Usuario usuarioCorrente = new Usuario();
+       // DecimalFormat df = new DecimalFormat("0.##");
         usuarioCorrente.setNomeUsuario(nome.getText().toString());
-        usuarioCorrente.setPeso(Float.parseFloat(peso.getText().toString()));
-        usuarioCorrente.setAltura(Float.parseFloat(altura.getText().toString()));
+      //  double p = Double.parseDouble(peso.getText().toString());
+       // double a = Double.parseDouble(altura.getText().toString());
+       // String pesof = df.format(p);
+        usuarioCorrente.setPeso(Double.parseDouble(peso.getText().toString()));
+        //String alturaf = df.format(a);
+        usuarioCorrente.setAltura(Double.parseDouble(altura.getText().toString()));
         usuarioCorrente.setGenero(genero.getText().toString());
         usuarioCorrente.setIdade(Integer.parseInt(idade.getText().toString()));
         usuarioCorrente.setNivelAtividade((sp.getSelectedItem().toString()));
+        double ndc = calcularTmb(usuarioCorrente);
+        usuarioCorrente.setNecessidadesDiariasCalorias(ndc);
         verificarUsuario(usuarioCorrente);
     }
 
@@ -115,11 +119,11 @@ public class AdicionarUsuario extends AppCompatActivity {
         EditText genero = (EditText) findViewById(R.id.editTextGenero);
         EditText idade = (EditText) findViewById(R.id.editTextIdade);
         this.sp= (Spinner) findViewById(R.id.spinneraNivelAtiv);
-        // EditText tmb = (EditText) findViewById(R.id.editTextTmb);
+        // EditText necessidadesDiariasCalorias = (EditText) findViewById(R.id.editTextTmb);
 
         nome.setText(u.getNomeUsuario());
-        peso.setText(Float.toString(u.getPeso()));
-        altura.setText(Float.toString(u.getAltura()));
+        peso.setText(Double.toString(u.getPeso()));
+        altura.setText(Double.toString(u.getAltura()));
         genero.setText(u.getGenero());
         idade.setText(Integer.toString(u.getIdade()));
 
@@ -132,7 +136,81 @@ public class AdicionarUsuario extends AppCompatActivity {
         }else {
             sp.setSelection(3);
         }
-       // tmb.setText(Float.toString(u.getTmb()));
+       // necessidadesDiariasCalorias.setText(Float.toString(u.getNecessidadesDiariasCalorias()));
 
     }
+
+    public double calcularTmb(Usuario usuarioCorrente) throws SQLException {
+        Usuario u = usuarioCorrente;
+        double c1, c2, c3, c4, tmb; // constantes para o cálculo da taxa metabólica basal
+
+        if (u.getGenero().equals("m") || u.getGenero().equals("M")){
+            c1 = 66.4730;
+            c2 = 13.7516;
+            c3 = 5.0033;
+            c4 = 6.7550;
+            tmb = c1 + (c2 * u.getPeso()) + (c3 * u.getAltura()) - (c4 * u.getIdade());
+           return calcularNdcHomens(tmb, u);
+        }
+        if (u.getGenero().equals("F") || u.getGenero().equals("f")){
+            c1 = 655.0955;
+            c2 = 9.5634;
+            c3 = 1.849;
+            c4 = 4.6756;
+            tmb = c1 + (c2 * u.getPeso()) + (c3 * u.getAltura()) - (c4 * u.getIdade());
+            return  calcularNdcMulheres(tmb, u);
+        }
+        return 0;
+    }
+
+    public  double calcularNdcHomens(double tmb, Usuario u) throws SQLException {
+        if (u.getNivelAtividade().equals("Sedentário")){
+            return tmb * 1.0;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Leve")){
+            return tmb * 1.3;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Leve")){
+            return tmb * 1.11;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Moderada")){
+            return tmb * 1.26;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Moderada")){
+            return tmb * 1.25;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Intensa")){
+            return tmb * 1.42;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Intensa")){
+            return tmb * 1.48;
+        }
+        return 0;
+    }
+
+    public  double calcularNdcMulheres(double tmb, Usuario u) throws SQLException {
+        if (u.getNivelAtividade().equals("Sedentário")){
+            return tmb * 1.0;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Leve")){
+            return tmb * 1.16;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Leve")){
+            return tmb * 1.12;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Moderada")){
+            return tmb * 1.31;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Moderada")){
+            return tmb * 1.27;
+        }
+        if (u.getIdade() <=18 && u.getNivelAtividade().equals("Atividade Intensa")){
+            return tmb * 1.56;
+        }
+        if (u.getIdade() > 18 && u.getNivelAtividade().equals("Atividade Intensa")){
+            return tmb * 1.45;
+        }
+        return 0;
+    }
+
 }

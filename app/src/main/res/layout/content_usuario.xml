@@ -62,7 +62,7 @@
            app:cardElevation="10dp"
            app:cardCornerRadius="5dp"
            app:cardBackgroundColor="@color/cardview_light_background"
-           android:id="@+id/cardViewAltura">
+           android:id="@+id/cardViewPeso">
 
            <LinearLayout
                android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewPeso1"
-                   android:hint="Peso"
+                   android:hint="Peso(kg)"
                    android:textSize="18sp" />
                <TextView
                    android:layout_width="match_parent"
@@ -106,13 +106,13 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewAltura1"
-                   android:hint="Altura"
+                   android:hint="Altura(cm)"
                    android:textSize="18sp" />
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewAltura"
-                   android:hint="Altura"
+                   android:hint="157.0"
                    android:textSize="18sp" />
 
            </LinearLayout>
@@ -212,6 +212,40 @@
                    android:layout_height="match_parent"
                    android:id="@+id/textViewValorNivelAtiv"
                    android:hint="nível de atividade física"
+                   android:textSize="18sp" />
+
+           </LinearLayout>
+
+       </android.support.v7.widget.CardView>
+
+
+       <!--  CardsViews__________________________________ -->
+       <android.support.v7.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="10dp"
+           android:layout_marginTop="390dp"
+           android:layout_marginBottom="30dp"
+           app:cardElevation="10dp"
+           app:cardCornerRadius="5dp"
+           app:cardBackgroundColor="@color/cardview_light_background">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewNiveltmb"
+                   android:hint="Necessidades Diárias de Calorias"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/textViewValorNdc"
+                   android:hint="Estimativa de ingestão  de calorias diárias"
                    android:textSize="18sp" />
 
            </LinearLayout>

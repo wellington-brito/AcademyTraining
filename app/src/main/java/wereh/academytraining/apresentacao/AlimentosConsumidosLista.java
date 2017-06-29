@@ -29,7 +29,9 @@ import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.AlimentosConsumidos;
+import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.negocio.AlimentosConsumidosBo;
+import wereh.academytraining.negocio.UsuarioBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 
 public class AlimentosConsumidosLista extends AppCompatActivity {
@@ -68,18 +70,22 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
         }
     }
 
-    private void carregarDados() {
-        TextView totalPorcoes = (TextView)findViewById(R.id.txtViewValorTotal);
+    private void carregarDados() throws SQLException {
+        Usuario u = new Usuario();
+        UsuarioBo usuarioBo = new UsuarioBo();
+        u = usuarioBo.buscarUsuario(this);
+
+        TextView totalmetaCalorias = (TextView)findViewById(R.id.txtViewValorTotal);
         TextView totalCalorias = (TextView)findViewById(R.id.txtViewValorTotalKcal);
 
-        int totalP = 0;
+        int totalMeta = 0;
         int totalKcal = 0;
 
         for (AlimentosConsumidos a : listaAlimentosConsumidoses) {
-            totalP += a.getNumeroPorcoes();
             totalKcal += recuperaKcalGrupoAlimentar(a);
         }
-        totalPorcoes.setText(Integer.toString(totalP));
+        totalMeta += u.getNecessidadesDiariasCalorias();
+        totalmetaCalorias.setText(Integer.toString(totalMeta));
         totalCalorias.setText(Integer.toString(totalKcal));
     }
 
@@ -151,8 +157,8 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
                     Intent intent = new Intent(this, AdicionarAlimentoConsumidos.class);
                     intent.putExtra("alimentoConsumido",(Parcelable) listaAlimentosConsumidoses.get(info.position));
                     startActivity(intent);
-                    this.carregarDados();
                     try {
+                        this.carregarDados();
                         this.carregarPierChart();
                     } catch (SQLException e) {
                         e.printStackTrace();
