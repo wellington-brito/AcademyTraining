@@ -90,7 +90,9 @@ public class AdicionarUsuario extends AppCompatActivity {
         usuarioCorrente.setIdade(Integer.parseInt(idade.getText().toString()));
         usuarioCorrente.setNivelAtividade((sp.getSelectedItem().toString()));
         double ndc = calcularTmb(usuarioCorrente);
+        double imc = calcularImc(usuarioCorrente);
         usuarioCorrente.setNecessidadesDiariasCalorias(ndc);
+        usuarioCorrente.setImc(imc);
         verificarUsuario(usuarioCorrente);
     }
 
@@ -211,6 +213,15 @@ public class AdicionarUsuario extends AppCompatActivity {
             return tmb * 1.45;
         }
         return 0;
+    }
+
+    private double calcularImc(Usuario usuarioCorrente) {
+        double altura = converteCMparaM(usuario.getAltura());
+        double imc = (usuarioCorrente.getPeso())/(Math.pow(altura , 2));
+        return imc;
+    }
+    public static double converteCMparaM(Double valorCM){
+        return valorCM / 100;
     }
 
 }

@@ -187,7 +187,8 @@
             android:textAllCaps="false"
             android:gravity="center"
             android:layout_above="@+id/buttonTiposAlimentos"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            style="@style/Widget.AppCompat.Button.Small" />
 
     </RelativeLayout>
 

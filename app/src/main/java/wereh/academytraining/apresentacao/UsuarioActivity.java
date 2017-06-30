@@ -19,6 +19,7 @@ import com.j256.ormlite.logger.Log;
 import java.sql.SQLException;
 import java.util.List;
 
+import wereh.academytraining.AnaliseImc;
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
@@ -33,7 +34,6 @@ public class UsuarioActivity extends AppCompatActivity {
     Usuario usuario;
     int qntd;
     UsuarioBo usuarioBo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +63,6 @@ public class UsuarioActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     @Override
@@ -76,9 +74,7 @@ public class UsuarioActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 
     private void verificarUsuario() throws SQLException {
         DatabaseHelper dh = new DatabaseHelper(UsuarioActivity.this);
@@ -98,6 +94,15 @@ public class UsuarioActivity extends AppCompatActivity {
                 throw new UsuarioCadastradoException("Existe mais de um usuario registrado!");
             }
         }
+    }
+
+    public void carregarAtivityClasssificacaoImc(View view) throws SQLException {
+        Bundle b = new Bundle();
+        this.usuarioBo = new UsuarioBo();
+        b.putDouble("imc",this.usuarioBo.buscarUsuario(this).getImc());
+        Intent intent = new Intent(this, AnaliseImc.class);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 }
 

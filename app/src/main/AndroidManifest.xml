@@ -153,6 +153,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
         </activity>
+        <activity
+            android:name=".AnaliseImc"
+            android:label="@string/title_activity_analise_imc"
+            android:parentActivityName=".apresentacao.UsuarioActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.UsuarioActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -37,13 +37,14 @@ public class GruposAlimentaresListaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mListView = (ListView) findViewById(R.id.listViewGruposAlimentares);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(view.getContext(), AlimentosListaActivity.class);
                 intent.putExtra("GrupoAlimentar", (Parcelable) listaGruposAlimentares.get(position));
-                startActivityForResult(intent,2);
+                startActivity(intent);
             }
         });
 

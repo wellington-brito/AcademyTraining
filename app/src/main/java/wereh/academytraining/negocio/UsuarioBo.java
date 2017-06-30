@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import wereh.academytraining.R;
@@ -89,6 +90,7 @@ public class UsuarioBo {
         updateBuilder.updateColumnValue("idade",usuarioCorrente.getIdade());
         updateBuilder.updateColumnValue("nivelAtividade",usuarioCorrente.getNivelAtividade());
         updateBuilder.updateColumnValue("necessidadesDiariasCalorias",usuarioCorrente.getNecessidadesDiariasCalorias());
+        updateBuilder.updateColumnValue("imc",usuarioCorrente.getImc());
         updateBuilder.where().eq("id", usuario.getId());
         return updateBuilder;
     }
@@ -106,6 +108,7 @@ public class UsuarioBo {
         TextView idade = (TextView) usuarioActivity.findViewById(R.id.textViewValorIdade);
         TextView nievelAtividade = (TextView) usuarioActivity.findViewById(R.id.textViewValorNivelAtiv);
         TextView ndc = (TextView) usuarioActivity.findViewById(R.id.textViewValorNdc);
+        TextView imc = (TextView) usuarioActivity.findViewById(R.id.textViewValorimc);
 
         for(Usuario u : listaUsuarios) {
             nome.setText(u.getNomeUsuario());
@@ -114,7 +117,11 @@ public class UsuarioBo {
             genero.setText(u.getGenero());
             idade.setText(Integer.toString(u.getIdade()));
             nievelAtividade.setText(u.getNivelAtividade());
-            ndc.setText(Double.toString(u.getNecessidadesDiariasCalorias()));
+            DecimalFormat df = new DecimalFormat("0.##");
+            String ndcFormatado = df.format(u.getNecessidadesDiariasCalorias());
+            String imcFormatado = df.format(u.getImc());
+            ndc.setText(ndcFormatado);
+            imc.setText(imcFormatado);
            // necessidadesDiariasCalorias.setText(Double.toString(u.getNecessidadesDiariasCalorias()));
         }
     }

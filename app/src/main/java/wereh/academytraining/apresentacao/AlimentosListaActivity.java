@@ -3,9 +3,9 @@ package wereh.academytraining.apresentacao;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,7 +36,9 @@ public class AlimentosListaActivity extends AppCompatActivity {
     public  List<Alimento> lista;
     private ListView mListView;
 
-    final static String SERIES = "series";
+    final String GA = "grupo";
+    GrupoAlimentar gaFinal = new GrupoAlimentar();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +47,10 @@ public class AlimentosListaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final GrupoAlimentar gaFinal = (GrupoAlimentar) getIntent().getSerializableExtra("GrupoAlimentar");
-        getSupportActionBar().setTitle(gaFinal.getNomeGrupoAlimentar());
+
+        this.gaFinal = (GrupoAlimentar) getIntent().getSerializableExtra("GrupoAlimentar");
+       /// Log.i("msg", this.gaFinal.getNomeGrupoAlimentar());
+      //  getSupportActionBar().setTitle(this.gaFinal.getNomeGrupoAlimentar());
 
         try {
             verificarBaseDeAlimentos();
@@ -54,7 +58,7 @@ public class AlimentosListaActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        this.idSelected = gaFinal.getId();
+        this.idSelected = this.gaFinal.getId();
     }
 
 
@@ -66,6 +70,36 @@ public class AlimentosListaActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstaceState){
+        if (this.gaFinal!=null) {
+            savedInstaceState.putSerializable("GrupoAlimentar", this.gaFinal);
+            Log.i("msg", "variavel salva");
+        }
+
+        super.onSaveInstanceState(savedInstaceState);
+
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Sempre chame a superclasse para que possa
+        // restaurar a hierarquia da view
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restaura estados membros da instância salva
+        this.gaFinal = savedInstanceState.getParcelable("GrupoAlimentar");
     }
 
     public void verificarBaseDeAlimentos() throws SQLException {
@@ -101,17 +135,17 @@ public class AlimentosListaActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         int id = item.getItemId();
 
-//        if (id == R.id.action_Menu_Apagar) {
-//            try {
-//                ExercicioBo exercicioBo = new ExercicioBo();
-//                exercicioBo.apagarExercicio(alimentosDoGrupoSelecionado.get(info.position),this);
-//                this.carregarLista();
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }catch (ExercicioNaoCadastradoPeloUsuario d ){
-//                Toast.makeText(this, d.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        }
+/**        if (id == R.id.action_Menu_Apagar) {
+            try {
+                ExercicioBo exercicioBo = new ExercicioBo();
+                exercicioBo.apagarExercicio(alimentosDoGrupoSelecionado.get(info.position),this);
+                this.carregarLista();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }catch (ExercicioNaoCadastradoPeloUsuario d ){
+                Toast.makeText(this, d.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }*/
 
 //        if (id == R.id.action_Menu_Alterar) {
 //            ExercicioBo exercicioBo = new ExercicioBo();
@@ -161,7 +195,9 @@ public class AlimentosListaActivity extends AppCompatActivity {
     }
 
 
-//    public void addAlimentoNaCheckList(Alimento alimento) throws SQLException {
+
+
+    //    public void addAlimentoNaCheckList(Alimento alimento) throws SQLException {
 //        AlimentosConsumidos alimentoListaConsumidos = new AlimentosConsumidos();
 //        alimentoListaConsumidos.setAlimennto(alimento.getNomeAlimento());
 //        alimentoListaConsumidos.setIdAlimento(alimento.getId());
