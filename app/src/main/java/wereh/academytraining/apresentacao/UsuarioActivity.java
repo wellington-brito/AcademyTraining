@@ -1,28 +1,19 @@
 package wereh.academytraining.apresentacao;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.j256.ormlite.logger.Log;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import wereh.academytraining.AnaliseImc;
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Usuario;
-import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
 import wereh.academytraining.negocio.UsuarioBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
@@ -99,10 +90,15 @@ public class UsuarioActivity extends AppCompatActivity {
     public void carregarAtivityClasssificacaoImc(View view) throws SQLException {
         Bundle b = new Bundle();
         this.usuarioBo = new UsuarioBo();
-        b.putDouble("imc",this.usuarioBo.buscarUsuario(this).getImc());
-        Intent intent = new Intent(this, AnaliseImc.class);
-        intent.putExtras(b);
-        startActivity(intent);
+        try {
+            b.putDouble("imc",this.usuarioBo.buscarUsuario(this).getImc());
+            Intent intent = new Intent(this, AnaliseImc.class);
+            intent.putExtras(b);
+            startActivity(intent);
+        }catch (UsuarioCadastradoException u){
+            Toast.makeText(this, u.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
 

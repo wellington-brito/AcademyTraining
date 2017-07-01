@@ -216,7 +216,7 @@ public class AdicionarUsuario extends AppCompatActivity {
     }
 
     private double calcularImc(Usuario usuarioCorrente) {
-        double altura = converteCMparaM(usuario.getAltura());
+        double altura = converteCMparaM(usuarioCorrente.getAltura());
         double imc = (usuarioCorrente.getPeso())/(Math.pow(altura , 2));
         return imc;
     }

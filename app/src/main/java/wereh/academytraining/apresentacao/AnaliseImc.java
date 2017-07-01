@@ -1,4 +1,4 @@
-package wereh.academytraining;
+package wereh.academytraining.apresentacao;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+
+import wereh.academytraining.R;
 
 public class AnaliseImc extends AppCompatActivity {
 

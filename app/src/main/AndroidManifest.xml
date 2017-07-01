@@ -154,13 +154,22 @@
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
         </activity>
         <activity
-            android:name=".AnaliseImc"
+            android:name=".apresentacao.AnaliseImc"
             android:label="@string/title_activity_analise_imc"
             android:parentActivityName=".apresentacao.UsuarioActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.UsuarioActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.ContadorTreino"
+            android:label="@string/title_activity_contador_treino"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
         </activity>
     </application>
 

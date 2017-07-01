@@ -17,9 +17,7 @@ import java.io.Serializable;
 public class Alimento implements Parcelable, Serializable {
 
 
-    public Alimento(){
-
-    }
+    public Alimento(){}
 
     public static final String IDGRUPOALIMENTAR_FIELD_NAME = "GrupoAlimentar";
 

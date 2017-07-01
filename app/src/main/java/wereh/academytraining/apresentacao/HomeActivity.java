@@ -162,6 +162,11 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_Contador){
+            Intent i = new Intent(this, ContadorTreino.class);
+            startActivity(i);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
