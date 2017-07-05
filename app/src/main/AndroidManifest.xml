@@ -102,11 +102,11 @@
         <activity
             android:name=".apresentacao.GruposAlimentaresListaActivity"
             android:label="@string/title_activity_grupos_alimentares_lista"
-            android:parentActivityName=".apresentacao.HomeActivity"
+            android:parentActivityName=".apresentacao.AlimentacaoActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+                android:value="wereh.academytraining.apresentacao.AlimentacaoActivity" />
         </activity>
         <activity
             android:name=".apresentacao.AlimentosListaActivity"
@@ -142,7 +142,7 @@
         <activity
             android:name=".apresentacao.TiposAlimentares"
             android:label="@string/title_activity_tipos_alimentares"
-            android:parentActivityName=".apresentacao.HomeActivity"
+            android:parentActivityName=".apresentacao.AlimentacaoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".apresentacao.FontesReferencias"
@@ -170,6 +170,28 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+
+        <service
+            android:name=".apresentacao.services.Servico"
+            android:exported="false"
+            android:label="Servico">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="SERVICE_TEST" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".apresentacao.AlimentacaoActivity"
+            android:label="@string/title_activity_alimentacao"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+
         </activity>
     </application>
 

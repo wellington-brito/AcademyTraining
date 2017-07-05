@@ -2,7 +2,6 @@ package wereh.academytraining.apresentacao;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,18 +9,17 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import wereh.academytraining.R;
-import wereh.academytraining.apresentacao.fragments.FragmentAlimentosActivity;
+import wereh.academytraining.apresentacao.fragments.FragmentRotinaAlimentarActivity;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoAlimentar;
@@ -34,13 +32,11 @@ import wereh.academytraining.negocio.GruposMuscularesBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.DatabaseManager;
 
-import static wereh.academytraining.R.id.listViewFichaDeTreino;
-
 public class HomeActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private DatabaseHelper dh;
-
+    static int idtab;
 
 
     @Override
@@ -73,7 +69,8 @@ public class HomeActivity extends AppCompatActivity {
     public void onResume() {
         try {
             super.onResume();
-            int idtab = tabLayout.getSelectedTabPosition();
+//            int idtab = tabLayout.getSelectedTabPosition();
+            Log.i("IDTAB", Integer.toString(idtab));
             TabLayout.Tab tab = tabLayout.getTabAt(idtab);
             tab.select();
 
@@ -82,16 +79,16 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
     public void criarPlanejamento(View v) throws SQLException {
-            Intent i = new Intent(this, AdicionarPlanejamento.class);
-            startActivity(i);
+        idtab = tabLayout.getSelectedTabPosition();
+        Intent i = new Intent(this, AdicionarPlanejamento.class);
+        startActivity(i);
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new FragmentActivityPlanejamentos(), "Planej. Treinos");
-        adapter.addFragment(new FragmentAlimentosActivity(), "Alimentos");
+        adapter.addFragment(new FragmentRotinaAlimentarActivity(), "Rotina Alimentar");
         // adapter.addFragment(new ThreeFragment(), "THREE");
         viewPager.setAdapter(adapter);
     }
@@ -145,24 +142,29 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_Ficha) {
+            idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, AdicionarPlanejamento.class);
             startActivity(i);
             return true;
         }
 
         if (id == R.id.action_Perfil) {
+            idtab = tabLayout.getSelectedTabPosition();
+            Log.i("IDTAB", Integer.toString(idtab));
             Intent i = new Intent(this, UsuarioActivity.class);
             startActivity(i);
             return true;
         }
 
         if (id == R.id.action_Material) {
+            idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, FontesReferencias.class);
             startActivity(i);
             return true;
         }
 
         if (id == R.id.action_Contador){
+            idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, ContadorTreino.class);
             startActivity(i);
         }
@@ -204,18 +206,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void carregarAlimentosPrincipais(View v){
+        idtab = tabLayout.getSelectedTabPosition();
         Intent i = new Intent(this, AlimentosConsumidosLista.class);
         startActivity(i);
     }
 
-    public void carregarListaGruposAlimentares(View v){
-
-        Intent i = new Intent(HomeActivity.this, GruposAlimentaresListaActivity.class);
+    public void carregarAlimentacaoActivity(View v){
+        idtab = tabLayout.getSelectedTabPosition();
+        Intent i = new Intent(HomeActivity.this, AlimentacaoActivity.class);
         startActivity(i);
 
     }
-    public void carregarTiposAlimentares(View v){
-        Intent i = new Intent(HomeActivity.this, TiposAlimentares.class);
-        startActivity(i);
-    }
+
 }

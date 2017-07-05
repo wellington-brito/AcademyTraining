@@ -39,4 +39,5 @@
 Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause Alimentos, Nutrição e Dietoterapia(MAHAN et all).\n\n->Icones e Imagens\nhttp://www.flaticon.com/packs/gastronomy-set\n\nhttps://material.io/icons/\n\nhttps://www.shutterstock.com/pt/image-vector/symbol-element-strong-muscles-body-part-361876799?src=i_dXkAyCcT3GsDsu4nVXQg-1-38\n\nImc:http://portalsaude.saude.gov.br/dicas-de-saude/imc-em-adultos.html\n\n->Exercicios e Imagens\nhttp://dicasdemusculacao.org/\n\nhttp://www.musculacao.net/exercicios-musculacao/\n\n->Libs e Pacotes\nBase de dados: ORMLite - http://ormlite.com/\n\nGráficos: MPAndroidchart - https://github.com/PhilJay/MPAndroidChart\n\n</string>
     <string name="title_activity_analise_imc">Análise Imc</string>
     <string name="title_activity_contador_treino">Contador Treino</string>
+    <string name="title_activity_alimentacao">Alimentacao Activity</string>
 </resources>
