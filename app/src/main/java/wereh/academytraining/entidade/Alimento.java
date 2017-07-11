@@ -80,7 +80,11 @@ public class Alimento implements Parcelable, Serializable {
     @DatabaseField
     private int tipoAlimento;
 
+//    @DatabaseField
+//    public int calorias; caso o usuário possa cadastrar alimento deverá informaro número de calorias
 
+//    @DatabaseField
+//    private String idUsuario;
 
 
     public static String getIdgrupoalimentarFieldName() {

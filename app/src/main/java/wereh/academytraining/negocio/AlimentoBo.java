@@ -126,8 +126,6 @@ public class AlimentoBo {
         }catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 
 

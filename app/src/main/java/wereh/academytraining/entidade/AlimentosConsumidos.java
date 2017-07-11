@@ -34,7 +34,7 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
     private int idGrupoAlimentar;
 
     @DatabaseField
-    private Date dia;
+    private Date diaHora;
 
     protected AlimentosConsumidos(Parcel in) {
         id = in.readInt();
@@ -42,6 +42,7 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
         idAlimento = in.readInt();
         numeroPorcoes = in.readInt();
         idGrupoAlimentar = in.readInt();
+        diaHora = new Date(in.readLong());
     }
 
     @Override
@@ -51,6 +52,7 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
         dest.writeInt(idAlimento);
         dest.writeInt(numeroPorcoes);
         dest.writeInt(idGrupoAlimentar);
+        dest.writeLong(diaHora.getTime());
     }
 
     @Override
@@ -111,10 +113,10 @@ public class AlimentosConsumidos implements Parcelable, Serializable {
     }
 
     public Date getDia() {
-        return dia;
+        return diaHora;
     }
 
     public void setDia(Date dia) {
-        this.dia = dia;
+        this.diaHora = dia;
     }
 }

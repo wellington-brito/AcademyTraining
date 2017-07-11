@@ -28,13 +28,13 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical">
+               android:orientation="horizontal">
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="171dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewNome1"
                    android:hint="Nome"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
                <TextView
                    android:layout_width="match_parent"
@@ -63,21 +63,25 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical">
+               android:orientation="horizontal"
+               android:weightSum="1">
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="154dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewPeso1"
                    android:hint="Peso(kg)"
-                   android:textSize="18sp"
-                   android:textAlignment="center" />
+                   android:textSize="20sp"
+                   android:textAlignment="center"
+                   android:layout_weight="0.13" />
+
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="171dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewPeso"
                    android:hint="Peso"
                    android:textSize="18sp"
-                   android:textAlignment="center" />
+                   android:textAlignment="center"
+                   android:layout_weight="0.62" />
 
            </LinearLayout>
 
@@ -98,18 +102,19 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical">
+               android:orientation="horizontal">
 
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="160dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewAltura1"
                    android:hint="Altura(cm)"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
+
                <TextView
                    android:layout_width="match_parent"
-                   android:layout_height="match_parent"
+                   android:layout_height="wrap_content"
                    android:id="@+id/textViewAltura"
                    android:hint="157.0"
                    android:textSize="18sp"
@@ -134,16 +139,16 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical">
+               android:orientation="horizontal">
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="162dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewGenero1"
                    android:hint="Sexo"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="199dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewGenero"
                    android:hint="Sexo"
@@ -169,17 +174,17 @@
            <LinearLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:orientation="vertical">
+               android:orientation="horizontal">
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="161dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewIdade"
                    android:hint="Idade"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
 
                <TextView
-                   android:layout_width="match_parent"
+                   android:layout_width="199dp"
                    android:layout_height="match_parent"
                    android:id="@+id/textViewValorIdade"
                    android:hint="Idade"
@@ -211,7 +216,7 @@
                    android:layout_height="match_parent"
                    android:id="@+id/textViewNivelAtiv"
                    android:hint="Nível de atividade física"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
                <TextView
                    android:layout_width="match_parent"
@@ -247,7 +252,7 @@
                    android:layout_height="match_parent"
                    android:id="@+id/textViewNiveltmb"
                    android:hint="Estimativa de Necessidades Diárias de Calorias"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center"/>
                <TextView
                    android:layout_width="match_parent"
@@ -282,7 +287,7 @@
                    android:layout_height="match_parent"
                    android:id="@+id/textViewNivelimc"
                    android:hint="Estimativa do Índice de Massa Corporal"
-                   android:textSize="18sp"
+                   android:textSize="20sp"
                    android:textAlignment="center" />
                <TextView
                    android:layout_width="match_parent"
@@ -296,7 +301,7 @@
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:onClick="carregarAtivityClasssificacaoImc"
-                   android:text="Detalhes Imc"
+                   android:text="Ver detalhes Imc"
                    android:textAllCaps="false" />
            </LinearLayout>
 

@@ -5,7 +5,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -22,8 +21,6 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.negocio.PlanejamentoBo;
-import wereh.academytraining.persistencia.DatabaseHelper;
-import wereh.academytraining.persistencia.PlanejamentoDao;
 
 public class AdicionarPlanejamento extends AppCompatActivity {
 
@@ -33,7 +30,9 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     EditText dataInicio;
     MaskEditTextChangedListener maskDATA;
     private String[] objetivos = new String[]{"Hipertrofia","Perca de peso"};
-    Spinner sp;
+    private String[] status = new String[]{"Ativo","Inativo"};
+    Spinner spinnerObjetivo;
+    Spinner spinnerStatus;
 
 
     @Override
@@ -46,8 +45,14 @@ public class AdicionarPlanejamento extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, objetivos);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.sp= (Spinner) findViewById(R.id.spinnerObjetivo);
-        this.sp.setAdapter(adapter);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, status);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        this.spinnerObjetivo = (Spinner) findViewById(R.id.spinnerObjetivo);
+        this.spinnerObjetivo.setAdapter(adapter);
+
+        this.spinnerStatus = (Spinner) findViewById(R.id.spinnerStatus);
+        this.spinnerStatus.setAdapter(adapter2);
 
         this.p = (Planejamento) getIntent().getSerializableExtra("planejamento");
 
@@ -77,17 +82,21 @@ public class AdicionarPlanejamento extends AppCompatActivity {
             EditText validade = (EditText) findViewById(R.id.editTextValidade);
 
             nome.setText(p.getNomePlanejamento());
-
             if (p.getObjetivo().equals("Hipertrofia")){
-                sp.setSelection(0);
+                spinnerObjetivo.setSelection(0);
             }else{
-                sp.setSelection(1);
+                spinnerObjetivo.setSelection(1);
             }
             vezesSemana.setText(Integer.toString(p.getVezesNaSemana()));
             SimpleDateFormat formatt = new SimpleDateFormat("dd/MM/yyyy");
             String data = formatt.format(p.getDataInicio());
             dataInicio.setText(data);
             validade.setText(Integer.toString(p.getValidade()));
+            if (p.getStatus().equals("Ativo")){
+                spinnerStatus.setSelection(0);
+            }else{
+                spinnerStatus.setSelection(1);
+            }
         }
 
         this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
@@ -102,7 +111,8 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         EditText vezesNaSemana = (EditText) findViewById(R.id.editTextVezesSemana);
         this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
         EditText validade = (EditText) findViewById(R.id.editTextValidade);
-        this.sp = (Spinner) findViewById(R.id.spinnerObjetivo);
+        this.spinnerObjetivo = (Spinner) findViewById(R.id.spinnerObjetivo);
+        this.spinnerStatus = (Spinner) findViewById(R.id.spinnerStatus);
         this.planejamentoBo = new PlanejamentoBo();
         this.planejamentoBo.validarCamposDeTexto(nomePlanejamento, vezesNaSemana, this.dataInicio, validade );
         definirDadosPlanejamento(nomePlanejamento, vezesNaSemana, this.dataInicio, validade);
@@ -113,13 +123,13 @@ public class AdicionarPlanejamento extends AppCompatActivity {
         Planejamento planejamentoCorrente = new Planejamento();
 
         planejamentoCorrente.setNomePlanejamento(nomePlanejamento.getText().toString());
-        planejamentoCorrente.setObjetivo(sp.getSelectedItem().toString());
+        planejamentoCorrente.setObjetivo(spinnerObjetivo.getSelectedItem().toString());
         planejamentoCorrente.setVezesNaSemana(Integer.parseInt(vezesNaSemana.getText().toString()));
-
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date dataIni = formatter.parse(dataInicio.getText().toString());
         planejamentoCorrente.setDataInicio(dataIni);
         planejamentoCorrente.setValidade(Integer.parseInt(validade.getText().toString()));
+        planejamentoCorrente.setStatus(spinnerStatus.getSelectedItem().toString());
 
         if(this.verificardor == 1){
             planejamentoCorrente.setId(this.p.getId());
@@ -153,9 +163,9 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     }
 
     public void showObjetivos(View v){
-        String obj = (String) this.sp.getSelectedItem();
-        long id = this.sp.getSelectedItemId();
-        int position = this.sp.getSelectedItemPosition();
+        String obj = (String) this.spinnerObjetivo.getSelectedItem();
+        long id = this.spinnerObjetivo.getSelectedItemId();
+        int position = this.spinnerObjetivo.getSelectedItemPosition();
     }
 }
 

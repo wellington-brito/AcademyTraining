@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import wereh.academytraining.R;
@@ -46,20 +47,23 @@ public class AlimentosConsumidosAdatper extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         AlimentosConsumidos alimentosConsumidos = checklist.get(position);
+        SimpleDateFormat formatt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.alimentos_consumidos_item_lista, null);
 
 
-        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
+        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
         nomeAlimento.setText(alimentosConsumidos.getAlimennto());
 
 
         TextView numeroPorcao = (TextView)layout.findViewById(R.id.textViewNumeroPorcoes);
         numeroPorcao.setText(Integer.toString(alimentosConsumidos.getNumeroPorcoes()));
 ////
-//        TextView carga = (TextView)layout.findViewById(R.id.txtViewCarga);
-//        carga.setText(treino.getCarga());
+
+        String diaHoraFormatada = formatt.format(alimentosConsumidos.getDia());
+        TextView diaHora = (TextView)layout.findViewById(R.id.textViewDiaHora);
+        diaHora.setText(diaHoraFormatada);
 //
 //        TextView intervalo = (TextView)layout.findViewById(R.id.txtIntervalo);
 //        intervalo.setText(treino.getIntervalo());

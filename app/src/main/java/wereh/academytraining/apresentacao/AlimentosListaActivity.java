@@ -103,11 +103,9 @@ public class AlimentosListaActivity extends AppCompatActivity {
     }
 
     public void verificarBaseDeAlimentos() throws SQLException {
-        this.dh = new DatabaseHelper(this);
-        this.alimentoDao = new AlimentoDao(dh.getConnectionSource());
-        this.alimentosDoGrupoSelecionado = this.alimentoDao.queryForAll();
+        AlimentoBo alimentoBo = new AlimentoBo();
+        this.alimentosDoGrupoSelecionado = alimentoBo.buscarAlimentos(this);
         if(this.alimentosDoGrupoSelecionado.isEmpty() || this.alimentosDoGrupoSelecionado == null || this.alimentosDoGrupoSelecionado.size() == 0){
-            AlimentoBo alimentoBo = new AlimentoBo();
             alimentoBo.cadastrarAlimentos(this);
         }
     }

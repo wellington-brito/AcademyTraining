@@ -17,9 +17,9 @@ import java.util.Date;
 public class Planejamento implements Parcelable, Serializable {
 
 
-    public  Planejamento(){
+    public  Planejamento(){}
 
-    }
+    public static final String STATUS_FIELD_NAME = "status";
 
     @DatabaseField(generatedId = true)
     private int id;
@@ -42,6 +42,8 @@ public class Planejamento implements Parcelable, Serializable {
     @DatabaseField
     private int validade;
 
+    @DatabaseField
+    private String status;
 
     protected Planejamento(Parcel in) {
         id = in.readInt();
@@ -51,6 +53,7 @@ public class Planejamento implements Parcelable, Serializable {
         observacao = in.readString();
         dataInicio = new Date(in.readLong());
         validade = in.readInt();
+        status = in.readString();
     }
 
     public static final Creator<Planejamento> CREATOR = new Creator<Planejamento>() {
@@ -121,6 +124,14 @@ public class Planejamento implements Parcelable, Serializable {
         this.validade = validade;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -135,6 +146,6 @@ public class Planejamento implements Parcelable, Serializable {
         dest.writeString(observacao);
         dest.writeLong(dataInicio.getTime());
         dest.writeInt(validade);
-
+        dest.writeString(status);
     }
 }

@@ -1,7 +1,10 @@
 package wereh.academytraining.negocio;
 
+import android.content.Context;
 import android.widget.EditText;
 
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.UpdateBuilder;
 
 import java.sql.SQLException;
@@ -28,7 +31,7 @@ public class PlanejamentoBo {
 
     DatabaseHelper dh;
     String a = "";
-
+    List<Planejamento> planejamentos;
     public PlanejamentoBo(){
 
     }
@@ -118,8 +121,23 @@ public class PlanejamentoBo {
         updateBuilder.updateColumnValue("observacao",planejamentoCorrente.getObservacao());
         updateBuilder.updateColumnValue("dataInicio",planejamentoCorrente.getDataInicio());
         updateBuilder.updateColumnValue("validade",planejamentoCorrente.getValidade());
+        updateBuilder.updateColumnValue("status",planejamentoCorrente.getStatus());
         updateBuilder.where().eq("id", p.getId());
         return updateBuilder;
+    }
+
+    public  List<Planejamento> carregarLista(Context context, String status) throws SQLException {
+        this.dh = new DatabaseHelper(context);
+        PlanejamentoDao planejamentoDao = new PlanejamentoDao(this.dh.getConnectionSource());
+        try {
+            QueryBuilder<Planejamento, Integer> queryBuilder = planejamentoDao.queryBuilder();
+            queryBuilder.where().eq(Planejamento.STATUS_FIELD_NAME, status);
+            PreparedQuery<Planejamento> preparedQuery = queryBuilder.prepare();
+            this.planejamentos = planejamentoDao.query(preparedQuery);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return this.planejamentos;
     }
 
 }

@@ -91,7 +91,7 @@ public class AdicionarAlimentoConsumidos extends AppCompatActivity {
         AlimentosConsumidos alimentoConsumido = new AlimentosConsumidos();
         AlimentosConsumidosBo alimentosConsumidosBo = new AlimentosConsumidosBo();
         alimentoConsumido.setNumeroPorcoes(Integer.parseInt(quantidade.getText().toString()));
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date data = formatter.parse(getDateTime());
         alimentoConsumido.setDia(data);
 
@@ -111,7 +111,8 @@ public class AdicionarAlimentoConsumidos extends AppCompatActivity {
     }
 
     private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
         Date date = new Date();
         return dateFormat.format(date);
     }

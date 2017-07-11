@@ -71,8 +71,6 @@ public class GrupoAlimentar implements Parcelable, Serializable {
     @DatabaseField
     public int calorias;
 
-
-
     public int getGrupoImagen(int position){
         switch (position){
             case 0:

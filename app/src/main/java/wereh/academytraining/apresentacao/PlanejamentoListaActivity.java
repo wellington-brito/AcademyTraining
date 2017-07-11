@@ -17,6 +17,7 @@ import java.util.List;
 
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
+import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.GrupoMuscularDao;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -37,7 +38,6 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         mListView = (ListView) findViewById(R.id.listviewPlanejamentos);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -46,9 +46,8 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 intent.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(position));
-                setResult(CODIGO_ACTITIVITY_PLANEJAMENTO,intent);
+                setResult(CODIGO_ACTITIVITY_PLANEJAMENTO, intent);
                 finish();
-
             }
         });
     }
@@ -58,11 +57,11 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == ExerciciosListaActivity.CODIGO_ACTITIVITY_ADICIONAR_TREINO){
+        if (resultCode == ExerciciosListaActivity.CODIGO_ACTITIVITY_ADICIONAR_TREINO) {
 
             Toast.makeText(this, "passou Grupo", Toast.LENGTH_SHORT).show();
-            if(data != null ){
-                setResult(CODIGO_ACTITIVITY_PLANEJAMENTO,data);
+            if (data != null) {
+                setResult(CODIGO_ACTITIVITY_PLANEJAMENTO, data);
                 finish();
             }
         }
@@ -78,19 +77,13 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
         }
     }
 
-    public  void carregarLista() throws SQLException {
-
-        try {
-            dh = new DatabaseHelper(this);
-            PlanejamentoDao planejamentoDao = new PlanejamentoDao(dh.getConnectionSource());
-            listaPlanejamentos = planejamentoDao.queryForAll();
-            //adapter = new ArrayAdapter<GrupoMuscular>(this, adapterLayout, listaGruposMusculares);
-            mListView = (ListView) findViewById(R.id.listviewPlanejamentos);
-            mListView.setAdapter( new PlanejamentoAdapter(this, listaPlanejamentos));
-            //registerForContextMenu(mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void carregarLista() throws SQLException {
+        PlanejamentoBo planejamentoBo = new PlanejamentoBo();
+        this.listaPlanejamentos = planejamentoBo.carregarLista(this, "Ativo");
+        this.mListView = (ListView) findViewById(R.id.listviewPlanejamentos);
+        this.mListView.setAdapter(new PlanejamentoAdapter(this, listaPlanejamentos));
+        //this.mListView.setAdapter( new AlimentosListaAdapter(this,  planejamentoBo.carregarLista(this,this.idSelected)));
+        registerForContextMenu(mListView);
     }
 
 

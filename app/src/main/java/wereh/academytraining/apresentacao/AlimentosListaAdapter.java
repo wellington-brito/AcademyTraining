@@ -5,13 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.security.PublicKey;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import wereh.academytraining.R;
@@ -59,7 +54,7 @@ public class AlimentosListaAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.alimentos_item_lista, null);
 
-        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomeAlimento);
+        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
         nomeAlimento.setText(alimento.getNomeAlimento());
 
         TextView peso = (TextView)layout.findViewById(R.id.txtPesoAlimento);

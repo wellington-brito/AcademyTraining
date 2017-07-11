@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,7 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
     private DatabaseHelper dh;
     private List<Treino> listaTreinos;
     private TreinoDao treinoDao;
-    private Planejamento p ;
+    private Planejamento p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +41,22 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dados_planejamento);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mListView = (ListView) findViewById(R.id.listViewFichaDeTreino);
+        this.p = (Planejamento) getIntent().getSerializableExtra("planejamento");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DadosPlanejamentoActivity.this, AdicionarTreinoActivity.class);
-                startActivity(i);
+                if (p.getStatus().equals("Ativo")) {
+                    Intent i = new Intent(DadosPlanejamentoActivity.this, AdicionarTreinoActivity.class);
+                    startActivity(i);
+                }else {
+                    Toast.makeText(DadosPlanejamentoActivity.this, "Ative este planejamento para poder adicionar um treino!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mListView = (ListView) findViewById(R.id.listViewFichaDeTreino);
-        this.p = (Planejamento) getIntent().getSerializableExtra("planejamento");
 
     }
 
@@ -67,24 +72,38 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
     }
 
 
-    public  void carregarLista() throws SQLException {
-        dh = new DatabaseHelper(this);
-        this.treinoDao  = new TreinoDao(dh.getConnectionSource());
+    public void carregarLista() throws SQLException {
+
+        TreinoBo treinoBo = new TreinoBo();
+
         try {
-            this.listaTreinos = this.treinoDao.queryForEq("idPlanejamento", p.getId() );
-            this.mListView = (ListView)findViewById(R.id.listViewFichaDeTreino);
-            this.mListView.setAdapter( new FichaDeTreinoAdapter(this, this.listaTreinos));
-            registerForContextMenu(this.mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
+            this.listaTreinos = treinoBo.buscarTreinos(this, "idPlanejamento", p.getId());
+            this.mListView = (ListView) findViewById(R.id.listViewFichaDeTreino);
+            this.mListView.setAdapter(new FichaDeTreinoAdapter(this, this.listaTreinos));
+            registerForContextMenu(mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+//        dh = new DatabaseHelper(this);
+//        this.treinoDao = new TreinoDao(dh.getConnectionSource());
+//        try {
+//            this.listaTreinos = this.treinoDao.queryForEq("idPlanejamento", p.getId());
+//            this.mListView = (ListView) findViewById(R.id.listViewFichaDeTreino);
+//            this.mListView.setAdapter(new FichaDeTreinoAdapter(this, this.listaTreinos));
+//            registerForContextMenu(this.mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
+
     private void carregarDadosPlanejamento() {
-        TextView planej =  (TextView) findViewById(R.id.textViewDescricaoPlanej);
-        TextView objetivo =  (TextView) findViewById(R.id.textViewDescricaoObjetivo);
-        TextView diasSemana =  (TextView) findViewById(R.id.txtViewDiasPorSemana);
-        TextView dataIni =  (TextView) findViewById(R.id.txtViewDataInicio);
-        TextView validade =  (TextView) findViewById(R.id.txtViewValidade);
+        TextView planej = (TextView) findViewById(R.id.textViewDescricaoPlanej);
+        TextView objetivo = (TextView) findViewById(R.id.textViewDescricaoObjetivo);
+        TextView diasSemana = (TextView) findViewById(R.id.txtViewDiasPorSemana);
+        TextView dataIni = (TextView) findViewById(R.id.txtViewDataInicio);
+        TextView validade = (TextView) findViewById(R.id.txtViewValidade);
 
         planej.setText(p.getNomePlanejamento());
         objetivo.setText(p.getObjetivo());
@@ -99,12 +118,11 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         menu.setHeaderTitle(listaTreinos.get(info.position).getNomeExercicio());
         MenuInflater inflater = this.getMenuInflater();
         inflater.inflate(R.menu.menu_listview_planej, menu);
     }
-
 
 
     @Override
@@ -114,7 +132,7 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         if (id == R.id.action_Menu_Apagar) {
             try {
                 TreinoBo treinoBo = new TreinoBo();
-                treinoBo.apagarTreino(listaTreinos.get(info.position),this);
+                treinoBo.apagarTreino(listaTreinos.get(info.position), this);
                 this.carregarLista();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -122,10 +140,10 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         }
 
         if (id == R.id.action_Menu_Alterar) {
-                Intent i = new Intent(this, AdicionarTreinoActivity.class);
-                i.putExtra("treino", (Parcelable) listaTreinos.get(info.position));
-                startActivity(i);
-            }
+            Intent i = new Intent(this, AdicionarTreinoActivity.class);
+            i.putExtra("treino", (Parcelable) listaTreinos.get(info.position));
+            startActivity(i);
+        }
 
         if (id == R.id.action_Menu_Detalhes) {
             Intent intent = new Intent(this, TreinoDetalhesActivity.class);

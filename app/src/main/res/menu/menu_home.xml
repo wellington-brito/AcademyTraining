@@ -17,12 +17,7 @@
         android:title="@string/action_Notificações"
         app:showAsAction="always"
         android:icon="@mipmap/ic_notifications_black_24dp"/>
-    <item
-        android:id="@+id/action_Equivalencia"
-        android:orderInCategory="100"
-        android:title="@string/action_Equivalencia"
-        app:showAsAction="never"
-        />
+
     <item
         android:id="@+id/action_Dicas"
         android:orderInCategory="100"
@@ -42,11 +37,6 @@
         android:title="@string/action_Perfil"
         app:showAsAction="never"
         android:icon="@mipmap/ic_person_black_24dp"/>
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
 
     <item
         android:id="@+id/action_Material"

@@ -14,12 +14,17 @@
     tools:showIn="@layout/activity_adicionar_planejamento">
 
 
-    <TableLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tableLayoutDadosTreino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:shrinkColumns="*"  android:stretchColumns="*" android:background="@android:color/transparent"
-        android:id="@+id/tableLayoutDadosTreino"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/transparent"
         android:orientation="horizontal"
         android:paddingBottom="10dp"
         android:paddingEnd="10dp"
@@ -27,146 +32,173 @@
         android:paddingRight="10dp"
         android:paddingStart="10dp"
         android:paddingTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp">
+        android:shrinkColumns="*"
+        android:stretchColumns="*">
 
-        <TableRow android:id="@+id/linha1"
+        <TableRow
+            android:id="@+id/linha1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50">
+
             <TextView
-                android:text="Planejamento*"
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView1"
+                android:text="Planejamento*"
                 android:textSize="18sp" />
 
             <EditText
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="Nome Planejamento"
-                android:ems="10"
                 android:id="@+id/editTextPlanejamento"
-                android:layout_below="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:paddingBottom="10dp"
-                android:layout_height="wrap_content" />
+                android:layout_below="@+id/textView3"
+                android:ems="10"
+                android:hint="Nome Planejamento"
+                android:inputType="textPersonName"
+                android:paddingBottom="10dp" />
         </TableRow>
 
 
-        <TableRow android:id="@+id/linha2"
+        <TableRow
+            android:id="@+id/linha2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50">
+
             <TextView
-                android:text="Objetivo*"
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:paddingBottom="1dp"
-                android:layout_below="@+id/editTextRepeticoes"
                 android:layout_alignParentStart="true"
+                android:layout_below="@+id/editTextRepeticoes"
+                android:paddingBottom="1dp"
+                android:text="Objetivo*"
                 android:textSize="18sp" />
 
             <Spinner
+                android:id="@+id/spinnerObjetivo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tableLayoutDadosTreino"
                 android:layout_alignParentStart="true"
-                android:id="@+id/spinnerObjetivo" />
+                android:layout_below="@+id/tableLayoutDadosTreino" />
 
         </TableRow>
 
 
-        <TableRow android:id="@+id/linha3"
+        <TableRow
+            android:id="@+id/linha3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50">
+
             <TextView
-                android:text="Vezes na semana*"
+                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView3"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp"
+                android:paddingBottom="10dp"
+                android:text="Vezes na semana*"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextVezesSemana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView4"
+                android:ems="10"
+                android:hint="quantidade"
+                android:inputType="number"
                 android:paddingBottom="10dp" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/editTextVezesSemana"
-                android:hint="quantidade"
-                android:paddingBottom="10dp"
-                android:layout_below="@+id/textView4"
-                android:layout_alignParentStart="true"
-                android:layout_height="wrap_content" />
-
         </TableRow>
 
-        <TableRow android:id="@+id/linha4"
+        <TableRow
+            android:id="@+id/linha4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="50">
+
             <TextView
-                android:text="Data Início*"
+                android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4"
                 android:layout_alignParentStart="true"
-                android:textSize="18sp"
-                android:paddingLeft="1dp" />
-
+                android:paddingLeft="1dp"
+                android:text="Data Início*"
+                android:textSize="18sp" />
 
 
             <EditText
-                android:layout_width="wrap_content"
-                android:ems="10"
-                android:paddingBottom="10dp"
-                android:layout_below="@+id/textView4"
-                android:layout_alignParentStart="true"
-                android:layout_height="wrap_content"
                 android:id="@+id/editTextDataInicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView4"
+                android:ems="10"
                 android:hint="dd-mm-aaaa"
-                android:inputType="number" />
+                android:inputType="number"
+                android:paddingBottom="10dp" />
 
         </TableRow>
 
 
-
-    <TableRow android:id="@+id/linha5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="50">
-        <TextView
-            android:text="Validade*"
+        <TableRow
+            android:id="@+id/linha5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView5"
-            android:layout_alignParentStart="true"
-            android:textSize="18sp"
-            android:paddingLeft="1dp" />
+            android:layout_weight="50">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="1dp"
+                android:text="Validade*"
+                android:textSize="18sp" />
 
 
+            <EditText
+                android:id="@+id/editTextValidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView4"
+                android:ems="10"
+                android:hint="X meses"
+                android:inputType="number"
+                android:paddingBottom="10dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:paddingBottom="10dp"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentStart="true"
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/linha6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editTextValidade"
-            android:hint="X meses" />
+            android:layout_weight="50">
 
-    </TableRow>
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingLeft="1dp"
+                android:text="Status*"
+                android:textSize="18sp" />
 
-</TableLayout>
+
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                 />
+
+        </TableRow>
+    </TableLayout>
 
 
 </RelativeLayout>
