@@ -2,7 +2,7 @@
     <string name="app_name">Academy Training</string>
     <string name="action_settings">Configurações</string>
     <string name="action_Perfil">Perfil</string>
-    <string name="action_Notificações">Notificações</string>
+    <string name="action_Notificações">Alertas Diários</string>
     <string name="action_Contador">Contador</string>
     <string name="action_Equivalencia">Equivalencia de Alimentos</string>
     <string name="action_Dicas">Dicas de Alimentação</string>
@@ -20,15 +20,14 @@
     <string name="title_activity_treino_detalhes">Treino Detalhes</string>
 
     <string name="title_activity_dados_treino">Detalhes</string>
-    <string name="title_activity_usuario">Usuario</string>
+    <string name="title_activity_usuario">Meu Perfil</string>
     <string name="title_activity_adicionar_usuario">Adicionar Usuario</string>
     <string name="title_activity_adicionar_planejamento">Adicionar Planejamento</string>
     <string name="title_activity_planejamento_listagem">Planejamentos</string>
-    <string name="title_activity_adicionar_exercicio">Adicionar Exercicio</string>
+    <string name="title_activity_adicionar_exercicio">Adicionar Exercício</string>
     <string name="title_activity_grupos_alimentares_lista">Grupos Alimentares</string>
     <string name="title_activity_alimentos_lista">Alimentos</string>
     <string name="title_activity_adicionar_alimento_consumo">Adicionar Alimento Consumido</string>
-    <string name="title_activity_grafico_consumo_alim_data">GraficoConsumoAlimData</string>
     <string name="title_activity_tipos_alimentares">Tipos de Alimentos</string>
 
     <string name="Energeticos">São os alimentos ricos em CARBOIDRATOS e LIPÍDIOS. Eles vão fornecer energia, que é fundamental para nossa sobrevivência.</string>
@@ -39,5 +38,15 @@
 Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause Alimentos, Nutrição e Dietoterapia(MAHAN et all).\n\n->Icones e Imagens\nhttp://www.flaticon.com/packs/gastronomy-set\n\nhttps://material.io/icons/\n\nhttps://www.shutterstock.com/pt/image-vector/symbol-element-strong-muscles-body-part-361876799?src=i_dXkAyCcT3GsDsu4nVXQg-1-38\n\nImc:http://portalsaude.saude.gov.br/dicas-de-saude/imc-em-adultos.html\n\n->Exercicios e Imagens\nhttp://dicasdemusculacao.org/\n\nhttp://www.musculacao.net/exercicios-musculacao/\n\n->Libs e Pacotes\nBase de dados: ORMLite - http://ormlite.com/\n\nGráficos: MPAndroidchart - https://github.com/PhilJay/MPAndroidChart\n\n</string>
     <string name="title_activity_analise_imc">Análise Imc</string>
     <string name="title_activity_contador_treino">Contador Treino</string>
-    <string name="title_activity_alimentacao">Alimentacao</string>
+    <string name="title_activity_alimentacao">Alimentação</string>
+    <string name="piramideAlimentar">Pirâmide Alimentar: Número de porções diárias recomendadas</string>
+    <string name="title_activity_alertas">Alertas Diários</string>
+
+
+    <string name="time_picker_example">Time Picker Example</string>
+    <string name="time_pick">Pick the time and press save button</string>
+    <string name="time_save">Save</string>
+    <string name="time_selected"></string>
+    <string name="time_current">The Time is:</string>
+    <string name="title_activity_detalhes_consumo_agua">DetalhesConsumoAgua</string>
 </resources>

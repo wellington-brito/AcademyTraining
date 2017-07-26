@@ -169,6 +169,12 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        if (id == R.id.action_Notificações){
+            idtab = tabLayout.getSelectedTabPosition();
+            Intent i = new Intent(this, AlertasActivity.class);
+            startActivity(i);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

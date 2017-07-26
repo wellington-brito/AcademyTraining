@@ -20,48 +20,12 @@
         android:id="@+id/imageViewPiramide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/piramide2"
-        android:layout_below="@+id/textView17" />
+        android:src="@drawable/piramide_alimentar"
+        android:layout_below="@+id/textView17"
+
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/textViewAlimentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonTiposAlimentos"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/imageButtonAlimentos"
-        android:fontFamily="sans-serif"
-        android:gravity="fill_vertical|center_horizontal"
-        android:onClick="carregarListaGruposAlimentares"
-        android:text="Ver Alimentos"
-        android:textSize="18sp"
-        android:typeface="normal" />
-
-    <ImageButton
-        android:id="@+id/imageButtonAlimentos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:onClick="carregarListaGruposAlimentares"
-        app:srcCompat="@android:drawable/ic_menu_view" />
-
-    <Button
-        android:id="@+id/buttonTiposAlimentos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/imageButtonAlimentos"
-        android:gravity="center"
-        android:onClick="carregarTiposAlimentares"
-        android:text="Tipos de Alimentos"
-        android:textAllCaps="false" />
-
-    <TextView
-        android:text="Pirâmide Alimentar: Número de porções diárias recomendadas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView17"
@@ -69,7 +33,31 @@
         android:textSize="18sp"
         android:textAlignment="center"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:text="@string/piramideAlimentar"/>
+
+    <Button
+        android:text="Equivalencia de Alimentos"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/button4"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:onClick="carregarListaGruposAlimentares"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView17" />
+
+    <Button
+        android:id="@+id/buttonTiposAlimentos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:onClick="carregarTiposAlimentares"
+        android:text="Tipos de Alimentos"
+        android:textAllCaps="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/button4" />
 
 </RelativeLayout>
 

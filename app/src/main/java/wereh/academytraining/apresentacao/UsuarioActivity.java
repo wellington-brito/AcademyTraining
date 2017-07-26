@@ -32,6 +32,7 @@ public class UsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_usuario);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +99,6 @@ public class UsuarioActivity extends AppCompatActivity {
         }catch (UsuarioCadastradoException u){
             Toast.makeText(this, u.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
     }
 }
 

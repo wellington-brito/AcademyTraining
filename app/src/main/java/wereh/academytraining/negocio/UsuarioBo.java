@@ -132,9 +132,9 @@ public class UsuarioBo {
         UsuarioDao usuarioDao = new UsuarioDao(dh.getConnectionSource());
         List<Usuario> listaUsuarios = usuarioDao.queryForAll();
         if (listaUsuarios.size()>1){
-            throw  new UsuarioCadastradoException("Problema na identificação dos dados de usuário");
+            throw  new UsuarioCadastradoException("Problema na identificação dos dados de perfil");
         }else if(listaUsuarios.size() ==  0){
-            throw  new UsuarioCadastradoException("Certifique-se de que já está cadastrado no aplicativo");
+            throw  new UsuarioCadastradoException("Informe primeiro seus dados de perfil");
         }else
             return listaUsuarios.get(0);
     }

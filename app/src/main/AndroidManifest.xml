@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="wereh.academytraining">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/launcher"
@@ -136,10 +139,6 @@
                 android:value="wereh.academytraining.apresentacao.AlimentosListaActivity" />
         </activity>
         <activity
-            android:name=".apresentacao.GraficoConsumoAlimData"
-            android:label="@string/title_activity_grafico_consumo_alim_data"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".apresentacao.TiposAlimentares"
             android:label="@string/title_activity_tipos_alimentares"
             android:parentActivityName=".apresentacao.AlimentacaoActivity"
@@ -173,7 +172,7 @@
         </activity>
 
         <service
-            android:name=".apresentacao.services.Servico"
+            android:name=".services_receivers.Servico"
             android:exported="false"
             android:label="Servico">
             <intent-filter>
@@ -191,7 +190,66 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
 
+        <receiver
+            android:name=".services_receivers.HorarioFixoBootReceiver"
+            android:label="BroadCastReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="LEMBRETE_CONSUMO_ALIMENTAR_FIXO" /> <!-- a cada 3 hrs dps q o celular rebootar -->
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".services_receivers.NotifyUserReceiver"
+            android:label="BroadCastReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="LEMBRETE_CONSUMO_ALIMENTAR_USUARIO_DISPARADO" /> <!-- de acordo com o horario definido pelo usuário -->
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".services_receivers.HorarioFixoReceiver"
+            android:label="BroadCastReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="LEMBRETE_CONSUMO_ALIMENTAR_FIXO" /> <!-- a cada 3 hrs -->
+
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".services_receivers.HorarioFixoAguaReceiver"
+            android:label="BroadCastReceiver">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="LEMBRETE_CONSUMO_AGUA" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".apresentacao.AlertasActivity"
+            android:label="@string/title_activity_alertas"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="wereh.academytraining.apresentacao.HomeActivity" />
+
+        <activity android:name=".apresentacao.ConfigurarAlarmeActivity"></activity>
+        <activity
+            android:name=".apresentacao.DetalhesConsumoAgua"
+            android:label="@string/title_activity_detalhes_consumo_agua"
+            android:parentActivityName=".apresentacao.AlertasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.AlertasActivity" />
         </activity>
     </application>
 

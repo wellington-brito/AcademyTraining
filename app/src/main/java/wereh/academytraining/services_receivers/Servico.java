@@ -1,20 +1,11 @@
-package wereh.academytraining.apresentacao.services;
+package wereh.academytraining.services_receivers;
 
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 
 import android.os.IBinder;
 
-import android.os.SystemClock;
-
-import android.view.View;
-import android.widget.Chronometer;
-
 import android.util.Log;
-
-import wereh.academytraining.R;
-import wereh.academytraining.apresentacao.ContadorTreino;
 
 /**
  * Created by wellington on 03/07/17.

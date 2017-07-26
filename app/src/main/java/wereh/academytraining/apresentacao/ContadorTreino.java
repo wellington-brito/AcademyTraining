@@ -1,12 +1,9 @@
 package wereh.academytraining.apresentacao;
 
-import android.app.Service;
 import android.content.Intent;
 
 
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
 import android.os.SystemClock;
 
 import android.support.v7.app.AppCompatActivity;
@@ -31,11 +28,9 @@ import java.util.Date;
 import java.util.List;
 
 import wereh.academytraining.R;
-import wereh.academytraining.apresentacao.services.Servico;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.TempoGasto;
 import wereh.academytraining.entidade.Treino;
-import wereh.academytraining.exceptions.ObjetoDuplicadoException;
 import wereh.academytraining.negocio.TempoGastoBo;
 
 

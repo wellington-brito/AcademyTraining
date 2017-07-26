@@ -12,6 +12,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import wereh.academytraining.entidade.LembretesStatus;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.AlimentosConsumidos;
 import wereh.academytraining.entidade.Exercicio;
@@ -19,7 +20,6 @@ import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.TempoGasto;
-import wereh.academytraining.entidade.TipoAlimento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.entidade.Usuario;
 
@@ -62,6 +62,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, AlimentosConsumidos.class);
             TableUtils.createTable(connectionSource, Alimento.class);
             TableUtils.createTable(connectionSource, TempoGasto.class);
+            TableUtils.createTable(connectionSource, LembretesStatus.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);

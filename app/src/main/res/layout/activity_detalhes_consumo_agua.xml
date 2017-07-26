@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="wereh.academytraining.apresentacao.GraficoConsumoAlimData">
+    tools:context="wereh.academytraining.apresentacao.DetalhesConsumoAgua">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_grafico_consumo_alim_data" />
+    <include layout="@layout/content_detalhes_consumo_agua" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

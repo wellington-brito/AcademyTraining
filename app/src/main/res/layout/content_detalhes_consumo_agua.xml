@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/content_grafico_consumo_alim_data"
+    android:id="@+id/content_detalhes_consumo_agua"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -10,16 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="wereh.academytraining.apresentacao.GraficoConsumoAlimData"
-    tools:showIn="@layout/activity_grafico_consumo_alim_data">
-
-
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_above="@+id/textViewAlimentos"
-        android:layout_alignParentEnd="true" />
+    tools:context="wereh.academytraining.apresentacao.DetalhesConsumoAgua"
+    tools:showIn="@layout/activity_detalhes_consumo_agua">
 
 </RelativeLayout>
