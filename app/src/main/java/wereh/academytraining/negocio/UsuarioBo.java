@@ -134,7 +134,7 @@ public class UsuarioBo {
         if (listaUsuarios.size()>1){
             throw  new UsuarioCadastradoException("Problema na identificação dos dados de perfil");
         }else if(listaUsuarios.size() ==  0){
-            throw  new UsuarioCadastradoException("Informe primeiro seus dados de perfil");
+            throw  new UsuarioCadastradoException("Informe seus dados de perfil");
         }else
             return listaUsuarios.get(0);
     }

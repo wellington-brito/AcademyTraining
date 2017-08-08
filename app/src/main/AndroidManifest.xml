@@ -241,15 +241,51 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="wereh.academytraining.apresentacao.HomeActivity" />
 
-        <activity android:name=".apresentacao.ConfigurarAlarmeActivity"></activity>
+        <activity android:name=".apresentacao.ConfigurarAlarmeActivity" />
         <activity
-            android:name=".apresentacao.DetalhesConsumoAgua"
+            android:name=".apresentacao.DetalhesConsumoAguaActivity"
             android:label="@string/title_activity_detalhes_consumo_agua"
             android:parentActivityName=".apresentacao.AlertasActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.AlertasActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.SuplementosActivity"
+            android:label="@string/title_activity_suplementos"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.AdicionarSuplemento"
+            android:label="@string/title_activity_adicionar_suplemento"
+            android:parentActivityName=".apresentacao.SuplementosActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.SuplementosActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.MedidasCorporaisActivity"
+            android:label="@string/title_activity_medidas_corporais"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.GraficoMedidasActivity"
+            android:label="@string/title_activity_grafico_medidas"
+            android:parentActivityName=".apresentacao.MedidasCorporaisActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.MedidasCorporaisActivity" />
         </activity>
     </application>
 

@@ -28,6 +28,7 @@ import java.util.Date;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.adpters.ContadorTreinoAdapter;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.TempoGasto;
 import wereh.academytraining.entidade.Treino;

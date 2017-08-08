@@ -39,6 +39,11 @@
         android:icon="@mipmap/ic_person_black_24dp"/>
 
     <item
+        android:id="@+id/action_Medidas_Corporais"
+        android:orderInCategory="100"
+        android:title="@string/action_Medidas"
+        />
+    <item
         android:id="@+id/action_Material"
         android:orderInCategory="100"
         android:title="@string/action_Material"

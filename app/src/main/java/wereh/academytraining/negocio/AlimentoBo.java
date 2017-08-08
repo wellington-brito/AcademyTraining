@@ -1,7 +1,6 @@
 package wereh.academytraining.negocio;
 
 import android.content.Context;
-import android.widget.ListView;
 
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -10,14 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AlimentosListaActivity;
-import wereh.academytraining.apresentacao.AlimentosListaAdapter;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.GrupoAlimentar;
 import wereh.academytraining.persistencia.AlimentoDao;
 import wereh.academytraining.persistencia.DatabaseHelper;
-import wereh.academytraining.persistencia.ExercicioDao;
 import wereh.academytraining.persistencia.GrupoAlimentarDao;
 
 /**

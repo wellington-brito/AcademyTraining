@@ -99,7 +99,7 @@ public class AlertasActivity extends AppCompatActivity {
         /**alarmManager1.set(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(), p);**/
         criarStatusLembrete(view);
         configurarButtonsAoAtivarLembretes(view);
-        Toast.makeText(this, "Você receberá um lembrete sempre às 9hr da manhã", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Você receberá um lembrete sempre a cada 3 horas", Toast.LENGTH_SHORT).show();
     }
 
     public void ativaNotificacaoAgua(View view) throws SQLException {
@@ -113,7 +113,7 @@ public class AlertasActivity extends AppCompatActivity {
         /**alarmManager1.set(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(), p);**/
         criarStatusLembrete(view);
         configurarButtonsAoAtivarLembretes(view);
-        Toast.makeText(this, "Você receberá um lembrete a cada 3hr", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Você receberá um lembrete a cada 2 horas!", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -152,7 +152,7 @@ public class AlertasActivity extends AppCompatActivity {
         alarmManager1.cancel(p);
         configurarButtonsAoDesativarLembretes(view);
         apagarStatusLembrete(view);
-        Toast.makeText(this, "Lembrete Desativado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Lembrete Desativado!", Toast.LENGTH_SHORT).show();
     }
 
     public void desativaNotificacaoAgua(View view) throws SQLException {
@@ -162,7 +162,7 @@ public class AlertasActivity extends AppCompatActivity {
         alarmManager1.cancel(p);
         configurarButtonsAoDesativarLembretes(view);
         apagarStatusLembrete(view);
-        Toast.makeText(this, "Lembrete Desativado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Lembrete Desativado!", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -199,7 +199,7 @@ public class AlertasActivity extends AppCompatActivity {
     }
 
     public void carregarDetalhesConsumoAgua(View view){
-        Intent i = new Intent(this, DetalhesConsumoAgua.class);
+        Intent i = new Intent(this, DetalhesConsumoAguaActivity.class);
         startActivity(i);
     }
 }

@@ -20,8 +20,7 @@ import java.util.List;
 import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
-import wereh.academytraining.apresentacao.HomeActivity;
-import wereh.academytraining.apresentacao.PlanejamentoAdapter;
+import wereh.academytraining.apresentacao.adpters.PlanejamentoAdapter;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
 import wereh.academytraining.negocio.PlanejamentoBo;
@@ -41,20 +40,29 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
 
     public FragmentActivityPlanejamentos() {
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.mListView = (ListView)getActivity().findViewById(listViewFichaDeTreino);
         this.dh = new DatabaseHelper(getContext());
+
 
     }
 
     @Override  // Inflate the layout for this fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_planejamento, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_planejamento, container, false);
+        this.mListView = (ListView) rootView.findViewById(R.id.listViewFichaDeTreino);
+        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), DadosPlanejamentoActivity.class);
+                intent.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(position));
+                startActivity(intent);
+            }
+        });
+        return rootView;
     }
 
     @Override
@@ -68,14 +76,12 @@ public class FragmentActivityPlanejamentos extends Fragment {
     }
 
 
-    public  void carregarLista() throws SQLException {
-
-        this.planejamentoDao  = new PlanejamentoDao(dh.getConnectionSource());
-
+    public void carregarLista() throws SQLException {
+        this.planejamentoDao = new PlanejamentoDao(dh.getConnectionSource());
         try {
             listaPlanejamentos = this.planejamentoDao.queryForAll();
-            this.mListView = (ListView)getActivity().findViewById(listViewFichaDeTreino);
-            this.mListView.setAdapter( new PlanejamentoAdapter(getContext(), listaPlanejamentos));
+            this.mListView = (ListView) getActivity().findViewById(listViewFichaDeTreino);
+            this.mListView.setAdapter(new PlanejamentoAdapter(getContext(), listaPlanejamentos));
             registerForContextMenu(mListView);                                                   /// registrar a listview no menu de conteexto senão o menus de opções não carrega
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +92,7 @@ public class FragmentActivityPlanejamentos extends Fragment {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
         menu.setHeaderTitle(listaPlanejamentos.get(info.position).getNomePlanejamento());
         MenuInflater inflater = this.getActivity().getMenuInflater();
         inflater.inflate(R.menu.menu_listview_planej, menu);
@@ -94,7 +100,6 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-
         if (getUserVisibleHint()) {
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
             Fragment fragment = this;
@@ -103,18 +108,17 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
                 if (id == R.id.action_Menu_Apagar) {
                     try {
-
                         apagarPlanejamento(info);
                         this.carregarLista();
+                        Toast.makeText(this.getContext(), "Planejamento Apagado!", Toast.LENGTH_SHORT).show();
                     } catch (SQLException e) {
                         e.printStackTrace();
-                    }catch (DependenciaDeTreinoException d){
+                    } catch (DependenciaDeTreinoException d) {
                         Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 if (id == R.id.action_Menu_Alterar) {
-
                     Intent i = new Intent(this.getContext(), AdicionarPlanejamento.class);
                     i.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
                     startActivity(i);
@@ -129,16 +133,9 @@ public class FragmentActivityPlanejamentos extends Fragment {
 
             }
         }
-
-
-
-
-           return super.onOptionsItemSelected(item);
-            //return true;
-
+        return super.onOptionsItemSelected(item);
+        //return true;
     }
-
-
 
 
     private void apagarPlanejamento(AdapterView.AdapterContextMenuInfo info) throws SQLException {

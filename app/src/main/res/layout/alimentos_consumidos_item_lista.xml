@@ -27,7 +27,7 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:id="@+id/txtNomePlanejamento"
+                android:id="@+id/textViewDia"
                 android:text="Alimento"
                 android:textSize="18sp"
                 android:typeface="normal"
@@ -68,7 +68,7 @@
                 android:id="@+id/textViewDiaHora"
                 android:layout_above="@+id/textView10"
                 android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/txtNomePlanejamento" />
+                android:layout_toEndOf="@+id/textViewDia" />
 
 
         </RelativeLayout>

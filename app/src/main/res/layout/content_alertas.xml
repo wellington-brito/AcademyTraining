@@ -70,7 +70,7 @@
             android:layout_alignParentTop="true"
             android:layout_toStartOf="@+id/buttonAtivar"
             android:paddingTop="7dp"
-            android:text=" Lembretes durante o dia"
+            android:text=" Lembretes a cada 2 horas"
             android:textAlignment="center"
             android:textSize="14sp" />
 
@@ -125,7 +125,7 @@
             android:layout_alignParentTop="true"
             android:layout_toStartOf="@+id/buttonAtivar"
             android:paddingTop="7dp"
-            android:text="Lembretesa cada 3 hrs"
+            android:text="Lembretes a cada 3 hrs"
             android:layout_weight="1"
             android:textAlignment="center"
             android:textSize="14sp" />

@@ -105,9 +105,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     }
 
     private void DefinirObjetosCampoDeTexto(View view) throws ParseException, SQLException {
-      //  Planejamento planejamentoCorrente = new Planejamento();
         EditText nomePlanejamento = (EditText) findViewById(R.id.editTextPlanejamento);
-       // EditText objetivo = (EditText) findViewById(R.id.editTextObjetivo);
         EditText vezesNaSemana = (EditText) findViewById(R.id.editTextVezesSemana);
         this.dataInicio = (EditText) findViewById(R.id.editTextDataInicio);
         EditText validade = (EditText) findViewById(R.id.editTextValidade);

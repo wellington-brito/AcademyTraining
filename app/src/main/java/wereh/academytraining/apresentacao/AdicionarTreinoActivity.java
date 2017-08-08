@@ -10,14 +10,18 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.entidade.Carga;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.ObjetoDuplicadoException;
+import wereh.academytraining.negocio.CargaBo;
 import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -182,12 +186,27 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
             treinoCorrente.setId(this.t.getId());
             treinoCorrente.setIdPlanejamento(this.t.getIdPlanejamento());
             atualizar(treinoCorrente, serie_edt, repeticoes_edt, carga_edt, intevalo_edt, observacao_edt, exercicio_edt, planejamento_edt);
+            registrarEvolucaoCarga(treinoCorrente);
         }
         else {
             treinoCorrente.setIdPlanejamento(this.planejamento.getId());
             this.treinoBo.verificarTreino(treinoCorrente, this);
             salvar(treinoCorrente, serie_edt, repeticoes_edt, carga_edt, intevalo_edt, observacao_edt, exercicio_edt, planejamento_edt);
+            registrarEvolucaoCarga(treinoCorrente);
         }
+    }
+
+    private void registrarEvolucaoCarga(Treino treinoCorrente) throws SQLException {
+        CargaBo cargaBo = new CargaBo();
+        Carga carga = new Carga();
+        carga.setNomeExercico(treinoCorrente.getNomeExercicio());
+        carga.setCarga(treinoCorrente.getCarga());
+        Date data = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(data);
+        Date data_atual = cal.getTime();
+        carga.setDataAlteracao(data_atual);
+        cargaBo.salvar(carga,this);
     }
 
     private void salvar(Treino treinoCorrente, EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {

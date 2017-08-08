@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.adpters.ExerciciosAdapter;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Usuario;

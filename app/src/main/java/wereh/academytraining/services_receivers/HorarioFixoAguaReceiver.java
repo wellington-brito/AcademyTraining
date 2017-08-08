@@ -14,7 +14,7 @@ import android.support.v4.app.NotificationCompat;
 
 import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AlertasActivity;
-import wereh.academytraining.apresentacao.DetalhesConsumoAgua;
+import wereh.academytraining.apresentacao.DetalhesConsumoAguaActivity;
 
 /**
  * Created by wellington on 26/07/17.
@@ -28,14 +28,14 @@ public class HorarioFixoAguaReceiver extends BroadcastReceiver {
     }
     private void gerarNotificação(Context context, Intent intent, String s, String título, String s1) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        PendingIntent p = PendingIntent.getActivity(context, 0, new Intent(context, DetalhesConsumoAgua.class), 0);
+        PendingIntent p = PendingIntent.getActivity(context, 0, new Intent(context, DetalhesConsumoAguaActivity.class), 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setTicker(s);
         builder.setContentTitle(título);
         builder.setContentText(s1);
         builder.setSmallIcon(R.mipmap.launcher);
-        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_notifications_black_24dp));
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.water));
         builder.setContentIntent(p);
 
         Notification n = builder.build();

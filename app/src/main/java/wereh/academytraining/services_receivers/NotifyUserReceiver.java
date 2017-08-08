@@ -24,7 +24,7 @@ public class NotifyUserReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        gerarNotificação(context, new Intent(context, AlertasActivity.class), "Nova Mensagem", "AcademyTraining", "Está no hora de comer alguma coisa!");
+        gerarNotificação(context, new Intent(context, AlertasActivity.class), "Nova Mensagem", "AcademyTraining", "Lanche ou Refeição? não deixe para depois!");
     }
 
     private void gerarNotificação(Context context, Intent intent, String s, String título, String s1) {
@@ -36,7 +36,7 @@ public class NotifyUserReceiver extends BroadcastReceiver {
         builder.setContentTitle(título);
         builder.setContentText(s1);
         builder.setSmallIcon(R.mipmap.launcher);
-        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_notifications_black_24dp));
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.salad));
         builder.setContentIntent(p);
 
         Notification n = builder.build();

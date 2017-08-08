@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/piramide_alimentar"
         android:layout_below="@+id/textView17"
-
         android:layout_alignParentEnd="true" />
 
     <TextView

@@ -10,18 +10,33 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
+
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.entidade.Carga;
 import wereh.academytraining.entidade.Exercicio;
 import wereh.academytraining.entidade.GrupoMuscular;
 import wereh.academytraining.entidade.Treino;
+import wereh.academytraining.negocio.CargaBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.ExercicioDao;
 import wereh.academytraining.persistencia.GrupoMuscularDao;
 
 public class TreinoDetalhesActivity extends AppCompatActivity {
+
+    BarChart chart;
+    List<Carga> listaMedidas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +56,7 @@ public class TreinoDetalhesActivity extends AppCompatActivity {
 
         try {
             buscaImagems(treino);
+            carregarListaMedidas();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,9 +77,42 @@ public class TreinoDetalhesActivity extends AppCompatActivity {
         TextView observacao = (TextView)findViewById(R.id.txtViewObs);
         observacao.setText(treino.getObservacao());
 
+        carregarGrafico(treino);
 
     }
 
+
+
+
+    private void carregarGrafico(Treino treino) {
+        this.chart = (BarChart) findViewById(R.id.chart) ;
+        ArrayList<BarEntry> entries = new ArrayList<>();
+
+        for (int i = 0; i < this.listaMedidas.size(); i++) {
+            if (treino.getNomeExercicio().equals(this.listaMedidas.get(i).getNomeExercico())){
+                entries.add(new BarEntry(i+1, this.listaMedidas.get(i).getCarga()));
+            }
+        }
+
+        BarDataSet dataset = new BarDataSet(entries, "Medidas que você atualizou!");
+        dataset.setColors(ColorTemplate.MATERIAL_COLORS);
+
+        //eixo x
+        ArrayList<String> labels = new ArrayList<String>();
+        for (int i = 0; i < this.listaMedidas.size(); i++) {
+            labels.add(converterData(this.listaMedidas.get(i).getDataAlteracao()));
+        }
+
+        this.chart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(labels));
+
+        BarData data = new BarData(dataset);
+        this.chart.setData(data);
+    }
+
+    private void carregarListaMedidas() throws SQLException{
+        CargaBo cargaBo = new CargaBo();
+        this.listaMedidas = cargaBo.buscarMedidas(this);
+    }
 
     private void buscaImagems(Treino e) throws SQLException {
         ExercicioDao exercicioDao;
@@ -74,13 +123,14 @@ public class TreinoDetalhesActivity extends AppCompatActivity {
 
         ImageView img = (ImageView) findViewById(R.id.imageView);
 
-
         Exercicio ex = new Exercicio();
         img.setImageResource(ex.getExercicioImagen(e.getNomeExercicio()));
 
-
-
-
     }
 
+    private String converterData(Date dataAlteracao) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM");
+        String dataFormatada = formato.format(dataAlteracao);
+        return dataFormatada;
+    }
 }

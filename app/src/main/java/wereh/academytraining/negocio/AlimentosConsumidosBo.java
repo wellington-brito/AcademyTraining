@@ -75,7 +75,7 @@ public class AlimentosConsumidosBo {
         AlimentosConsumidosDao alimentoConsDao = new AlimentosConsumidosDao(this.dh.getConnectionSource());
         UpdateBuilder<AlimentosConsumidos, Integer> updateBuilder = alimentoConsDao.updateBuilder();
         updateBuilder.updateColumnValue("numeroPorcoes",alimentoConsumido.getNumeroPorcoes());
-        updateBuilder.updateColumnValue("dia",alimentoConsumido.getDia());
+        updateBuilder.updateColumnValue("diaHora",alimentoConsumido.getDia());
         updateBuilder.where().eq("id", alimentoConsumido.getId());
         updateBuilder.update();
         Toast.makeText(adicionarAlimentoConsumidos, "Porção consumida atualizada com sucesso!!", Toast.LENGTH_SHORT).show();

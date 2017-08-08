@@ -22,7 +22,7 @@ import java.util.List;
 import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
-import wereh.academytraining.apresentacao.fragments.FichaDeTreinoAdapter;
+import wereh.academytraining.apresentacao.adpters.FichaDeTreinoAdapter;
 import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.TreinoDao;
@@ -58,6 +58,14 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
             }
         });
 
+        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), TreinoDetalhesActivity.class);
+                intent.putExtra("treino", (Parcelable) listaTreinos.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -134,6 +142,8 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
                 TreinoBo treinoBo = new TreinoBo();
                 treinoBo.apagarTreino(listaTreinos.get(info.position), this);
                 this.carregarLista();
+                Toast.makeText(DadosPlanejamentoActivity.this, "Treino Apagado!", Toast.LENGTH_SHORT).show();
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -49,11 +49,13 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_view"
+                app:srcCompat="@mipmap/apple"
                 android:id="@+id/imageButtonAlimentosConsumidos"
                 android:onClick="carregarAlimentosPrincipais"
                 android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:paddingRight="10dp" />
 
         </RelativeLayout>
 
@@ -80,14 +82,16 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_view"
+                app:srcCompat="@mipmap/salad"
                 android:id="@+id/imageButtonAlimentos"
                 android:onClick="carregarAlimentacaoActivity"
                 android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:paddingRight="10dp" />
 
             <TextView
-                android:text="Alimentos"
+                android:text="Alimentação"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewAlimentos"
@@ -129,10 +133,13 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_view"
+                app:srcCompat="@mipmap/dietary_suplement"
                 android:id="@+id/imageButton2"
                 android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:onClick="carregarSuplementosActivity"
+                android:background="@android:color/transparent"
+                android:paddingRight="10dp" />
 
             <TextView
                 android:text="Suplementação"
@@ -141,7 +148,7 @@
                 android:id="@+id/textViewSuplementos"
                 android:textSize="18sp"
                 android:gravity="fill_vertical|center_horizontal"
-
+                android:onClick="carregarSuplementosActivity"
                 android:typeface="normal"
                 android:fontFamily="sans-serif"
                 android:layout_centerVertical="true"

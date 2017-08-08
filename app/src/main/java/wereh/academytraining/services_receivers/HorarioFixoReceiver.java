@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.AlimentosConsumidosLista;
 import wereh.academytraining.apresentacao.ConfigurarAlarmeActivity;
 import wereh.academytraining.apresentacao.AlertasActivity;
 
@@ -24,7 +25,7 @@ public class HorarioFixoReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        gerarNotificação(context, new Intent(context, AlertasActivity.class), "Nova Mensagem", "AcademyTraining", "Lanche ou Refeição? Você escolhe, só não deixe para depois!");
+        gerarNotificação(context, new Intent(context, AlertasActivity.class), "Nova Mensagem", "AcademyTraining", "Lanche ou Refeição? não deixe para depois!");
     }
 
     private void gerarNotificação(Context context, Intent intent, String s, String título, String s1) {
@@ -36,10 +37,11 @@ public class HorarioFixoReceiver extends BroadcastReceiver {
         builder.setContentTitle(título);
         builder.setContentText(s1);
         builder.setSmallIcon(R.mipmap.launcher);
-        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.ic_notifications_black_24dp));
+        builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.mipmap.salad));
         builder.setContentIntent(p);
 
         Notification n = builder.build();
+        builder.setPriority(Notification.PRIORITY_HIGH);
         n.vibrate = new long[]{150, 300, 150, 600};
         n.flags = Notification.FLAG_AUTO_CANCEL;
         nm.notify(R.mipmap.ic_launcher, n);

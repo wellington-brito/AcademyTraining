@@ -3,8 +3,6 @@ package wereh.academytraining.apresentacao;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,11 +14,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.adpters.PlanejamentoAdapter;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
-import wereh.academytraining.persistencia.GrupoMuscularDao;
-import wereh.academytraining.persistencia.PlanejamentoDao;
 
 public class PlanejamentoListaActivity extends AppCompatActivity {
 

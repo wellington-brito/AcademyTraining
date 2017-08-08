@@ -14,7 +14,7 @@ import java.util.Date;
  * Created by wellington on 26/07/17.
  */
 
-@DatabaseTable(tableName = "Alimento")
+@DatabaseTable(tableName = "Agua")
 public class Agua implements Parcelable, Serializable {
 
     public Agua(){}
@@ -23,7 +23,7 @@ public class Agua implements Parcelable, Serializable {
     private int id;
 
     @DatabaseField
-    private int metaDiaria;
+    private double metaDiaria;
 
     @DatabaseField
     private int quantidadeConsumida;
@@ -33,7 +33,7 @@ public class Agua implements Parcelable, Serializable {
 
     protected Agua(Parcel in) {
         id = in.readInt();
-        metaDiaria = in.readInt();
+        metaDiaria = in.readDouble();
         quantidadeConsumida = in.readInt();
         dia = new Date(in.readLong());
     }
@@ -58,11 +58,11 @@ public class Agua implements Parcelable, Serializable {
         this.id = id;
     }
 
-    public int getMetaDIaria() {
+    public double getMetaDIaria() {
         return metaDiaria;
     }
 
-    public void setMetaDIaria(int metaDIaria) {
+    public void setMetaDIaria(double metaDIaria) {
         this.metaDiaria = metaDIaria;
     }
 
@@ -90,7 +90,7 @@ public class Agua implements Parcelable, Serializable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeInt(metaDiaria);
+        dest.writeDouble(metaDiaria);
         dest.writeInt(quantidadeConsumida);
         dest.writeLong(dia.getTime());
     }

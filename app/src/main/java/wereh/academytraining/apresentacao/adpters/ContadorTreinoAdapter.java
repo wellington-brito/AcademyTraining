@@ -1,4 +1,4 @@
-package wereh.academytraining.apresentacao;
+package wereh.academytraining.apresentacao.adpters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,7 +17,8 @@ import wereh.academytraining.entidade.TempoGasto;
  * Created by wellington on 06/07/17.
  */
 
-public class ContadorTreinoAdapter extends BaseAdapter {
+public class
+ContadorTreinoAdapter extends BaseAdapter {
 
 
 
@@ -54,7 +55,7 @@ public class ContadorTreinoAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.tempo_gasto_item_lista, null);
 
-        TextView planejamento = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
+        TextView planejamento = (TextView)layout.findViewById(R.id.textViewDia);
         planejamento.setText(tempoGasto.getNomePlnejamento());
 
         TextView tempo = (TextView)layout.findViewById(R.id.textViewTempo);

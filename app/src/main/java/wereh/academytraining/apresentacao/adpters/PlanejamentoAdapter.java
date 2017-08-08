@@ -1,4 +1,4 @@
-package wereh.academytraining.apresentacao;
+package wereh.academytraining.apresentacao.adpters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -50,7 +50,7 @@ public class PlanejamentoAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.planejamento_item_lista, null);
 
-        TextView nomePlanj = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
+        TextView nomePlanj = (TextView)layout.findViewById(R.id.textViewDia);
         nomePlanj.setText(gm.getNomePlanejamento());
 
         TextView objetivo = (TextView)layout.findViewById(R.id.txtObjetivo);

@@ -38,14 +38,6 @@ public class Usuario implements Parcelable, Serializable {
     @DatabaseField
     public double necessidadesDiariasCalorias;
 
-    @DatabaseField
-    public double quadril;
-
-    @DatabaseField
-    public double cintura;
-
-    @DatabaseField
-    public double biceps;
 
     @DatabaseField
     public  int idade;
@@ -63,9 +55,6 @@ public class Usuario implements Parcelable, Serializable {
         genero = in.readString();
         imc = in.readDouble();
         necessidadesDiariasCalorias = in.readDouble();
-        quadril = in.readDouble();
-        cintura = in.readDouble();
-        biceps = in.readDouble();
         idade = in.readInt();
         nivelAtividade = in.readString();
     }
@@ -138,29 +127,6 @@ public class Usuario implements Parcelable, Serializable {
         this.necessidadesDiariasCalorias = necessidadesDiariasCalorias;
     }
 
-    public double getQuadril() {
-        return quadril;
-    }
-
-    public void setQuadril(double quadril) {
-        this.quadril = quadril;
-    }
-
-    public double getCintura() {
-        return cintura;
-    }
-
-    public void setCintura(double cintura) {
-        this.cintura = cintura;
-    }
-
-    public double getBiceps() {
-        return biceps;
-    }
-
-    public void setBiceps(double biceps) {
-        this.biceps = biceps;
-    }
 
     public int getIdade() {
         return idade;
@@ -192,9 +158,6 @@ public class Usuario implements Parcelable, Serializable {
         dest.writeString(genero);
         dest.writeDouble(imc);
         dest.writeDouble(necessidadesDiariasCalorias);
-        dest.writeDouble(quadril);
-        dest.writeDouble(cintura);
-        dest.writeDouble(biceps);
         dest.writeInt(idade);
         dest.writeString(nivelAtividade);
     }

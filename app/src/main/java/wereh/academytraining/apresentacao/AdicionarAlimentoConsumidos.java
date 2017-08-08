@@ -58,6 +58,11 @@ public class AdicionarAlimentoConsumidos extends AppCompatActivity {
             txtAlimento.setText(alimentoListaConsumidos.getAlimennto());
         }
 
+        if (this.alimento != null){
+            this.txtAlimento = (TextView) findViewById(R.id.textViewNomeAlimento);
+            this.txtAlimento.setText(this.alimento.getNomeAlimento());
+        }
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

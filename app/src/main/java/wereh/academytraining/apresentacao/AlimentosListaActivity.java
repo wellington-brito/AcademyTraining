@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
+import wereh.academytraining.apresentacao.adpters.AlimentosListaAdapter;
 import wereh.academytraining.entidade.Alimento;
 import wereh.academytraining.entidade.AlimentosConsumidos;
 import wereh.academytraining.entidade.GrupoAlimentar;

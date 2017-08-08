@@ -7,7 +7,7 @@
     <string name="action_Equivalencia">Equivalencia de Alimentos</string>
     <string name="action_Dicas">Dicas de Alimentação</string>
     <string name="action_Material">Fontes e Referências</string>
-
+    <string name="action_Medidas">Medidas Corporais</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -48,5 +48,11 @@ Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause
     <string name="time_save">Save</string>
     <string name="time_selected"></string>
     <string name="time_current">The Time is:</string>
-    <string name="title_activity_detalhes_consumo_agua">DetalhesConsumoAgua</string>
+    <string name="title_activity_detalhes_consumo_agua">Água</string>
+    <string name="title_activity_suplementos">Suplementos</string>
+    <string name="title_activity_adicionar_suplemento">Adicionar Suplemento</string>
+    <string name="consumo_agua">Você sabia?\nO corpo não tem capacidade de armazenar água; consequentemente, a quantidade de
+água perdida a cada 24 horas deve ser reposta para manter a saúde e o equilíbrio. Krause Alimentos, Nutrição e Dietoterapia.</string>
+    <string name="title_activity_medidas_corporais">Evolução corporal</string>
+    <string name="title_activity_grafico_medidas">Grafico Medidas</string>
 </resources>

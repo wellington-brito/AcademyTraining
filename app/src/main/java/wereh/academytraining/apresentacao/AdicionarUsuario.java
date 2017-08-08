@@ -17,6 +17,7 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.CampoObrigatorioException;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
+import wereh.academytraining.negocio.AguaBo;
 import wereh.academytraining.negocio.UsuarioBo;
 
 public class AdicionarUsuario extends AppCompatActivity {

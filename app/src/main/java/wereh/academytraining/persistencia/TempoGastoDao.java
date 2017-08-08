@@ -5,7 +5,6 @@ import com.j256.ormlite.support.ConnectionSource;
 
 import java.sql.SQLException;
 
-import wereh.academytraining.entidade.Refeicao;
 import wereh.academytraining.entidade.TempoGasto;
 
 /**

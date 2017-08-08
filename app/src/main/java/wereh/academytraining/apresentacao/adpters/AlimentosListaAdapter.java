@@ -1,4 +1,4 @@
-package wereh.academytraining.apresentacao;
+package wereh.academytraining.apresentacao.adpters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -54,7 +54,7 @@ public class AlimentosListaAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = inflater.inflate(R.layout.alimentos_item_lista, null);
 
-        TextView nomeAlimento = (TextView)layout.findViewById(R.id.txtNomePlanejamento);
+        TextView nomeAlimento = (TextView)layout.findViewById(R.id.textViewDia);
         nomeAlimento.setText(alimento.getNomeAlimento());
 
         TextView peso = (TextView)layout.findViewById(R.id.txtPesoAlimento);

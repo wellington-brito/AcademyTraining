@@ -27,7 +27,7 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:id="@+id/txtNomePlanejamento"
+                android:id="@+id/textViewDia"
                 android:text="Planejamento"
                 android:textSize="24sp"
                 android:typeface="normal"
@@ -65,8 +65,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewTempo"
                 android:textSize="18sp"
-                android:layout_alignBaseline="@+id/txtNomePlanejamento"
-                android:layout_alignBottom="@+id/txtNomePlanejamento"
+                android:layout_alignBaseline="@+id/textViewDia"
+                android:layout_alignBottom="@+id/textViewDia"
                 android:layout_alignParentEnd="true" />
 
             <TextView

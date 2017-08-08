@@ -156,6 +156,14 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        if (id == R.id.action_Medidas_Corporais) {
+            idtab = tabLayout.getSelectedTabPosition();
+            Log.i("IDTAB", Integer.toString(idtab));
+            Intent i = new Intent(this, MedidasCorporaisActivity.class);
+            startActivity(i);
+            return true;
+        }
+
         if (id == R.id.action_Material) {
             idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, FontesReferencias.class);
@@ -220,6 +228,13 @@ public class HomeActivity extends AppCompatActivity {
     public void carregarAlimentacaoActivity(View v){
         idtab = tabLayout.getSelectedTabPosition();
         Intent i = new Intent(HomeActivity.this, AlimentacaoActivity.class);
+        startActivity(i);
+
+    }
+
+    public void carregarSuplementosActivity(View v){
+        idtab = tabLayout.getSelectedTabPosition();
+        Intent i = new Intent(HomeActivity.this, SuplementosActivity.class);
         startActivity(i);
 
     }

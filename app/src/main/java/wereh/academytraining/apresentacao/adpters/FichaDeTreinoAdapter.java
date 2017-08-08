@@ -1,4 +1,4 @@
-package wereh.academytraining.apresentacao.fragments;
+package wereh.academytraining.apresentacao.adpters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

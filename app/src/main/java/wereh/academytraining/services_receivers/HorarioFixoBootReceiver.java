@@ -55,9 +55,9 @@ public class HorarioFixoBootReceiver extends BroadcastReceiver {
         /**c1.set(Calendar.HOUR_OF_DAY,9);
         c1.set(Calendar.MINUTE, 0);**/
         AlarmManager alarmManager1 = (AlarmManager) contexto.getSystemService(ALARM_SERVICE);
-        alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),10800000,p);               // notification ativo a cada 3 horas 10800000
+        alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),7200000,p);  // notification ativo a cada 2 horas 10800000
         //alarmManager1.set(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),p);
-        Toast.makeText(contexto, "Lembrete Consumo de água Ativado novamente a cada 3h", Toast.LENGTH_SHORT).show();
+        Toast.makeText(contexto, "Lembrete Consumo de água Ativado novamente a cada 2hr", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -69,7 +69,7 @@ public class HorarioFixoBootReceiver extends BroadcastReceiver {
         /**c1.set(Calendar.HOUR_OF_DAY,9);
         c1.set(Calendar.MINUTE, 0);**/
         AlarmManager alarmManager1 = (AlarmManager) contexto.getSystemService(ALARM_SERVICE);
-        alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),10800000,p);               // notification ativo a cada 3 horas 10800000
+        alarmManager1.setRepeating(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),10800000,p);     // notification ativo a cada 3 horas 10800000
         /**alarmManager1.set(AlarmManager.RTC_WAKEUP, c1.getTimeInMillis(),p);**/
         Toast.makeText(contexto, "Lembrete Alimentação diária Ativada novamente a cada 3hr", Toast.LENGTH_SHORT).show();
     }

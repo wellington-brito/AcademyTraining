@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_medidas_corporais"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="wereh.academytraining.apresentacao.MedidasCorporaisActivity"
+    tools:showIn="@layout/activity_medidas_corporais">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearlayout1">
+
+        <!--  CardsViews__________________________________ -->
+        <TextView
+            android:text="Gerenciar Medidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            android:id="@+id/cardView1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Braço(cm): "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView27"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextBraco"
+                    android:layout_weight="1"
+                    android:hint="0.0"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp" />
+
+                <ImageButton
+                    android:layout_width="54dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/presentation"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imageButtonBraco"
+                    android:onClick="carregarGraficoProgresso"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--  CardsViews__________________________________ -->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            android:id="@+id/cardView2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Quadril: (cm)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView9"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextQuadril"
+                    android:layout_weight="1"
+                    android:hint="0.0"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp" />
+
+                <ImageButton
+                    android:layout_width="54dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/presentation"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imageButtonQuadril"
+                    android:onClick="carregarGraficoProgresso"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <!--  CardsViews__________________________________ -->
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/cardview_light_background"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            android:id="@+id/cardView3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Perna/Coxa(cm):"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView28"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/editTextPerna"
+                    android:layout_weight="1"
+                    android:hint="0.0"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp" />
+
+                <ImageButton
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@mipmap/presentation"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/imageButtonPerna"
+                    android:onClick="carregarGraficoProgresso"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:text="Salvar mudanças"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button5"
+            android:textAllCaps="false"
+            android:onClick="salvarMedidas" />
+
+    </LinearLayout>
+</RelativeLayout>

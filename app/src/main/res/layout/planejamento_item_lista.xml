@@ -28,7 +28,7 @@
 
             <TextView
                 android:layout_height="wrap_content"
-                android:id="@+id/txtNomePlanejamento"
+                android:id="@+id/textViewDia"
                 android:text="Planejamento"
                 android:textSize="24sp"
                 android:typeface="normal"
@@ -59,7 +59,7 @@
                 android:paddingStart="10dp"
                 android:paddingTop="50dp"
                 android:gravity="left"
-                android:layout_below="@+id/txtNomePlanejamento"
+                android:layout_below="@+id/textViewDia"
                 android:layout_alignParentStart="true"
                 android:textStyle="italic" />
 
