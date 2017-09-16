@@ -168,7 +168,6 @@
         android:id="@+id/textView14"
         android:textSize="18sp"
         android:gravity="fill_vertical|center_horizontal"
-        android:onClick="carregarListaGruposAlimentares"
         android:typeface="normal"
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true"

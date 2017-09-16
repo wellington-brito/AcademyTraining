@@ -1,9 +1,11 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -11,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,7 @@ import wereh.academytraining.R;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.entidade.Treino;
 import wereh.academytraining.apresentacao.adpters.FichaDeTreinoAdapter;
+import wereh.academytraining.negocio.TempoGastoBo;
 import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.TreinoDao;
@@ -45,18 +49,28 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listViewFichaDeTreino);
         this.p = (Planejamento) getIntent().getSerializableExtra("planejamento");
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (p.getStatus().equals("Ativo")) {
                     Intent i = new Intent(DadosPlanejamentoActivity.this, AdicionarTreinoActivity.class);
                     startActivity(i);
-                }else {
+                } else {
                     Toast.makeText(DadosPlanejamentoActivity.this, "Ative este planejamento para poder adicionar um treino!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        if (p.getObjetivo().equals("Hipertrofia")) {
+            Button button = (Button) findViewById(R.id.buttonProtocolos);
+            button.setEnabled(false);
+        }else{
+            Button button = (Button) findViewById(R.id.buttonProtocolos);
+            button.setText("Protocolos HIIT");
+            button.setEnabled(true);
+        }
+
 
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -135,18 +149,30 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int id = item.getItemId();
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                TreinoBo treinoBo = new TreinoBo();
-                treinoBo.apagarTreino(listaTreinos.get(info.position), this);
-                this.carregarLista();
-                Toast.makeText(DadosPlanejamentoActivity.this, "Treino Apagado!", Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Treino")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        TreinoBo treinoBo = new TreinoBo();
+                                        treinoBo.apagarTreino(listaTreinos.get(info.position), DadosPlanejamentoActivity.this);
+                                       carregarLista();
+                                        Toast.makeText(DadosPlanejamentoActivity.this, "Treino Apagado!", Toast.LENGTH_SHORT).show();
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
 
         if (id == R.id.action_Menu_Alterar) {
@@ -161,6 +187,14 @@ public class DadosPlanejamentoActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void carregarProtocolos(View view){
+        Bundle bundle  = new Bundle();
+        bundle.putInt("sistemaTreino", 1);
+        Intent i = new Intent(this, ProtocolosHiitListaActiivity.class);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 
 }

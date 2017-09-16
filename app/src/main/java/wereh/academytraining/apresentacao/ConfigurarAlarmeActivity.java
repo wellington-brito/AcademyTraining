@@ -3,8 +3,11 @@ package wereh.academytraining.apresentacao;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -31,6 +34,9 @@ public class ConfigurarAlarmeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configurar_alarme);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         timePicker = (TimePicker) findViewById(R.id.timePicker1);
         timePicker.setIs24HourView(true);
         time = (TextView) findViewById(R.id.textView1);
@@ -38,9 +44,20 @@ public class ConfigurarAlarmeActivity extends AppCompatActivity {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int min = calendar.get(Calendar.MINUTE);
         showTime(hour, min);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    setTime();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
-    public void setTime(View view) throws SQLException {
+    public void setTime() throws SQLException {
         int hour = timePicker.getCurrentHour();
         int min = timePicker.getCurrentMinute();
         showTime(hour, min);

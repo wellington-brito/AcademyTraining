@@ -31,10 +31,19 @@
             android:textSize="18sp"
             android:layout_marginBottom="10dp" />
 
+        <TextView
+            android:text="Apenas um membro de cada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView31"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             app:cardBackgroundColor="@color/cardview_light_background"
@@ -48,7 +57,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:text="Braço(cm): "
+                    android:text="Bíceps(cm): "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView27"
@@ -59,7 +68,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|number"
                     android:ems="10"
                     android:id="@+id/editTextBraco"
                     android:layout_weight="1"
@@ -108,7 +117,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|number"
                     android:ems="10"
                     android:id="@+id/editTextQuadril"
                     android:layout_weight="1"
@@ -146,7 +155,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:text="Perna/Coxa(cm):"
+                    android:text="Coxa(cm):"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView28"
@@ -157,7 +166,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|number"
                     android:ems="10"
                     android:id="@+id/editTextPerna"
                     android:layout_weight="1"

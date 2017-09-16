@@ -1,6 +1,7 @@
 package wereh.academytraining.apresentacao;
 
 import android.content.Intent;
+import android.os.BaseBundle;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -148,6 +149,14 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+
+        if (id == R.id.action_Sistemas_de_treino) {
+            idtab = tabLayout.getSelectedTabPosition();
+            Intent i = new Intent(this, SistemasDeTreinoListaActivity.class);
+            startActivity(i);
+            return true;
+        }
+
         if (id == R.id.action_Perfil) {
             idtab = tabLayout.getSelectedTabPosition();
             Log.i("IDTAB", Integer.toString(idtab));
@@ -164,20 +173,13 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
-        if (id == R.id.action_Material) {
-            idtab = tabLayout.getSelectedTabPosition();
-            Intent i = new Intent(this, FontesReferencias.class);
-            startActivity(i);
-            return true;
-        }
-
-        if (id == R.id.action_Contador){
+        if (id == R.id.action_Contador) {
             idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, ContadorTreino.class);
             startActivity(i);
         }
 
-        if (id == R.id.action_Notificações){
+        if (id == R.id.action_Notificações) {
             idtab = tabLayout.getSelectedTabPosition();
             Intent i = new Intent(this, AlertasActivity.class);
             startActivity(i);
@@ -190,15 +192,15 @@ public class HomeActivity extends AppCompatActivity {
     private void cadastrarGruposMusculares() throws SQLException {
         GruposMuscularesBo gruposMuscularesBo = new GruposMuscularesBo();
         List<GrupoMuscular> listaGruposMusculares = gruposMuscularesBo.buscarGrupos(this);
-        if (listaGruposMusculares == null || listaGruposMusculares.size() == 0 ){
+        if (listaGruposMusculares == null || listaGruposMusculares.size() == 0) {
             gruposMuscularesBo.cadastrarGruposMusculares(this);
         }
     }
 
-    private void cadastrarGruposAlimentares()throws SQLException {
+    private void cadastrarGruposAlimentares() throws SQLException {
         GrupoAlimentarBo grupoAlimentarBo = new GrupoAlimentarBo();
         List<GrupoAlimentar> listaGruposAlimentares = grupoAlimentarBo.buscarGrupos(this);
-        if (listaGruposAlimentares == null || listaGruposAlimentares.size() == 0 ){
+        if (listaGruposAlimentares == null || listaGruposAlimentares.size() == 0) {
             grupoAlimentarBo.cadastrarGruposAlimentares(this);
         }
     }
@@ -206,7 +208,7 @@ public class HomeActivity extends AppCompatActivity {
     private void cadastrarExercicios() throws SQLException {
         ExercicioBo exercicioBo = new ExercicioBo();
         List<Exercicio> listaExercicios = exercicioBo.buscarExercicios(this);
-        if(listaExercicios == null || listaExercicios.size() == 0){
+        if (listaExercicios == null || listaExercicios.size() == 0) {
             exercicioBo.cadastrarExercicios(this);
         }
     }
@@ -214,25 +216,25 @@ public class HomeActivity extends AppCompatActivity {
     private void cadastrarAlimentos() throws SQLException {
         AlimentoBo alimentoBo = new AlimentoBo();
         List<Alimento> listaAlimentos = alimentoBo.buscarAlimentos(this);
-        if (listaAlimentos == null || listaAlimentos.size() == 0){
+        if (listaAlimentos == null || listaAlimentos.size() == 0) {
             alimentoBo.cadastrarAlimentos(this);
         }
     }
 
-    public void carregarAlimentosPrincipais(View v){
+    public void carregarAlimentosPrincipais(View v) {
         idtab = tabLayout.getSelectedTabPosition();
         Intent i = new Intent(this, AlimentosConsumidosLista.class);
         startActivity(i);
     }
 
-    public void carregarAlimentacaoActivity(View v){
+    public void carregarAlimentacaoActivity(View v) {
         idtab = tabLayout.getSelectedTabPosition();
         Intent i = new Intent(HomeActivity.this, AlimentacaoActivity.class);
         startActivity(i);
 
     }
 
-    public void carregarSuplementosActivity(View v){
+    public void carregarSuplementosActivity(View v) {
         idtab = tabLayout.getSelectedTabPosition();
         Intent i = new Intent(HomeActivity.this, SuplementosActivity.class);
         startActivity(i);

@@ -53,10 +53,7 @@ public class PlanejamentoListaActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == ExerciciosListaActivity.CODIGO_ACTITIVITY_ADICIONAR_TREINO) {
-
-            Toast.makeText(this, "passou Grupo", Toast.LENGTH_SHORT).show();
             if (data != null) {
                 setResult(CODIGO_ACTITIVITY_PLANEJAMENTO, data);
                 finish();

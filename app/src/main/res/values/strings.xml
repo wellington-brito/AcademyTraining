@@ -5,8 +5,8 @@
     <string name="action_Notificações">Alertas Diários</string>
     <string name="action_Contador">Contador</string>
     <string name="action_Equivalencia">Equivalencia de Alimentos</string>
-    <string name="action_Dicas">Dicas de Alimentação</string>
-    <string name="action_Material">Fontes e Referências</string>
+    <string name="action_Sistemas_de_treino">Sistemas de Treino</string>
+    <string name="action_Protocolos_hiit">Protocolos HIIT</string>
     <string name="action_Medidas">Medidas Corporais</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -33,9 +33,20 @@
     <string name="Energeticos">São os alimentos ricos em CARBOIDRATOS e LIPÍDIOS. Eles vão fornecer energia, que é fundamental para nossa sobrevivência.</string>
     <string name="Reguladores">São os alimentos ricos em VITAMINAS, MINERAIS E FIBRAS. Esses são responsáveis por regular nosso sistema imunológico, endócrino, nervoso e respiratório. E as fibras vão regular nossa função intestinal.</string>
     <string name="Construtores">São os alimentos ricos em PROTEÍNAS. Eles vão atuar na formação da massa muscular, regenerar tecidos como a pele, e são muito importante na fase de crescimento, pois atua na formação dos órgãos, músculos e tecidos, além de participar de funções metabólicas, como produção de algumas enzimas.</string>
-    <string name="title_activity_fontes_referencias">Fontes e Referencias</string>
-    <string name="Fontes">->Livros e Artigos\nPirâmide Alimentar Adaptada: Guia para escolha dos alimentos
-Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause Alimentos, Nutrição e Dietoterapia(MAHAN et all).\n\n->Icones e Imagens\nhttp://www.flaticon.com/packs/gastronomy-set\n\nhttps://material.io/icons/\n\nhttps://www.shutterstock.com/pt/image-vector/symbol-element-strong-muscles-body-part-361876799?src=i_dXkAyCcT3GsDsu4nVXQg-1-38\n\nImc:http://portalsaude.saude.gov.br/dicas-de-saude/imc-em-adultos.html\n\n->Exercicios e Imagens\nhttp://dicasdemusculacao.org/\n\nhttp://www.musculacao.net/exercicios-musculacao/\n\n->Libs e Pacotes\nBase de dados: ORMLite - http://ormlite.com/\n\nGráficos: MPAndroidchart - https://github.com/PhilJay/MPAndroidChart\n\n</string>
+
+    <string name="Piramide1">Este método consiste em aumentar o peso adicional e diminuir proporcionalmente o número de repetições a cada grupo de determinado exercício</string>
+    <string name="Piramide2">Como vantagens do método, podemos apontar o aquecimento gradual, preparando o sistema músculo-articular para o aumento progressivo da intensidade que é uma das características do método.</string>
+    <string name="Dropset1">Pode ser caracterizado por três passos,a realização do movimento com técnica perfeita até a falha concêntrica</string>
+    <string name="Dropset2">a redução da carga (em aproximadamente 20%) após a falha, e o prosseguimento do exercício com técnica perfeita até nova falha</string>
+    <string name="Circuito1">Este método consiste em realizar um determinado número de exercícios em lugares determinados. Os circuitos constam normalmente de 6 a 15 exercícios.</string>
+    <string name="Circuito2">Os lugares onde se realizam os exercícios se denominam por "estações" e as pessoas que o praticam, executam na "estação" 1 o exercício estabelecido; em seguida, passam a fazer o exercício da "estação" 2 e assim sucessivamente.</string>
+    <string name="Negativo1">No Sistema Negativo, os músculos envolvidos são estendidos de maneira controlada. Prioriza-se a fase excêntrica com o uso de maior carga, reduzindo ou anulando a fase concêntrica.</string>
+    <string name="Negativo2">Os músculos suportam maiores cargas na excêntrica do que na concêntrica, e acredita-se que priorizando a fase excêntrica maiores ganhos em força e hipertrofia ocorrerão</string>
+    <string name="Gibala1">Este Protocolo consiste em 3 minutos de aquecimento , contendo entre 8 e 12 ciclos de 1 minuto em alta intensidade, acompanhados de 75 segundos de descanso.</string>
+    <string name="Gibala2">Este protocolo é considerado altamente intenso, por isso em 2011 ele sugeriu uma versão baseada em 3 minutos de aquecimento, 10 ciclos de 1 minuto cada, de exercício intenso (perto de 60% da capacidade total), acompanhado de 1 minuto de descanso. </string>
+    <string name="Tabata1">Este protocolo consiste em treinamentos com 8 ciclos de 20 segundos (exercícios em intensidade máxima), com um ciclo de descanso de 10 segundos.</string>
+    <string name="Tabata2"> Esse método foi criado pelo pesquisador Japonês Izumi Tabata</string>
+
     <string name="title_activity_analise_imc">Análise Imc</string>
     <string name="title_activity_contador_treino">Contador Treino</string>
     <string name="title_activity_alimentacao">Alimentação</string>
@@ -45,14 +56,19 @@ Adapted Food Pyramid: A guide for a right food choice(PHILIPPI et al).\n\nKrause
 
     <string name="time_picker_example">Time Picker Example</string>
     <string name="time_pick">Pick the time and press save button</string>
-    <string name="time_save">Save</string>
+    <string name="time_save">Salvar</string>
     <string name="time_selected"></string>
-    <string name="time_current">The Time is:</string>
+    <string name="time_current">Hora Atual</string>
     <string name="title_activity_detalhes_consumo_agua">Água</string>
     <string name="title_activity_suplementos">Suplementos</string>
     <string name="title_activity_adicionar_suplemento">Adicionar Suplemento</string>
-    <string name="consumo_agua">Você sabia?\nO corpo não tem capacidade de armazenar água; consequentemente, a quantidade de
-água perdida a cada 24 horas deve ser reposta para manter a saúde e o equilíbrio. Krause Alimentos, Nutrição e Dietoterapia.</string>
+    <string name="consumo_agua">Você sabia?\nO corpo não tem capacidade de armazenar água; consequentemente, a quantidade de água perdida a cada 24 horas deve ser reposta para manter a saúde e o equilíbrio. Krause Alimentos, Nutrição e Dietoterapia.</string>
     <string name="title_activity_medidas_corporais">Evolução corporal</string>
     <string name="title_activity_grafico_medidas">Grafico Medidas</string>
+    <string name="title_activity_configurar_alarme">Lembrete Alimentação</string>
+    <string name="title_activity_sistemas_de_treino">Sistemas De Treino</string>
+    <string name="title_activity_sistemasde_treino">Sistemas de Treino</string>
+    <string name="title_activity_sistemas_de_treino_lista">Sistemas De Treino</string>
+    <string name="title_activity_protocolos_hiit">Protocolos HIIT</string>
+    <string name="title_activity_protocolos_hiit_lista_actiivity">Protocolos HIIT</string>
 </resources>

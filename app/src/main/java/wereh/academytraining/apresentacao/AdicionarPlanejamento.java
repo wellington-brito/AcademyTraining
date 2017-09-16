@@ -29,7 +29,7 @@ public class AdicionarPlanejamento extends AppCompatActivity {
     int verificardor;
     EditText dataInicio;
     MaskEditTextChangedListener maskDATA;
-    private String[] objetivos = new String[]{"Hipertrofia","Perca de peso"};
+    private String[] objetivos = new String[]{"Hipertrofia","Emagrecimento"};
     private String[] status = new String[]{"Ativo","Inativo"};
     Spinner spinnerObjetivo;
     Spinner spinnerStatus;

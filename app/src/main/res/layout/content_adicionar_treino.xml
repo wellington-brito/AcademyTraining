@@ -40,18 +40,16 @@
             <TextView
                 android:text="Exercicio*"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/textView6"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp" />
 
-            <EditText
-                android:inputType="textPersonName"
-                android:hint="Nome Exercício"
-                android:id="@+id/editTextExercicio"
-                android:layout_width="wrap_content"
-                android:enabled="false" />
+            <TextView
+                android:hint="Escolha o exercicio:"
+                android:id="@+id/textViewPesquisar"
+                android:layout_width="wrap_content"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -63,6 +61,18 @@
 
         </TableRow>
 
+        <TableRow android:id="@+id/linha6.1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:hint="Nome Exercício"
+                android:id="@+id/editTextExercicio"
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
+        </TableRow>
+
         <TableRow android:id="@+id/linha7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -70,19 +80,17 @@
             <TextView
                 android:text="Planejamento*"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:id="@+id/textView7"
                 android:layout_centerVertical="true"
                 android:layout_alignParentStart="true"
                 android:textSize="18sp"
                 android:width="180dp" />
 
-            <EditText
-                android:inputType="textPersonName"
-                android:hint="ID Planejamento"
-                android:id="@+id/editTextPlanejamento"
-                android:layout_width="wrap_content"
-                android:enabled="false"/>
+            <TextView
+                android:hint="Escolha o planejamento:"
+                android:id="@+id/textViewPesquisarPlanejamento"
+                android:layout_width="wrap_content"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -92,7 +100,19 @@
                 android:layout_alignParentEnd="true"
                 android:onClick="carregarPlanejamentos"
                 android:layout_below="@+id/textView6"/>
+        </TableRow>
 
+        <TableRow android:id="@+id/linha7.1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="30dp"
+                android:hint="Planejamento"
+                android:id="@+id/editTextPlanejamento"
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="normal|bold" />
         </TableRow>
 
         <TableRow android:id="@+id/linha1"

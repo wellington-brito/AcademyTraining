@@ -13,7 +13,6 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import wereh.academytraining.R;
-import wereh.academytraining.apresentacao.AlimentosConsumidosLista;
 import wereh.academytraining.apresentacao.ConfigurarAlarmeActivity;
 import wereh.academytraining.apresentacao.AlertasActivity;
 
@@ -21,7 +20,7 @@ import wereh.academytraining.apresentacao.AlertasActivity;
  * Created by wellington on 20/07/17.
  */
 
-public class HorarioFixoReceiver extends BroadcastReceiver {
+public class NotifyHorarioFixoReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 

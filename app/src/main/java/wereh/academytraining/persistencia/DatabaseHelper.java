@@ -37,7 +37,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "bd_projeto";
 
     // sempre que voce mudar objetos em seu database incremente a versao
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public DatabaseHelper(Context context, String databaseName, SQLiteDatabase.CursorFactory factory, int databaseVersion) {
         super(context, databaseName, factory, databaseVersion);

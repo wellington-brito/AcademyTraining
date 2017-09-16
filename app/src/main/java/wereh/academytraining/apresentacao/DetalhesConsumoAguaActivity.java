@@ -1,10 +1,12 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -31,6 +33,7 @@ import wereh.academytraining.entidade.Agua;
 import wereh.academytraining.entidade.Usuario;
 import wereh.academytraining.exceptions.UsuarioCadastradoException;
 import wereh.academytraining.negocio.AguaBo;
+import wereh.academytraining.negocio.TreinoBo;
 import wereh.academytraining.negocio.UsuarioBo;
 
 public class DetalhesConsumoAguaActivity extends AppCompatActivity {
@@ -236,16 +239,31 @@ public class DetalhesConsumoAguaActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int id = item.getItemId();
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                apagar(listaConsumoAgua.get(info.position));
-                this.carrgarLista();
-                this.carregardados();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Registro do consumo de água")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        apagar(listaConsumoAgua.get(info.position));
+                                        Toast.makeText(DetalhesConsumoAguaActivity.this, "Treino Apagado!", Toast.LENGTH_SHORT).show();
+
+                                        carrgarLista();
+                                        carregardados();
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
+
         }
         return super.onOptionsItemSelected(item);
     }

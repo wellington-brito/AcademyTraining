@@ -1,9 +1,11 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -155,19 +157,35 @@ public class ExerciciosListaActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
         int id = item.getItemId();
 
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                ExercicioBo exercicioBo = new ExercicioBo();
-                exercicioBo.apagarExercicio(exerciciosDoGrupoSelecionado.get(info.position),this);
-                this.carregarLista();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }catch (ExercicioNaoCadastradoPeloUsuario d ){
-                Toast.makeText(this, d.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Exercício")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        ExercicioBo exercicioBo = new ExercicioBo();
+                                        exercicioBo.apagarExercicio(exerciciosDoGrupoSelecionado.get(info.position),ExerciciosListaActivity.this);
+                                        Toast.makeText(ExerciciosListaActivity.this, "Apagado!", Toast.LENGTH_SHORT).show();
+
+                                        carregarLista();
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }catch (ExercicioNaoCadastradoPeloUsuario d ){
+                                        Toast.makeText(ExerciciosListaActivity.this, d.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
+
         }
 
         if (id == R.id.action_Menu_Alterar) {

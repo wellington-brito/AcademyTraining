@@ -20,7 +20,7 @@ import wereh.academytraining.apresentacao.DetalhesConsumoAguaActivity;
  * Created by wellington on 26/07/17.
  */
 
-public class HorarioFixoAguaReceiver extends BroadcastReceiver {
+public class NotifyHorarioFixoAguaReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 

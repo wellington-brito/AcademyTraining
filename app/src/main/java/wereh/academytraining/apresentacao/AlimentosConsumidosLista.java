@@ -1,7 +1,9 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -121,9 +123,7 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
 
 
     public void carregarLista() throws SQLException {
-
         this.alimentosConsumidosBo = new AlimentosConsumidosBo();
-
         try {
             listaAlimentosConsumidoses = this.alimentosConsumidosBo.buscarAlimentosCheckList(this);
             this.mListView = (ListView) findViewById(R.id.alimentosConsumidos);
@@ -146,17 +146,31 @@ public class AlimentosConsumidosLista extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int id = item.getItemId();
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                apagar(listaAlimentosConsumidoses.get(info.position));
-                this.carregarLista();
-                this.carregarDados();
-                this.carregarPierChart();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Alimento Consumido")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        apagar(listaAlimentosConsumidoses.get(info.position));
+                                        carregarLista();
+                                        carregarDados();
+                                        carregarPierChart();
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
+
         }
 
         if (id == R.id.action_Menu_Alterar) {

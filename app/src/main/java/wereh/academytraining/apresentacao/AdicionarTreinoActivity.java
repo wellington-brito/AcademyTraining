@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.SQLException;
@@ -77,7 +78,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
             EditText carga_Edt = (EditText) findViewById(R.id.editTextCarga);
             EditText intervalo_Edt = (EditText) findViewById(R.id.editTextIntervalo);
             EditText observacao_Edt = (EditText) findViewById(R.id.editTextObservacaro);
-            EditText exercicio_Edt = (EditText) findViewById(R.id.editTextExercicio);
+            TextView exercicio_Edt = (TextView) findViewById(R.id.editTextExercicio);
             EditText planejamento_edt = (EditText) findViewById(R.id.editTextPlanejamento);
 
             serie_Edt.setText(Integer.toString(t.getSerie()));
@@ -139,7 +140,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == GruposMuscularesListaActivity.CODIGO_ACTITIVITY_GRUPOS_MUSCULARES){
             if(data != null ){
-                EditText txtExercicio = (EditText) findViewById(R.id.editTextExercicio);
+                TextView txtExercicio = (TextView) findViewById(R.id.editTextExercicio);
                 Bundle bulndle = data.getExtras();
                 this.exercicio = bulndle.getParcelable("exercicio");
                 txtExercicio.setText(exercicio.getNomeExercicio());
@@ -149,7 +150,7 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
 
         if(resultCode == PlanejamentoListaActivity.CODIGO_ACTITIVITY_PLANEJAMENTO){
             if(data != null ){
-                EditText txtPlanejamento = (EditText) findViewById(R.id.editTextPlanejamento);
+                TextView txtPlanejamento = (TextView) findViewById(R.id.editTextPlanejamento);
                 Bundle bulndle = data.getExtras();
                 this.planejamento = bulndle.getParcelable("planejamento");
                 txtPlanejamento.setText(planejamento.getNomePlanejamento());
@@ -165,14 +166,14 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
         EditText carga_edt = (EditText) findViewById(R.id.editTextCarga);
         EditText intervalo_edt = (EditText) findViewById(R.id.editTextIntervalo);
         EditText observacao_edt = (EditText) findViewById(R.id.editTextObservacaro);
-        EditText exercicio_edt = (EditText) findViewById(R.id.editTextExercicio);
-        EditText planejamento_edt = (EditText) findViewById(R.id.editTextPlanejamento);
+        TextView exercicio_edt = (TextView) findViewById(R.id.editTextExercicio);
+        TextView planejamento_edt = (TextView) findViewById(R.id.editTextPlanejamento);
         this.treinoBo = new TreinoBo();
         this.treinoBo.validarCamposDeTexto(serie_edt, repeticoes_edt, carga_edt, intervalo_edt, observacao_edt, exercicio_edt,planejamento_edt);
         definirDadosTreino(serie_edt, repeticoes_edt, carga_edt, intervalo_edt, observacao_edt, exercicio_edt, planejamento_edt);
     }
 
-    private void definirDadosTreino(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
+    private void definirDadosTreino(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, TextView exercicio_edt, TextView planejamento_edt) throws SQLException {
         Treino treinoCorrente = new Treino();
         this.treinoBo = new TreinoBo();
         treinoCorrente.setSerie(Integer.parseInt(serie_edt.getText().toString()));
@@ -209,17 +210,17 @@ public class AdicionarTreinoActivity extends AppCompatActivity {
         cargaBo.salvar(carga,this);
     }
 
-    private void salvar(Treino treinoCorrente, EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
+    private void salvar(Treino treinoCorrente, EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, TextView exercicio_edt, TextView planejamento_edt) throws SQLException {
         this.treinoBo.salvar(treinoCorrente, this);
         limparCampos( serie_edt, repeticoes_edt, carga_edt, intevalo_edt, observacao_edt, exercicio_edt, planejamento_edt );
     }
 
-    private void atualizar(Treino treinoCorrente, EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
+    private void atualizar(Treino treinoCorrente, EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, TextView exercicio_edt, TextView planejamento_edt) throws SQLException {
         this.treinoBo.atualizar(treinoCorrente, this, this.t);
         limparCampos( serie_edt, repeticoes_edt, carga_edt, intevalo_edt, observacao_edt, exercicio_edt, planejamento_edt );
     }
 
-    private void limparCampos(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
+    private void limparCampos(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, TextView exercicio_edt, TextView planejamento_edt) throws SQLException {
         serie_edt.setText("");
         repeticoes_edt.setText("");
         carga_edt.setText("");

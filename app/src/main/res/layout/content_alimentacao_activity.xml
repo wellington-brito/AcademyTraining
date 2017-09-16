@@ -16,14 +16,6 @@
     tools:showIn="@layout/activity_alimentacao">
 
 
-    <ImageView
-        android:id="@+id/imageViewPiramide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/piramide_alimentar"
-        android:layout_below="@+id/textView17"
-        android:layout_alignParentEnd="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,6 +49,111 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/button4" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView17"
+        android:paddingTop="10dp"
+        android:layout_height="350dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/relativeLayoutPiramide">
+        <ImageView
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/paes"
+            android:id="@+id/imageView8"
+            android:scaleType="fitStart"
+            android:layout_height="85dp"
+            android:onClick="descricaoImage"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/hortalicas"
+            android:id="@+id/imageView6"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
+            android:onClick="descricaoImage"
+            android:layout_above="@+id/imageView8"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/frutas"
+            android:id="@+id/imageView7"
+            android:layout_width="150dp"
+            android:layout_height="85dp"
+            android:onClick="descricaoImage"
+            android:layout_above="@+id/imageView8"
+            android:layout_toRightOf="@+id/imageView6"
+            android:layout_toEndOf="@+id/imageView6"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginRight="10dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/doces"
+            android:id="@+id/imageView2"
+            android:onClick="descricaoImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_above="@+id/imageView4"
+            android:layout_toRightOf="@+id/imageView6"
+            android:layout_toEndOf="@+id/imageView6"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/oleos"
+            android:id="@+id/imageView1"
+            android:onClick="descricaoImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_above="@+id/imageView3"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_toStartOf="@+id/imageView2"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp" />
+
+        <ImageView
+            app:srcCompat="@drawable/leite"
+            android:id="@+id/imageView3"
+            android:onClick="descricaoImage"
+            android:layout_marginLeft="10dp"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_above="@+id/imageView6"
+            android:layout_toStartOf="@+id/imageView4" />
+
+        <ImageView
+            app:srcCompat="@drawable/carnes"
+            android:id="@+id/imageView4"
+            android:layout_width="80dp"
+            android:onClick="descricaoImage"
+            android:layout_height="70dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            app:srcCompat="@drawable/leguminosas"
+            android:id="@+id/imageView5"
+            android:onClick="descricaoImage"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_below="@+id/imageView2"
+            android:layout_toEndOf="@+id/imageView4" />
+    </RelativeLayout>
 
 </RelativeLayout>
 

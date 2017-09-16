@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".apresentacao.HomeActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
             <!-- android:theme="@style/AppTheme.NoActionBar"> -->
             <intent-filter>
@@ -26,32 +27,38 @@
             android:name=".apresentacao.GruposMuscularesListaActivity"
             android:label="@string/title_activity_grupos_musculares"
             android:launchMode="singleTop"
-            android:parentActivityName=".apresentacao.AdicionarTreinoActivity" />
+            android:parentActivityName=".apresentacao.AdicionarTreinoActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".apresentacao.ExerciciosListaActivity"
             android:label="@string/title_activity_exercicios_lista"
             android:launchMode="singleTop"
-            android:parentActivityName=".apresentacao.GruposMuscularesListaActivity" />
+            android:parentActivityName=".apresentacao.GruposMuscularesListaActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".apresentacao.ExercicioDetalhesActivity"
             android:label="@string/title_activity_exercicios_detalhes"
-            android:parentActivityName=".apresentacao.ExerciciosListaActivity" />
+            android:parentActivityName=".apresentacao.ExerciciosListaActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".apresentacao.AdicionarTreinoActivity"
             android:label="@string/title_activity_ficha_de_treino"
             android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".apresentacao.TreinoDetalhesActivity"
             android:label="@string/title_activity_treino_detalhes"
             android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".apresentacao.DadosPlanejamentoActivity"
             android:label="@string/title_activity_dados_treino"
             android:launchMode="singleTop"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -61,6 +68,7 @@
             android:name=".apresentacao.UsuarioActivity"
             android:label="@string/title_activity_usuario"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -70,6 +78,7 @@
             android:name=".apresentacao.AdicionarUsuario"
             android:label="@string/title_activity_adicionar_usuario"
             android:parentActivityName=".apresentacao.UsuarioActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -79,6 +88,7 @@
             android:name=".apresentacao.AdicionarPlanejamento"
             android:label="@string/title_activity_adicionar_planejamento"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -88,6 +98,7 @@
             android:name=".apresentacao.PlanejamentoListaActivity"
             android:label="@string/title_activity_planejamento_listagem"
             android:parentActivityName=".apresentacao.AdicionarTreinoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -97,6 +108,7 @@
             android:name=".apresentacao.AdicionarExercicioActivity"
             android:label="@string/title_activity_adicionar_exercicio"
             android:parentActivityName=".apresentacao.ExerciciosListaActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -106,6 +118,7 @@
             android:name=".apresentacao.GruposAlimentaresListaActivity"
             android:label="@string/title_activity_grupos_alimentares_lista"
             android:parentActivityName=".apresentacao.AlimentacaoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -115,6 +128,7 @@
             android:name=".apresentacao.AlimentosListaActivity"
             android:label="@string/title_activity_alimentos_lista"
             android:parentActivityName=".apresentacao.GruposAlimentaresListaActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -124,6 +138,7 @@
             android:name=".apresentacao.AlimentosConsumidosLista"
             android:label="Alimentos Consumidos"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -133,6 +148,7 @@
             android:name=".apresentacao.AdicionarAlimentoConsumidos"
             android:label="@string/title_activity_adicionar_alimento_consumo"
             android:parentActivityName=".apresentacao.AlimentosListaActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -142,20 +158,13 @@
             android:name=".apresentacao.TiposAlimentares"
             android:label="@string/title_activity_tipos_alimentares"
             android:parentActivityName=".apresentacao.AlimentacaoActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".apresentacao.FontesReferencias"
-            android:label="@string/title_activity_fontes_referencias"
-            android:parentActivityName=".apresentacao.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="wereh.academytraining.apresentacao.HomeActivity" />
-        </activity>
         <activity
             android:name=".apresentacao.AnaliseImc"
             android:label="@string/title_activity_analise_imc"
             android:parentActivityName=".apresentacao.UsuarioActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -165,6 +174,7 @@
             android:name=".apresentacao.ContadorTreino"
             android:label="@string/title_activity_contador_treino"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -186,6 +196,7 @@
             android:name=".apresentacao.AlimentacaoActivity"
             android:label="@string/title_activity_alimentacao"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -212,7 +223,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".services_receivers.HorarioFixoReceiver"
+            android:name=".services_receivers.NotifyHorarioFixoReceiver"
             android:label="BroadCastReceiver">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -222,7 +233,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".services_receivers.HorarioFixoAguaReceiver"
+            android:name=".services_receivers.NotifyHorarioFixoAguaReceiver"
             android:label="BroadCastReceiver">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
@@ -235,17 +246,26 @@
             android:name=".apresentacao.AlertasActivity"
             android:label="@string/title_activity_alertas"
             android:parentActivityName=".apresentacao.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="wereh.academytraining.apresentacao.HomeActivity" />
-
-        <activity android:name=".apresentacao.ConfigurarAlarmeActivity" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.ConfigurarAlarmeActivity"
+            android:label="@string/title_activity_configurar_alarme"
+            android:parentActivityName=".apresentacao.AlertasActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.AlertasActivity" />
+        </activity>
         <activity
             android:name=".apresentacao.DetalhesConsumoAguaActivity"
             android:label="@string/title_activity_detalhes_consumo_agua"
             android:parentActivityName=".apresentacao.AlertasActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -255,6 +275,7 @@
             android:name=".apresentacao.SuplementosActivity"
             android:label="@string/title_activity_suplementos"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -264,6 +285,7 @@
             android:name=".apresentacao.AdicionarSuplemento"
             android:label="@string/title_activity_adicionar_suplemento"
             android:parentActivityName=".apresentacao.SuplementosActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -273,6 +295,7 @@
             android:name=".apresentacao.MedidasCorporaisActivity"
             android:label="@string/title_activity_medidas_corporais"
             android:parentActivityName=".apresentacao.HomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -282,10 +305,51 @@
             android:name=".apresentacao.GraficoMedidasActivity"
             android:label="@string/title_activity_grafico_medidas"
             android:parentActivityName=".apresentacao.MedidasCorporaisActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="wereh.academytraining.apresentacao.MedidasCorporaisActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.SistemasdeTreinoActivity"
+            android:label="@string/title_activity_sistemasde_treino"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".apresentacao.SistemasDeTreinoListaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.SistemasDeTreinoListaActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.SistemasDeTreinoListaActivity"
+            android:label="@string/title_activity_sistemas_de_treino_lista"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".apresentacao.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.ProtocolosHiitActivity"
+            android:label="@string/title_activity_protocolos_hiit"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".apresentacao.ProtocolosHiitListaActiivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.ProtocolosHiitListaActiivity" />
+        </activity>
+        <activity
+            android:name=".apresentacao.ProtocolosHiitListaActiivity"
+            android:label="@string/title_activity_protocolos_hiit_lista_actiivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".apresentacao.DadosPlanejamentoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wereh.academytraining.apresentacao.DadosPlanejamentoActivity" />
         </activity>
     </application>
 

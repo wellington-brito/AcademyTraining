@@ -6,48 +6,41 @@
 
     <item
         android:id="@+id/action_Ficha"
+        android:icon="@mipmap/ic_note_add_black_24dp"
         android:orderInCategory="100"
         android:title="Adicionar Planejamento"
-        app:showAsAction="never"
-        android:icon="@mipmap/ic_note_add_black_24dp"/>
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_Notificações"
+        android:icon="@mipmap/ic_notifications_white_24dp"
         android:orderInCategory="100"
         android:title="@string/action_Notificações"
-        app:showAsAction="always"
-        android:icon="@mipmap/ic_notifications_black_24dp"/>
+        app:showAsAction="always" />
 
     <item
-        android:id="@+id/action_Dicas"
+        android:id="@+id/action_Sistemas_de_treino"
         android:orderInCategory="100"
-        android:title="@string/action_Dicas"
-        app:showAsAction="never"
-        />
+        android:title="@string/action_Sistemas_de_treino"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_Contador"
+        android:icon="@mipmap/ic_timer_white_24dp"
         android:orderInCategory="100"
         android:title="@string/action_Contador"
-        app:showAsAction="always"
-        android:icon="@mipmap/ic_timer_black_24dp"/>
-
-    <item
-        android:id="@+id/action_Perfil"
-        android:orderInCategory="100"
-        android:title="@string/action_Perfil"
-        app:showAsAction="never"
-        android:icon="@mipmap/ic_person_black_24dp"/>
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_Medidas_Corporais"
         android:orderInCategory="100"
-        android:title="@string/action_Medidas"
-        />
-    <item
-        android:id="@+id/action_Material"
-        android:orderInCategory="100"
-        android:title="@string/action_Material"
-        />
+        android:title="@string/action_Medidas" />
 
+    <item
+        android:id="@+id/action_Perfil"
+        android:icon="@mipmap/ic_person_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/action_Perfil"
+        app:showAsAction="never" />
 
 </menu>

@@ -1,10 +1,11 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
@@ -18,7 +19,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import wereh.academytraining.R;
-import wereh.academytraining.apresentacao.adpters.PlanejamentoAdapter;
 import wereh.academytraining.apresentacao.adpters.SuplementosAdapter;
 import wereh.academytraining.entidade.Suplemento;
 import wereh.academytraining.negocio.SuplementoBo;
@@ -85,17 +85,29 @@ public class SuplementosActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+       final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int id = item.getItemId();
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                apagar(listaSuplementos.get(info.position));
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Suplemento")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                apagar(listaSuplementos.get(info.position));
 
-                this.carregarLista();
+                                carregarLista();
 
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
 
         return super.onOptionsItemSelected(item);

@@ -95,7 +95,7 @@ public class GrupoMuscular implements Parcelable, Serializable {
             case 1:
                 return(R.drawable.ic_biceps);
             case 2:
-                return (R.mipmap.ic_launcher);
+                return (R.drawable.ic_triceps);
             case 3:
                 return(R.drawable.ic_backs);
             case 4:
@@ -103,7 +103,7 @@ public class GrupoMuscular implements Parcelable, Serializable {
             case 5:
                 return(R.drawable.ic_legs);
             case 6:
-                return (R.mipmap.ic_launcher);
+                return (R.drawable.ic_quadriceps);
             case 7:
                 return(R.drawable.ic_abs);
             default:

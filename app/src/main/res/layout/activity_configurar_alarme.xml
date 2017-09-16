@@ -1,55 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_time_picker"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="wereh.academytraining.apresentacao.ConfigurarAlarmeActivity"
-    android:weightSum="1">
+    android:fitsSystemWindows="true"
+    tools:context="wereh.academytraining.apresentacao.ConfigurarAlarmeActivity">
 
-    <TimePicker
-        android:id="@+id/timePicker1"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/set_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:timePickerMode="spinner"
-        android:background="#64b5f6"
-        />
+        android:theme="@style/AppTheme.NoActionBar.AppBarOverlay">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/time_current"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_above="@+id/textView1"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="62dp" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/time_selected"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+    </android.support.design.widget.AppBarLayout>
 
-         />
+    <include layout="@layout/content_configurar_alarme" />
 
-    <Button
-        android:id="@+id/set_button"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:onClick="setTime"
-        android:text="@string/time_save"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@mipmap/save_button" />
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

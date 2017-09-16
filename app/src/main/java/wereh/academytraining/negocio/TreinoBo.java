@@ -1,6 +1,7 @@
 package wereh.academytraining.negocio;
 
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.j256.ormlite.stmt.UpdateBuilder;
 
@@ -68,7 +69,7 @@ public class TreinoBo {
         updateBuilder.update();
     }
 
-    public void validarCamposDeTexto(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, EditText exercicio_edt, EditText planejamento_edt) throws SQLException {
+    public void validarCamposDeTexto(EditText serie_edt, EditText repeticoes_edt, EditText carga_edt, EditText intevalo_edt, EditText observacao_edt, TextView exercicio_edt, TextView planejamento_edt) throws SQLException {
         if (serie_edt.getText().toString().equals("")) {
             throw new CampoObrigatorioException("SÉRIES");
         }

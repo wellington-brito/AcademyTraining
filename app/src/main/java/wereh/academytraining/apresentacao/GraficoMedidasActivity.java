@@ -57,13 +57,13 @@ public class GraficoMedidasActivity extends AppCompatActivity {
         TextView titulo = (TextView) findViewById(R.id.textViewTitulo);
 
         if (this.identificador == 1){
-            titulo.setText("Evolução das medidas do seu Braço(Bíceps)");
+            titulo.setText("Evolução das medidas do seu Bíceps");
         }
         if (this.identificador == 2){
             titulo.setText("Evolução das medidas do seu Quadril");
         }
         if (this.identificador == 3){
-            titulo.setText("Evolução das medidas da sua Perna(Coxa)");
+            titulo.setText("Evolução das medidas da sua Coxa");
         }
     }
 

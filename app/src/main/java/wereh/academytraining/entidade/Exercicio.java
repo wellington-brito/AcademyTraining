@@ -182,23 +182,136 @@ public class Exercicio implements Parcelable, Serializable{
             case "Rosca martelo simultânea":
                 return(R.drawable.exercicio_biceps_rosca_martelo_simultanea);
 
+           //Tríceps
+            case "Fundos em barras paralelas":
+                return(R.drawable.fundos_barras_paralelas);
+            case "Fundos em máquina":
+                return(R.drawable.fundos_maquina);
+            case "Supino pegada junta":
+                return(R.drawable.supino_pega_junta);
+            case "Extensões de tríceps deitado com barra":
+                return(R.drawable.extensao_de_triceps_deitado);
+            case "Extensões de tríceps sentado com barra":
+                return(R.drawable.extensao_triceps_sentado);
+            case "Extensões de tríceps sentado com halter":
+                return(R.drawable.extensao_triceps_sentado_halter);
+            case "Puxada de tríceps":
+                return(R.drawable.puxada_triceps);
+            case "Puxada de tríceps em supinação":
+                return(R.drawable.puxada_para_triceps_em_supinacao);
+            case "Puxada de tríceps com corda":
+                return(R.drawable.puxada_para_triceps_corda1);
+            case "Kickback":
+                return(R.drawable.kickback);
+            case "Kickback em polia":
+                return(R.drawable.kickback_em_polia);
+
+
+            //Costas
+            case "Peso morto / levantamento terra":
+                return(R.drawable.peso_morto_levantamento_terra);
+            case "Puxada de dorsais em polia alta":
+                return(R.drawable.puxada_dorsais_polia_alta);
+            case "Puxada de dorsais em polia alta em supinação":
+                return(R.drawable.puxada_dorsais_polia_alta_supinacao);
+            case "Remada com barra":
+                return(R.drawable.remada_com_barra);
+            case "Remada com barra em supinação":
+                return(R.drawable.remada_com_barra_em_supinacao);
+            case "Remada em máquina “hammer”":
+                return(R.drawable.remada_maquina_hammer);
+            case "Remada em polia baixa”":
+                return(R.drawable.remada_polia_baixa);
+            case "Remada em polia baixa a 1 mão":
+                return(R.drawable.remo_horizontal_a_una_mano_con_mancuernas2);
+            case "Remada com halter":
+                return(R.drawable.remada_com_halter);
+            case "Remada em barra t":
+                return(R.drawable.remada_barra_t);
+            case "Encolhimentos de ombros com halteres":
+                return(R.drawable.encolhimentos_de_ombros_com_halteres);
+            case "Encolhimentos de ombros com barra":
+                return(R.drawable.encolhimento_barra);
+            case "Encolhimentos com barra atrás":
+                return(R.drawable.encolhimentos_barra_atras);
+
+            //Deltóides
+            case "Press militar com barra":
+                return(R.drawable.press_militar_barra);
+            case "Press militar com halteres":
+                return(R.drawable.press_militar_halteres1);
+            case "Remada vertical":
+                return(R.drawable.remada_vertical);
+            case "Elevações frontais com barra":
+                return(R.drawable.elevacoes_frontais_barra);
+            case "Elevações frontais com halter / em pronação":
+                return(R.drawable.elevacoes_frontais_pronacao);
+            case "Elevações frontais com halter / em semi-pronação":
+                return(R.drawable.elevacoes_frontais_semi_pronacao);
+            case "Elevação lateral com halteres":
+                return(R.drawable.elevacoes_laterais_halteres);
+            case " Elevação lateral na máquina":
+                return(R.drawable.elevacao_lateral_na_maquina);
+            case "Elevação lateral na polia":
+                return(R.drawable.elevacao_lateral_na_polia);
+            case "Voos (elevações posteriores) com halteres":
+                return(R.drawable.voos_halteres);
+            case "Voos com halteres / cabeça apoiada":
+                return(R.drawable.voos_halteres_cabeca_apoiada);
+            case "Voos em máquina":
+                return(R.drawable.voos_maquina);
+            case "Voos em polia alta":
+                return(R.drawable.voos_polia_alta);
+
+            //Panturrílhas
+            case "Elevações de gêmeos / panturrilhas em pé":
+                return(R.drawable.elevacoes_de_gemeos_panturrilhas_em_pe);
+            case "Elevações de gémeos / panturrilhas tipo burro":
+                return(R.drawable.elevacoes_de_gemeos_tipo_burro_donkey_calf_raises);
+            case "Elevações de gémeos / panturrilhas em máquina" :
+                return(R.drawable.gemeos_panturrilha_em_maquina);
+            case "Elevações de gémeos / panturrilhas sentado":
+                return(R.drawable.gemeos_panturrilha_sentado);
+
+            //Quadríceps
+            case "Agachamento com barra":
+                return(R.drawable.agachamento_com_barra);
+            case "Agachamento frontal":
+                return(R.drawable.agachamento_frontal);
+            case "Agachamento hack em máquina":
+                return(R.drawable.agachamento_hack);
+            case "Prensa de pernas":
+                return(R.drawable.prensa_de_pernas);
+            case "Afundo":
+                return(R.drawable.afundo);
+            case "Afundo com barra":
+                return(R.drawable.afundo2);
+            case "Extensões de pernas":
+                return(R.drawable.extensao_de_pernas);
+
+            //Abdômen
+            case "Flexão do quadril suspenso em barra fixa":
+                return(R.drawable.flexao_do_quadril_suspenso_barra_fixa_abdominal);
+            case "Flexão do quadril em banco plano":
+                return(R.drawable.flexao_quadril_banco_abdominal);
+            case "Flexão do quadril em banco inclinado":
+                return(R.drawable.flexao_quadril_banco_inclinado);
+            case "Flexão do quadril em banco inclinado com halter":
+                return(R.drawable.flexao_quadril_banco_inclinado_peso);
+            case "Abdominal com flexão do quadril":
+                return(R.drawable.abdominal_com_flexao_quadril);
+            case "Abdominal em banco inclinado":
+                return(R.drawable.abdominal_banco);
+            case "Abdominal em polia alta":
+                return(R.drawable.abdominal_polia_alta);
+            case "Rotação do tronco com bastão":
+                return(R.drawable.rotacao_tronco_bastao);
+            case "Prancha":
+                return(R.drawable.prancha_abdominal);
 
 
 
-//            case 1:
-//                return(R.drawable.ic_biceps);
-//            case 2:
-//                return (R.mipmap.ic_launcher);
-//            case 3:
-//                return(R.drawable.ic_backs);
-//            case 4:
-//                return(R.drawable.ic_shoulders);
-//            case 5:
-//                return(R.drawable.ic_legs);
-//            case 6:
-//                return (R.mipmap.ic_launcher);
-//            case 7:
-//                return(R.drawable.ic_abs);
+
             default:
                 return (R.mipmap.ic_launcher);
         }

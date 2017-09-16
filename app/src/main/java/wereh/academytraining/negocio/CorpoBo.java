@@ -34,14 +34,16 @@ public class CorpoBo {
 
     public void verificarCampos(EditText braco, EditText perna, EditText quadril) {
 
-        if (braco.getText().toString().equals("")) {
-            throw new CampoObrigatorioException("BRAÇO");
+        if (braco.getText().toString().equals("") ||  braco.getText().toString().equals("0")) {
+            throw new CampoObrigatorioException("BÍCEPS");
         }
-        if (perna.getText().toString().equals("")) {
-            throw new CampoObrigatorioException("PERNA");
-        }
-        if (quadril.getText().toString().equals("")) {
+
+        if (quadril.getText().toString().equals("") || quadril.getText().toString().equals("0")) {
             throw new CampoObrigatorioException("QUADRIL");
+        }
+
+        if (perna.getText().toString().equals("") || perna.getText().toString().equals("0")) {
+            throw new CampoObrigatorioException("COXA");
         }
     }
 }

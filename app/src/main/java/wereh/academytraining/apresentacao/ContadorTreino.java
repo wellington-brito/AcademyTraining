@@ -1,11 +1,13 @@
 package wereh.academytraining.apresentacao;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 
 
 import android.os.Bundle;
 import android.os.SystemClock;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -201,16 +203,28 @@ public class ContadorTreino extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int id = item.getItemId();
         if (id == R.id.action_Menu_Apagar) {
-            try {
-                TempoGastoBo tempoGastoBo = new TempoGastoBo();
-                tempoGastoBo.apagarTempo(listaTempoGasto.get(info.position), this);
-                this.carregarLista();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_delete_black_24dp)
+                    .setTitle("Apagando Tempo gasto")
+                    .setMessage("Tem certeza ?")
+                    .setPositiveButton("Sim",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    try {
+                                        TempoGastoBo tempoGastoBo = new TempoGastoBo();
+                                        tempoGastoBo.apagarTempo(listaTempoGasto.get(info.position), ContadorTreino.this);
+                                        carregarLista();
+                                    } catch (SQLException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
         return super.onOptionsItemSelected(item);
     }

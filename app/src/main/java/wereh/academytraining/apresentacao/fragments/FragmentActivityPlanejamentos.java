@@ -1,9 +1,11 @@
 package wereh.academytraining.apresentacao.fragments;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -20,9 +22,13 @@ import java.util.List;
 import wereh.academytraining.R;
 import wereh.academytraining.apresentacao.AdicionarPlanejamento;
 import wereh.academytraining.apresentacao.DadosPlanejamentoActivity;
+import wereh.academytraining.apresentacao.ExerciciosListaActivity;
+import wereh.academytraining.apresentacao.HomeActivity;
 import wereh.academytraining.apresentacao.adpters.PlanejamentoAdapter;
 import wereh.academytraining.entidade.Planejamento;
 import wereh.academytraining.exceptions.DependenciaDeTreinoException;
+import wereh.academytraining.exceptions.ExercicioNaoCadastradoPeloUsuario;
+import wereh.academytraining.negocio.ExercicioBo;
 import wereh.academytraining.negocio.PlanejamentoBo;
 import wereh.academytraining.persistencia.DatabaseHelper;
 import wereh.academytraining.persistencia.PlanejamentoDao;
@@ -46,8 +52,6 @@ public class FragmentActivityPlanejamentos extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.dh = new DatabaseHelper(getContext());
-
-
     }
 
     @Override  // Inflate the layout for this fragment
@@ -101,28 +105,40 @@ public class FragmentActivityPlanejamentos extends Fragment {
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         if (getUserVisibleHint()) {
-            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
             Fragment fragment = this;
             if (fragment instanceof FragmentActivityPlanejamentos) {
                 int id = item.getItemId();
 
                 if (id == R.id.action_Menu_Apagar) {
-                    try {
-                        apagarPlanejamento(info);
-                        this.carregarLista();
-                        Toast.makeText(this.getContext(), "Planejamento Apagado!", Toast.LENGTH_SHORT).show();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    } catch (DependenciaDeTreinoException d) {
-                        Toast.makeText(this.getContext(), d.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                    new AlertDialog.Builder(this.getActivity())
+                            .setIcon(R.mipmap.ic_delete_black_24dp)
+                            .setTitle("Apagando Planejamento")
+                            .setMessage("Tem certeza ?")
+                            .setPositiveButton("Sim",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            try {
+                                                apagarPlanejamento(info);
+                                                carregarLista();
+                                                Toast.makeText(getActivity(), "Planejamento Apagado!", Toast.LENGTH_SHORT).show();
+
+                                            } catch (SQLException e) {
+                                                e.printStackTrace();
+                                            } catch (DependenciaDeTreinoException d) {
+                                                Toast.makeText(getActivity(), d.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    })
+                            .setNegativeButton("Não", null)
+                            .show();
                 }
 
                 if (id == R.id.action_Menu_Alterar) {
                     Intent i = new Intent(this.getContext(), AdicionarPlanejamento.class);
                     i.putExtra("planejamento", (Parcelable) listaPlanejamentos.get(info.position));
                     startActivity(i);
-
                 }
 
                 if (id == R.id.action_Menu_Detalhes) {
